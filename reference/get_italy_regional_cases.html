@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Italian Regional Case Counts — get_italy_regional_cases • NCoVUtils</title>
+<title>Italian Regional Case Counts — get_italy_regional_cases • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -72,7 +72,7 @@ and is available on github: https://github.com/pcm-dpc/COVID-19" />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">NCoVUtils</a>
+        <a class="navbar-link" href="../index.html">covidregionaldata</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
@@ -95,7 +95,7 @@ and is available on github: https://github.com/pcm-dpc/COVID-19" />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/epiforecasts/NCoVUtils">
+  <a href="https://github.com/epiforecasts/covidregionaldata">
     <span class="fa fa-github"></span>
      
   </a>
@@ -169,10 +169,10 @@ and is available on github: https://github.com/pcm-dpc/COVID-19</p>
 #&gt;     cases &lt;- cases %&gt;% dplyr::left_join(regions, by = "region")
 #&gt;     return(cases)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fafbd5fc8e0&gt;
-#&gt; &lt;environment: namespace:NCoVUtils&gt;</div><div class='input'>
+#&gt; &lt;bytecode: 0x7fd925130d18&gt;
+#&gt; &lt;environment: namespace:covidregionaldata&gt;</div><div class='input'>
 <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>day_of_cases</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>NCoVUtils</span><span class='kw ns'>::</span><span class='fu'>get_italy_regional_cases</span>() <span class='kw'>%&gt;%</span>
+<span class='no'>day_of_cases</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>covidregionaldata</span><span class='kw ns'>::</span><span class='fu'>get_italy_regional_cases</span>() <span class='kw'>%&gt;%</span>
 <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>date</span> <span class='kw'>==</span> <span class='st'>"2020-02-24"</span>)
 
 <span class='kw pkg'>rnaturalearth</span><span class='kw ns'>::</span><span class='fu'>ne_states</span>(<span class='st'>"Italy"</span>, <span class='kw'>returnclass</span> <span class='kw'>=</span> <span class='st'>"sf"</span>) <span class='kw'>%&gt;%</span>
@@ -193,7 +193,7 @@ and is available on github: https://github.com/pcm-dpc/COVID-19</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Hamish Gibbs, Joel Hellewell, Katharine Sherratt, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">

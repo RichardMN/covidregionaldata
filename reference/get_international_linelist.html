@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get International Linelist Data — get_international_linelist • NCoVUtils</title>
+<title>Get International Linelist Data — get_international_linelist • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -43,7 +43,7 @@
 <meta property="og:description" content="This function downloads the latest non-Hubei linelist. It uses memoise to cache the
 results locally. To clear the cache and redownload the data use reset_cache. The cache will be located
 in the directory at which the function is run. As this linelist is experiencing a high user demand it may not always be available.
-To account for this we keep a cache in the NCoVUtils GitHub repo which this function will fall back to with a warning if the source
+To account for this we keep a cache in the covidregionaldata GitHub repo which this function will fall back to with a warning if the source
 cannot be downloaded." />
 
 
@@ -75,7 +75,7 @@ cannot be downloaded." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">NCoVUtils</a>
+        <a class="navbar-link" href="../index.html">covidregionaldata</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
@@ -98,7 +98,7 @@ cannot be downloaded." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/epiforecasts/NCoVUtils">
+  <a href="https://github.com/epiforecasts/covidregionaldata">
     <span class="fa fa-github"></span>
      
   </a>
@@ -125,7 +125,7 @@ cannot be downloaded." />
     <p>This function downloads the latest non-Hubei linelist. It uses <code>memoise</code> to cache the
 results locally. To clear the cache and redownload the data use <code>reset_cache</code>. The cache will be located
 in the directory at which the function is run. As this linelist is experiencing a high user demand it may not always be available.
-To account for this we keep a cache in the <code>NCoVUtils</code> GitHub repo which this function will fall back to with a warning if the source
+To account for this we keep a cache in the <code>covidregionaldata</code> GitHub repo which this function will fall back to with a warning if the source
 cannot be downloaded.</p>
     </div>
 
@@ -187,8 +187,8 @@ cannot be downloaded.</p>
 #&gt;         tibble::as_tibble(), timeout = 15, onTimeout = "error"), 
 #&gt;         silent = TRUE)))
 #&gt;     if (any(class(linelist) %in% "try-error")) {
-#&gt;         warning("Could not access linelist source. Using the NCoVUtils cache, this may not be up to date.\n    See the git history to confirm last cache date.")
-#&gt;         url &lt;- "https://raw.githubusercontent.com/epiforecasts/NCoVUtils/master/data-raw/linelist.csv"
+#&gt;         warning("Could not access linelist source. Using the covidregionaldata cache, this may not be up to date.\n    See the git history to confirm last cache date.")
+#&gt;         url &lt;- "https://raw.githubusercontent.com/epiforecasts/covideregionaldata/master/data-raw/linelist.csv"
 #&gt;         linelist &lt;- suppressWarnings(suppressMessages(mem_read(url) %&gt;% 
 #&gt;             tibble::as_tibble()))
 #&gt;     }
@@ -216,8 +216,8 @@ cannot be downloaded.</p>
 #&gt;     }
 #&gt;     return(linelist)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fafbddaaaa0&gt;
-#&gt; &lt;environment: namespace:NCoVUtils&gt;</div></pre>
+#&gt; &lt;bytecode: 0x7fd9276f5708&gt;
+#&gt; &lt;environment: namespace:covidregionaldata&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -229,7 +229,7 @@ cannot be downloaded.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Hamish Gibbs, Joel Hellewell, Katharine Sherratt, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">

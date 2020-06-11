@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Extraction Tools for the Covid-19 Outbreak • NCoVUtils</title>
+<title>Data Extraction Tools for the Covid-19 Outbreak • covidregionaldata</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/lumen/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -30,7 +30,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">NCoVUtils</a>
+        <a class="navbar-link" href="index.html">covidregionaldata</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
@@ -53,7 +53,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/epiforecasts/NCoVUtils">
+  <a href="https://github.com/epiforecasts/covidregionaldata">
     <span class="fa fa-github"></span>
      
   </a>
@@ -81,9 +81,9 @@
 <p>Install the stable version of the package using <a href="https://epiforecasts.io/drat/"><code>{drat}</code></a>:</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"drat"</span>)
 <span class="kw pkg">drat</span><span class="kw ns">:::</span><span class="fu">add</span>(<span class="st">"epiforecasts"</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"NCoVUtils"</span>)</pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"covidregionaldata"</span>)</pre></div>
 <p>Install the development version of the package with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/NCoVUtils"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/covidregionaldata"</span>)</pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
@@ -96,27 +96,27 @@
 <li>Extract total global cases and deaths by country, and specify source, using:</li>
 </ol>
 <ul>
-<li><code><a href="reference/get_total_cases.html">NCoVUtils::get_total_cases(source = c("WHO", "ECDC"))</a></code></li>
+<li><code><a href="reference/get_total_cases.html">covidregionaldata::get_total_cases(source = c("WHO", "ECDC"))</a></code></li>
 </ul>
 <ol>
 <li>Extract daily international case and death counts compiled by the WHO using:</li>
 </ol>
 <ul>
-<li><code>NCoVUtils::get_who_cases(country = NULL, daily = TRUE))</code></li>
+<li><code>covidregionaldata::get_who_cases(country = NULL, daily = TRUE))</code></li>
 </ul>
 <ol>
 <li>Extract daily international case and death counts compiled by ECDC using:</li>
 </ol>
 <ul>
-<li><code><a href="reference/get_ecdc_cases.html">NCoVUtils::get_ecdc_cases()</a></code></li>
+<li><code><a href="reference/get_ecdc_cases.html">covidregionaldata::get_ecdc_cases()</a></code></li>
 </ul>
 <p>A further function for worldwide data extracts non-pharmaceutical interventions by country:</p>
 <ul>
-<li><code><a href="reference/get_interventions_data.html">NCoVUtils::get_interventions_data()</a></code></li>
+<li><code><a href="reference/get_interventions_data.html">covidregionaldata::get_interventions_data()</a></code></li>
 </ul>
 <p>And anonymised international patient linelist data can be imported and cleaned with:</p>
 <ul>
-<li><code><a href="reference/get_linelist.html">NCoVUtils::get_linelist()</a></code></li>
+<li><code><a href="reference/get_linelist.html">covidregionaldata::get_linelist()</a></code></li>
 </ul>
 </div>
 <div id="sub-national-data" class="section level3">
@@ -155,7 +155,7 @@
 <ul>
 <li>None currently available</li>
 </ul>
-<p>We are working to improve and expand the package: please see the <a href="https://github.com/epiforecasts/NCoVUtils/issues">Issues</a> and feel free to comment. We are keen to standardise geocoding (issues <a href="https://github.com/epiforecasts/NCoVUtils/issues/81">#81</a> and <a href="https://github.com/epiforecasts/NCoVUtils/issues/84">#84</a>) and include data on priority countries (<a href="https://github.com/epiforecasts/NCoVUtils/issues/72">#72</a>). As our capacity is limited, we would very much appreciate any help on these and welcome new pull requests.</p>
+<p>We are working to improve and expand the package: please see the <a href="https://github.com/epiforecasts/covidregionaldata/issues">Issues</a> and feel free to comment. We are keen to standardise geocoding (issues <a href="https://github.com/epiforecasts/covidregionaldata/issues/81">#81</a> and <a href="https://github.com/epiforecasts/covidregionaldata/issues/84">#84</a>) and include data on priority countries (<a href="https://github.com/epiforecasts/covidregionaldata/issues/72">#72</a>). As our capacity is limited, we would very much appreciate any help on these and welcome new pull requests.</p>
 </div>
 </div>
 <div id="development" class="section level2">
@@ -165,7 +165,7 @@
 <h3 class="hasAnchor">
 <a href="#set-up" class="anchor"></a>Set up</h3>
 <p>Set your working directory to the home directory of this project (or use the provided Rstudio project). Install the analysis and all dependencies with:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/NCoVUtils"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/covidregionaldata"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
 </div>
 <div id="render-documentation" class="section level3">
 <h3 class="hasAnchor">
@@ -177,16 +177,16 @@
 <h3 class="hasAnchor">
 <a href="#docker" class="anchor"></a>Docker</h3>
 <p>This package is developed in a docker container based on the tidyverse docker image.</p>
-<p>To build the docker image run (from the <code>NCoVUtils</code> directory):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">docker</span> build . -t ncovutils</span></code></pre></div>
+<p>To build the docker image run (from the <code>covidregionaldata</code> directory):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">docker</span> build . -t covidregionaldata</span></code></pre></div>
 <p>To run the docker image run:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">docker</span> run -d -p 8787:8787 --name ncovutils -e USER=ncovutils -e PASSWORD=ncovutils ncovutils</span></code></pre></div>
-<p>The rstudio client can be found on port :8787 at your local machines ip. The default username:password is ncovutils:ncovutils, set the user with -e USER=username, and the password with - e PASSWORD=newpasswordhere. The default is to save the analysis files into the user directory.</p>
-<p>To mount a folder (from your current working directory - here assumed to be <code>tmp</code>) in the docker container to your local system use the following in the above docker run command (as given mounts the whole <code>ncovutils</code> directory to <code>tmp</code>).</p>
-<p><code>{bash, eval = FALSE} --mount type=bind,source=$(pwd)/tmp,target=/home/ncovutils</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">docker</span> run -d -p 8787:8787 --name covidregionaldata -e USER=covidregionaldata -e PASSWORD=covidregionaldata covidregionaldata</span></code></pre></div>
+<p>The rstudio client can be found on port :8787 at your local machines ip. The default username:password is covidregionaldata:covidregionaldata, set the user with -e USER=username, and the password with - e PASSWORD=newpasswordhere. The default is to save the analysis files into the user directory.</p>
+<p>To mount a folder (from your current working directory - here assumed to be <code>tmp</code>) in the docker container to your local system use the following in the above docker run command (as given mounts the whole <code>covidregionaldata</code> directory to <code>tmp</code>).</p>
+<p><code>{bash, eval = FALSE} --mount type=bind,source=$(pwd)/tmp,target=/home/covidregionaldata</code></p>
 <p>To access the command line run the following:</p>
-<p><code>{bash, eval = FALSE} docker exec -ti ncovutils bash</code></p>
-<p>Alternatively the package environment can be accessed via <a href="https://mybinder.org/v2/gh/epiforecasts/ncovutils/master?urlpath=rstudio">binder</a>.</p>
+<p><code>{bash, eval = FALSE} docker exec -ti covidregionaldata bash</code></p>
+<p>Alternatively the package environment can be accessed via <a href="https://mybinder.org/v2/gh/epiforecasts/covidregionaldata/master?urlpath=rstudio">binder</a>.</p>
 </div>
 </div>
 </div>
@@ -203,16 +203,16 @@
 <div class="citation">
 <h2>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html">Citing NCoVUtils</a></li>
+<li><a href="authors.html">Citing covidregionaldata</a></li>
 </ul>
 </div>
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Sam Abbott <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-8057-8037" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Katharine Sherratt <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-4413-453X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Hamish Gibbs <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-4413-453X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Joel Hellewell <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-2683-0849" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Katharine Sherratt <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-4413-453X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>James Munday <br><small class="roles"> Author </small>  </li>
 <li>Paul Campbell <br><small class="roles"> Author </small>  </li>
 <li>Sebastian Funk <br><small class="roles"> Author </small>  </li>
@@ -223,10 +223,10 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://mybinder.org/v2/gh/epiforecasts/NCoVUtils/master?urlpath=rstudio"><img src="https://img.shields.io/badge/Launch-package-lightblue.svg" alt="badge"></a></li>
-<li><a href="https://codecov.io/gh/epiforecasts/NCoVUtils?branch=master"><img src="https://codecov.io/gh/epiforecasts/NCoVUtils/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://github.com/epiforecasts/NCoVUtils"><img src="https://img.shields.io/badge/devel%20version-0.3.0-green.svg?style=flat" alt="develVersion"></a></li>
-<li><a href="https://epiforecasts.io/NCoVUtils"><img src="https://img.shields.io/badge/Package-documentation-lightgrey.svg?style=flat" alt="Documentation"></a></li>
+<li><a href="https://mybinder.org/v2/gh/epiforecasts/covidregionaldata/master?urlpath=rstudio"><img src="https://img.shields.io/badge/Launch-package-lightblue.svg" alt="badge"></a></li>
+<li><a href="https://codecov.io/gh/epiforecasts/covidregionaldata?branch=master"><img src="https://codecov.io/gh/epiforecasts/covidregionaldata/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/epiforecasts/covidregionaldata"><img src="https://img.shields.io/badge/devel%20version-0.3.0-green.svg?style=flat" alt="develVersion"></a></li>
+<li><a href="https://epiforecasts.io/covidregionaldata"><img src="https://img.shields.io/badge/Package-documentation-lightgrey.svg?style=flat" alt="Documentation"></a></li>
 <li><a href="https://zenodo.org/badge/latestdoi/238177228"><img src="https://zenodo.org/badge/238177228.svg" alt="DOI"></a></li>
 </ul>
 </div>
@@ -235,7 +235,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Sam Abbott, Hamish Gibbs, Joel Hellewell, Katharine Sherratt, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">

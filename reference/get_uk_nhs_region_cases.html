@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get UK daily cases by NHS region — get_uk_nhs_region_cases • NCoVUtils</title>
+<title>Get UK daily cases by NHS region — get_uk_nhs_region_cases • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -71,7 +71,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">NCoVUtils</a>
+        <a class="navbar-link" href="../index.html">covidregionaldata</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
@@ -94,7 +94,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/epiforecasts/NCoVUtils">
+  <a href="https://github.com/epiforecasts/covidregionaldata">
     <span class="fa fa-github"></span>
      
   </a>
@@ -163,11 +163,11 @@
 #&gt;         dplyr::mutate(cases = ifelse(cases &lt; 0, 0, cases))
 #&gt;     return(cases_nhs)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fafbc411b98&gt;
-#&gt; &lt;environment: namespace:NCoVUtils&gt;</div><div class='input'>
+#&gt; &lt;bytecode: 0x7fd927eb2d00&gt;
+#&gt; &lt;environment: namespace:covidregionaldata&gt;</div><div class='input'>
 <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>uk_shp</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readRDS.html'>readRDS</a></span>(<span class='st'>"uk_shp.rds"</span>)
-<span class='no'>cases</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>NCoVUtils</span><span class='kw ns'>::</span><span class='fu'><a href='get_uk_regional_cases.html'>get_uk_regional_cases</a></span>()
+<span class='no'>cases</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>covidregionaldata</span><span class='kw ns'>::</span><span class='fu'><a href='get_uk_regional_cases.html'>get_uk_regional_cases</a></span>()
 <span class='no'>cases</span> <span class='kw'>&lt;-</span> <span class='no'>cases</span>[<span class='fl'>1</span>:<span class='fl'>23</span>,]
 <span class='no'>uk_shp</span> <span class='kw'>%&gt;%</span>
 <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>full_join</a></span>(<span class='no'>cases</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"region"</span>) <span class='kw'>%&gt;%</span>
@@ -184,7 +184,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Hamish Gibbs, Joel Hellewell, Katharine Sherratt, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">
