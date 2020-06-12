@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>South Korea regional cases — get_korea_regional_cases • covidregionaldata</title>
+<title>Return regional, daily-updated cumulative counts of Covid-19 data for a given country — get_totals_only_regional_covid_data • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="South Korea regional cases — get_korea_regional_cases" />
-<meta property="og:description" content="Extract regional case counts for South Korea.
-Source." />
+<meta property="og:title" content="Return regional, daily-updated cumulative counts of Covid-19 data for a given country — get_totals_only_regional_covid_data" />
+<meta property="og:description" content="Gets cumulative COVID-19 data related to cases, deaths, hospitalisations, recoveries and testing for sub-regions of a given country." />
 
 
 
@@ -113,53 +112,42 @@ Source." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>South Korea regional cases</h1>
+    <h1>Return regional, daily-updated cumulative counts of Covid-19 data for a given country</h1>
     
-    <div class="hidden name"><code>get_korea_regional_cases.Rd</code></div>
+    <div class="hidden name"><code>get_totals_only_regional_covid_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extract regional case counts for South Korea.
-<a href='http://ncov.mohw.go.kr/en'>Source</a>.</p>
+    <p>Gets cumulative COVID-19 data related to cases, deaths, hospitalisations, recoveries and testing for sub-regions of a given country.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_korea_regional_cases</span>()</pre>
+    <pre class="usage"><span class='fu'>get_totals_only_regional_covid_data</span>(<span class='no'>country</span>, <span class='kw'>include_level_2_regions</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>country</th>
+      <td><p>Character String specifying the country to get data from. For options see the documentation.</p></td>
+    </tr>
+    <tr>
+      <th>include_level_2_regions</th>
+      <td><p>Boolean. If TRUE, returns data stratified by level 2 regions. If FALSE, stratified by Level 1. Note that Level 2 region data
+is not always available. In these cases the user will get a warning and the Level 1 data will be returned.</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A data.frame with data related to cases, deaths, hospitalisations, recoveries and testing for regions within the given country, cumulative up to today's date.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># Mapping</span>
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>get_korea_regional_cases</span>()
 
-<span class='no'>regions</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>rnaturalearth</span><span class='kw ns'>::</span><span class='fu'>ne_states</span>(<span class='st'>"South Korea"</span>, <span class='kw'>returnclass</span> <span class='kw'>=</span> <span class='st'>"sf"</span>)
+ <span class='fu'>get_totals_only_regional_covid_data</span>(<span class='kw'>country</span> <span class='kw'>=</span> <span class='st'>"canada"</span>)
 
-<span class='no'>regions_with_data</span> <span class='kw'>&lt;-</span> <span class='no'>regions</span> <span class='kw'>%&gt;%</span>
-<span class='fu'>mutate</span>(<span class='kw'>name_de</span> <span class='kw'>=</span> <span class='fu'>str_replace_all</span>(<span class='no'>name_de</span>, <span class='st'>"Jeju-do"</span>, <span class='st'>"Jeju"</span>)) <span class='kw'>%&gt;%</span>
-<span class='fu'>left_join</span>(<span class='no'>data</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"name_de"</span> <span class='kw'>=</span> <span class='st'>"region"</span>))
-
-
-<span class='fu'>ggplot</span>(<span class='no'>regions_with_data</span>) +
-<span class='fu'>geom_sf</span>(<span class='fu'>aes</span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cases</span>))
-}
-
-<span class='no'>get_korea_regional_cases</span></div><div class='output co'>#&gt; function () 
-#&gt; {
-#&gt;     webpage &lt;- xml2::read_html("http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&amp;brdGubun=162&amp;dataGubun=&amp;ncvContSeq=&amp;contSeq=&amp;board_id=")
-#&gt;     ch &lt;- memoise::cache_filesystem(".cache")
-#&gt;     mem_read &lt;- memoise::memoise(xml2::read_html, cache = ch)
-#&gt;     region &lt;- webpage %&gt;% rvest::html_nodes("tbody tr+ tr th") %&gt;% 
-#&gt;         rvest::html_text()
-#&gt;     cases &lt;- webpage %&gt;% rvest::html_nodes("tr+ tr th+ .number") %&gt;% 
-#&gt;         rvest::html_text()
-#&gt;     cases &lt;- cbind(region, cases)
-#&gt;     cases &lt;- tibble::as_tibble(cases) %&gt;% dplyr::filter(region != 
-#&gt;         "Lazaretto") %&gt;% dplyr::mutate(cases = as.numeric(as.character(cases)))
-#&gt;     return(cases)
-#&gt; }
-#&gt; &lt;bytecode: 0x7ff81fdf8430&gt;
-#&gt; &lt;environment: namespace:covidregionaldata&gt;</div></pre>
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fetch daily COVID cases by province for Canada — get_canada_regional_cases • covidregionaldata</title>
+<title>Helper function to fetch daily COVID cases by province for Canada and do dataset-specific processing before passing to get_regional_covid_data() — get_canada_regional_cases • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Fetch daily COVID cases by province for Canada — get_canada_regional_cases" />
+<meta property="og:title" content="Helper function to fetch daily COVID cases by province for Canada and do dataset-specific processing before passing to get_regional_covid_data() — get_canada_regional_cases" />
 <meta property="og:description" content="Fetches daily COVID cases, and deaths by province collated by Provincial Canadian Health Authorities
-Data is available at https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html" />
+Data is available at https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html
+selects the relevant columns, sanitises various columns and gets the daily counts from cumulative columns." />
 
 
 
@@ -113,43 +114,24 @@ Data is available at https://www.canada.ca/en/public-health/services/diseases/20
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fetch daily COVID cases by province for Canada</h1>
+    <h1>Helper function to fetch daily COVID cases by province for Canada and do dataset-specific processing before passing to get_regional_covid_data()</h1>
     
     <div class="hidden name"><code>get_canada_regional_cases.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Fetches daily COVID cases, and deaths by province collated by Provincial Canadian Health Authorities
-Data is available at https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html</p>
+Data is available at https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html
+selects the relevant columns, sanitises various columns and gets the daily counts from cumulative columns.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_canada_regional_cases</span>(<span class='kw'>out</span> <span class='kw'>=</span> <span class='st'>"timeseries"</span>)</pre>
+    <pre class="usage"><span class='fu'>get_canada_regional_cases</span>()</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>out</th>
-      <td><p>Character String specifying output data format "timeseries", "total", default: "timeseries".</p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame of COVID cases by province in Canada</p>
+    <p>A data.frame of COVID cases by province in Canada, ready to be used by get_regional_covid_data()</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
- <span class='no'>total_cases</span> <span class='kw'>=</span> <span class='fu'>get_canada_regional_cases</span>(<span class='kw'>out</span> <span class='kw'>=</span> <span class='st'>"total"</span>)
-
- <span class='kw pkg'>rnaturalearth</span><span class='kw ns'>::</span><span class='fu'>ne_states</span>(<span class='kw'>country</span> <span class='kw'>=</span> <span class='st'>"canada"</span>, <span class='kw'>returnclass</span><span class='kw'>=</span><span class='st'>"sf"</span>) <span class='kw'>%&gt;%</span>
-   <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span>(<span class='no'>total_cases</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'name_en'</span> <span class='kw'>=</span> <span class='st'>'province'</span>)) <span class='kw'>%&gt;%</span>
-   <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'>ggplot</span>() +
-   <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'>theme_void</span>() +
-   <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'>geom_sf</span>(<span class='fu'>aes</span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cases_confirmed</span>)) +
-   <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'>labs</span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>'Confirmed Cases'</span>)
-}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -88,6 +88,231 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
+<div id="sub-national-data" class="section level3">
+<h3 class="hasAnchor">
+<a href="#sub-national-data" class="anchor"></a>Sub-national data</h3>
+<p>There are three main functions to extract sub-national level data by country. The underlying data for each function is the same - each function just formats the data differently. The data is stratified by region and (for two of the three formats) by date. The data table includes the ISO-3166-2 code for each region. Each function takes the country name (in English) as a string (see list below for available countries). The country string is not case-sensitive.</p>
+<p>The three ways to view the data (and the related functions) are:</p>
+<ol>
+<li>Long format - this is the standard used by the Covid19R package. To get data in this format use:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">covidregionaldata</span><span class="kw ns">::</span><span class="fu"><a href="reference/get_long_format_regional_covid_data.html">get_long_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)</pre></div>
+<p>This returns a dataset with the following structure</p>
+<table class="table">
+<thead><tr class="header">
+<th align="center"><strong>date</strong></th>
+<th align="center"><strong>location</strong></th>
+<th align="center"><strong>location_type</strong></th>
+<th align="center"><strong>location_code</strong></th>
+<th align="center"><strong>location_code_type</strong></th>
+<th align="center"><strong>data_type</strong></th>
+<th align="center"><strong>value</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">2020-05-24</td>
+<td align="center">Wallonia</td>
+<td align="center">region</td>
+<td align="center">BE-WAL</td>
+<td align="center">iso-3166-2</td>
+<td align="center">tested_total</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center">2020-05-25</td>
+<td align="center">Brussels</td>
+<td align="center">region</td>
+<td align="center">BE-BRU</td>
+<td align="center">iso-3166-2</td>
+<td align="center">cases_new</td>
+<td align="center">27</td>
+</tr>
+<tr class="odd">
+<td align="center">2020-05-25</td>
+<td align="center">Brussels</td>
+<td align="center">region</td>
+<td align="center">BE-BRU</td>
+<td align="center">iso-3166-2</td>
+<td align="center">cases_total</td>
+<td align="center">5828</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Wide format (aka time series format). To get data in this format use:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="kw pkg">covidregionaldata</span><span class="kw ns">::</span><span class="fu"><a href="reference/get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)</pre></div>
+<p>This returns a dataset with the following structure</p>
+<table class="table">
+<colgroup>
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+</colgroup>
+<thead><tr class="header">
+<th align="center"><strong>date</strong></th>
+<th align="center"><strong>region</strong></th>
+<th align="center"><strong>iso_code</strong></th>
+<th align="center"><strong>cases_new</strong></th>
+<th align="center"><strong>cases_total</strong></th>
+<th align="center"><strong>deaths_new</strong></th>
+<th align="center"><strong>deaths_total</strong></th>
+<th align="center"><strong>recovered_new</strong></th>
+<th align="center"><strong>recovered_total</strong></th>
+<th align="center"><strong>hosp_new</strong></th>
+<th align="center"><strong>hosp_total</strong></th>
+<th align="center"><strong>tested_new</strong></th>
+<th align="center"><strong>tested_total</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">2020-05-24</td>
+<td align="center">Wallonia</td>
+<td align="center">BE-WAL</td>
+<td align="center">24</td>
+<td align="center">18194</td>
+<td align="center">16</td>
+<td align="center">3257</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">8</td>
+<td align="center">5126</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center">2020-05-25</td>
+<td align="center">Brussels</td>
+<td align="center">BE-BRU</td>
+<td align="center">27</td>
+<td align="center">5828</td>
+<td align="center">2</td>
+<td align="center">1436</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">6</td>
+<td align="center">2533</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+<tr class="odd">
+<td align="center">2020-05-25</td>
+<td align="center">Flanders</td>
+<td align="center">BE-VLG</td>
+<td align="center">184</td>
+<td align="center">32376</td>
+<td align="center">14</td>
+<td align="center">4673</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">29</td>
+<td align="center">9428</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Totals only (cumulative data) up to the latest date available in the data (usually today’s date or yesterday). To get data in this format use:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="r"><span class="kw pkg">covidregionaldata</span><span class="kw ns">::</span><span class="fu"><a href="reference/get_totals_only_regional_covid_data.html">get_totals_only_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)</pre></div>
+<p>This returns a dataset with the following structure</p>
+<table class="table">
+<colgroup>
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+</colgroup>
+<thead><tr class="header">
+<th align="center"><strong>region</strong></th>
+<th align="center"><strong>iso_code</strong></th>
+<th align="center"><strong>cases_total</strong></th>
+<th align="center"><strong>deaths_total</strong></th>
+<th align="center"><strong>recoveries_total</strong></th>
+<th align="center"><strong>hosp_total</strong></th>
+<th align="center"><strong>tested_total</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Flanders</td>
+<td align="center">BE-VLG</td>
+<td align="center">32817</td>
+<td align="center">4731</td>
+<td align="center">0</td>
+<td align="center">9550</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">Wallonia</td>
+<td align="center">BE-WAL</td>
+<td align="center">18489</td>
+<td align="center">3292</td>
+<td align="center">0</td>
+<td align="center">5187</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">Brussels</td>
+<td align="center">BE-BRU</td>
+<td align="center">5914</td>
+<td align="center">1463</td>
+<td align="center">0</td>
+<td align="center">2560</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<p>Dates will always be in YYYY-MM-DD format and the ISO codes are ISO-3166-2 codes. The data fields for counts returned will <em>always</em> be the same for standardisation reasons, though if the corresponding data was missing from the original source then that data field will be all NA values (or 0 if accessing totals data). Note that some rows may have NA in <code>*_new</code> data fields if the data was missing from the source also.</p>
+<p>The counts included in data from covidregionaldata are</p>
+<ul>
+<li>cases (number of confirmed cases)</li>
+<li>deaths (number of confirmed deaths)</li>
+<li>recovered (number of confirmed recoveries)</li>
+<li>hosp (number of people admitted to hospital - note that <code>hosp_total</code> is cumulative total of people hospitalised, not total currently in hospital)</li>
+<li>tested (number of tests completed)</li>
+</ul>
+<p>Each count data field will have either <code>_new</code> or <code>_total</code> as a suffix; those with <code>*_new</code> names are new counts for the day/region in question; those with <code>*_total</code> names are cumulative counts for that region up to and including the date.</p>
+<div id="region-levels" class="section level4">
+<h4 class="hasAnchor">
+<a href="#region-levels" class="anchor"></a>Region Levels</h4>
+<p>All countries have data for regions at the admin-1 level, the largest regions available (e.g. state in the USA). <em>Some</em> countries have data for regions at the admin-2 level (e.g. county in the USA). Requesting data stratified by Level 2 regions instead of Level 1 is done by using the <code>include_level_2_regions</code> logical argument in the functions above. Note that <code><a href="reference/get_long_format_regional_covid_data.html">covidregionaldata::get_long_format_regional_covid_data()</a></code> does not support this currently.</p>
+<p>The datasets will also have the corresponding level 1 region included along with its ISO-3166-2 code.</p>
+<p>For an example of requesting Level 2 regions:</p>
+<div class="sourceCode" id="cb6"><pre class="r"><span class="kw pkg">covidregionaldata</span><span class="kw ns">::</span><span class="fu"><a href="reference/get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>, <span class="kw">include_level_2_regions</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<p>This returns a dataset with the following structure <strong>date</strong>|<strong>province</strong>|<strong>region</strong>|<strong>iso_code</strong>|<strong>cases_new</strong>|<strong>cases_total</strong>|<strong>deaths_new</strong>|<strong>deaths_total</strong>|<strong>recoveries_new</strong>|<strong>recoveries_total</strong>|<strong>hospitalisations_new</strong>|<strong>hospitalisations_total</strong>|<strong>tests_new</strong>|<strong>tests_total</strong> :—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–: 2020-05-24|Antwerpen|Flanders|BE-VLG|16|7905|NA|NA|NA|NA|5|2510|NA|NA 2020-05-24|BrabantWallon|Wallonia|BE-WAL|4|1421|NA|NA|NA|NA|0|224|NA|NA 2020-05-24|Brussels|Brussels|BE-BRU|7|5804|NA|NA|NA|NA|4|2527|NA|NA</p>
+<p>Currently we include functions for sub-national data in the following countries (* indicates data for level 2 regions as well):</p>
+<p>Europe</p>
+<ul>
+<li><p>Belgium (*)</p></li>
+<li><p>Germany (*)</p></li>
+<li><p>Italy</p></li>
+</ul>
+<p>Americas</p>
+<ul>
+<li><p>Brazil (*)</p></li>
+<li><p>Canada</p></li>
+</ul>
+<p>Asia</p>
+<ul>
+<li><p>Afghanistan</p></li>
+<li><p>India</p></li>
+</ul>
+</div>
+</div>
 <div id="worldwide-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#worldwide-data" class="anchor"></a>Worldwide data</h3>
@@ -119,75 +344,11 @@
 <li><code><a href="reference/get_linelist.html">covidregionaldata::get_linelist()</a></code></li>
 </ul>
 </div>
-<div id="sub-national-data" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sub-national-data" class="anchor"></a>Sub-national data</h3>
-<p>We have several functions to extract sub-national level data by country. These are typically at the admin-1 level, the largest regions available. We are also working on joining the data to standard georeferencing codes to allow easy mapping.</p>
-<p>Currently we include functions for sub-national data in the following countries:</p>
-<p>Europe</p>
-<ul>
-<li><p>Belgium</p></li>
-<li><p>France</p></li>
-<li><p>Germany</p></li>
-<li><p>Italy</p></li>
-<li><p>Spain</p></li>
-<li><p>United Kingdom</p></li>
-</ul>
-<p>Americas</p>
-<ul>
-<li><p>Canada</p></li>
-<li><p>United States</p></li>
-</ul>
-<p>Eastern Mediterranean</p>
-<ul>
-<li>Afghanistan</li>
-</ul>
-<p>Western Pacific</p>
-<ul>
-<li><p>Korea</p></li>
-<li><p>Japan</p></li>
-</ul>
-<p>South-East Asia</p>
-<ul>
-<li>None currently available</li>
-</ul>
-<p>Africa</p>
-<ul>
-<li>None currently available</li>
-</ul>
-<p>We are working to improve and expand the package: please see the <a href="https://github.com/epiforecasts/covidregionaldata/issues">Issues</a> and feel free to comment. We are keen to standardise geocoding (issues <a href="https://github.com/epiforecasts/covidregionaldata/issues/81">#81</a> and <a href="https://github.com/epiforecasts/covidregionaldata/issues/84">#84</a>) and include data on priority countries (<a href="https://github.com/epiforecasts/covidregionaldata/issues/72">#72</a>). As our capacity is limited, we would very much appreciate any help on these and welcome new pull requests.</p>
-</div>
 </div>
 <div id="development" class="section level2">
 <h2 class="hasAnchor">
 <a href="#development" class="anchor"></a>Development</h2>
-<div id="set-up" class="section level3">
-<h3 class="hasAnchor">
-<a href="#set-up" class="anchor"></a>Set up</h3>
-<p>Set your working directory to the home directory of this project (or use the provided Rstudio project). Install the analysis and all dependencies with:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/covidregionaldata"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
-</div>
-<div id="render-documentation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#render-documentation" class="anchor"></a>Render documentation</h3>
-<p>Render the documentation with the following:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">Rscript</span> inst/scripts/render_output.R</span></code></pre></div>
-</div>
-<div id="docker" class="section level3">
-<h3 class="hasAnchor">
-<a href="#docker" class="anchor"></a>Docker</h3>
-<p>This package is developed in a docker container based on the tidyverse docker image.</p>
-<p>To build the docker image run (from the <code>covidregionaldata</code> directory):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">docker</span> build . -t covidregionaldata</span></code></pre></div>
-<p>To run the docker image run:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">docker</span> run -d -p 8787:8787 --name covidregionaldata -e USER=covidregionaldata -e PASSWORD=covidregionaldata covidregionaldata</span></code></pre></div>
-<p>The rstudio client can be found on port :8787 at your local machines ip. The default username:password is covidregionaldata:covidregionaldata, set the user with -e USER=username, and the password with - e PASSWORD=newpasswordhere. The default is to save the analysis files into the user directory.</p>
-<p>To mount a folder (from your current working directory - here assumed to be <code>tmp</code>) in the docker container to your local system use the following in the above docker run command (as given mounts the whole <code>covidregionaldata</code> directory to <code>tmp</code>).</p>
-<p><code>{bash, eval = FALSE} --mount type=bind,source=$(pwd)/tmp,target=/home/covidregionaldata</code></p>
-<p>To access the command line run the following:</p>
-<p><code>{bash, eval = FALSE} docker exec -ti covidregionaldata bash</code></p>
-<p>Alternatively the package environment can be accessed via <a href="https://mybinder.org/v2/gh/epiforecasts/covidregionaldata/master?urlpath=rstudio">binder</a>.</p>
-</div>
+<p>Developers who wish to contribute should read the System Maintenance Guide (SMG.md).</p>
 </div>
 </div>
   </div>

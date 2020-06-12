@@ -4,16 +4,40 @@
     <loc>epiforecasts.io/covidregionaldata//index.html</loc>
   </url>
   <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/add_extra_na_cols.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/calculate_columns_from_existing_data.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/complete_cumulative_columns.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/convert_to_covid19R_format.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/csv_reader.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/fill_empty_dates_with_na.html</loc>
+  </url>
+  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/format_ecdc_data.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_afghan_regional_cases.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_regional_cases.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_regional_cases_only_level_1.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_regional_cases.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_regional_cases_with_level_2.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_regional_cases_only_level_1.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_regional_cases_with_level_2.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_canada_regional_cases.html</loc>
@@ -22,16 +46,28 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_colombia_regional_cases.html</loc>
   </url>
   <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_cumulative_from_daily.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_daily_from_cumulative.html</loc>
+  </url>
+  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_ecdc_cases.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_france_regional_cases.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_germany_regional_cases.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_germany_regional_cases_only_level_1.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_germany_regional_cases_with_level_2.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_india_regional_cases.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_info_covidregionaldata.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_international_linelist.html</loc>
@@ -52,6 +88,12 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_linelist.html</loc>
   </url>
   <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_long_format_regional_covid_data.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_regional_covid_data.html</loc>
+  </url>
+  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_russia_regional_cases.html</loc>
   </url>
   <url>
@@ -59,6 +101,9 @@
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_total_cases.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_totals_only_regional_covid_data.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_uk_nhs_region_cases.html</loc>
@@ -73,18 +118,48 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_who_cases.html</loc>
   </url>
   <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_wide_format_regional_covid_data.html</loc>
+  </url>
+  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/pipe.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/read_spf_regions_yaml.html</loc>
   </url>
   <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_afghanistan.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_belgium.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_brazil.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_canada.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_germany.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_india.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_italy.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/rename_region_column.html</loc>
+  </url>
+  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/reset_cache.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/rgamma_with_mean_sd.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/set_negative_values_to_zero.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/rweibull_with_mean_sd.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/start_using_memoise.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/stop_using_memoise.html</loc>
   </url>
 </urlset>

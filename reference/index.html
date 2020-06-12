@@ -143,27 +143,51 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="get_belgium_regional_cases.html">get_belgium_regional_cases()</a></code> </p>
+          <p><code><a href="get_belgium_regional_cases_only_level_1.html">get_belgium_regional_cases_only_level_1()</a></code> </p>
         </td>
-        <td><p>Fetch daily COVID cases by region for Belgium.</p></td>
+        <td><p>Fetch daily COVID cases with only Admin Level 1 region (region) for Belgium</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="get_brazil_regional_cases.html">get_brazil_regional_cases()</a></code> </p>
+          <p><code><a href="get_belgium_regional_cases_with_level_2.html">get_belgium_regional_cases_with_level_2()</a></code> </p>
         </td>
-        <td><p>Brazil regional cases and deaths, daily time-series</p></td>
+        <td><p>Fetch daily COVID cases including Admin Level 2 region (Province) for Belgium</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_brazil_regional_cases_only_level_1.html">get_brazil_regional_cases_only_level_1()</a></code> </p>
+        </td>
+        <td><p>Brazil regional cases and deaths stratifying by Admin Level 1 region (state)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_brazil_regional_cases_with_level_2.html">get_brazil_regional_cases_with_level_2()</a></code> </p>
+        </td>
+        <td><p>Brazil regional cases and deaths stratiftinf by Admin Level 2 region (city)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_canada_regional_cases.html">get_canada_regional_cases()</a></code> </p>
         </td>
-        <td><p>Fetch daily COVID cases by province for Canada</p></td>
+        <td><p>Helper function to fetch daily COVID cases by province for Canada and do dataset-specific processing before passing to get_regional_covid_data()</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_colombia_regional_cases.html">get_colombia_regional_cases()</a></code> </p>
         </td>
         <td><p>Get Colombia daily cases</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_cumulative_from_daily.html">get_cumulative_from_daily()</a></code> </p>
+        </td>
+        <td><p>Cumulative counts from daily counts.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_daily_from_cumulative.html">get_daily_from_cumulative()</a></code> </p>
+        </td>
+        <td><p>Daily counts from data that is in cumulative form.</p></td>
       </tr><tr>
         
         <td>
@@ -179,15 +203,27 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="get_germany_regional_cases.html">get_germany_regional_cases()</a></code> </p>
+          <p><code><a href="get_germany_regional_cases_only_level_1.html">get_germany_regional_cases_only_level_1()</a></code> </p>
         </td>
-        <td><p>Get German daily cases by Bundeslander or Landkreis</p></td>
+        <td><p>Get German daily cases by Bundesland only</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_germany_regional_cases_with_level_2.html">get_germany_regional_cases_with_level_2()</a></code> </p>
+        </td>
+        <td><p>Get German daily cases by Landkreis</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_india_regional_cases.html">get_india_regional_cases()</a></code> </p>
         </td>
-        <td><p>Get India daily cases</p></td>
+        <td><p>Get India daily COVID data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_info_covidregionaldata.html">get_info_covidregionaldata()</a></code> </p>
+        </td>
+        <td><p>Get meta information about the covidregionaldata refresh_* data getters.</p></td>
       </tr><tr>
         
         <td>
@@ -205,7 +241,7 @@
         <td>
           <p><code><a href="get_italy_regional_cases.html">get_italy_regional_cases()</a></code> </p>
         </td>
-        <td><p>Italian Regional Case Counts</p></td>
+        <td><p>Italian Regional Covid-19 Data</p></td>
       </tr><tr>
         
         <td>
@@ -227,6 +263,18 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="get_long_format_regional_covid_data.html">get_long_format_regional_covid_data()</a></code> </p>
+        </td>
+        <td><p>Return regional, daily-updated data for a given country in long (Covid19R / non-time-series) format</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_regional_covid_data.html">get_regional_covid_data()</a></code> </p>
+        </td>
+        <td><p>The main calculation function for covidregionaldata which returns regional, daily-updated data for a given country to be passed into the relevant exported wrapper function.</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="get_russia_regional_cases.html">get_russia_regional_cases()</a></code> </p>
         </td>
         <td><p>Get Russia daily cases</p></td>
@@ -242,6 +290,12 @@
           <p><code><a href="get_total_cases.html">get_total_cases()</a></code> </p>
         </td>
         <td><p>Get Total Cases by Country</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_totals_only_regional_covid_data.html">get_totals_only_regional_covid_data()</a></code> </p>
+        </td>
+        <td><p>Return regional, daily-updated cumulative counts of Covid-19 data for a given country</p></td>
       </tr><tr>
         
         <td>
@@ -269,6 +323,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data()</a></code> </p>
+        </td>
+        <td><p>Return regional, daily-updated data for a given country in wide (time-series) format.</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="format_ecdc_data.html">format_ecdc_data()</a></code> </p>
         </td>
         <td><p>Format ECDC data for use with EpiNow analysis</p></td>
@@ -285,19 +345,7 @@
     </tbody><tbody>
       
       
-      <tr>
-        
-        <td>
-          <p><code><a href="rgamma_with_mean_sd.html">rgamma_with_mean_sd()</a></code> </p>
-        </td>
-        <td><p>Mean and standard deviation parameterised gamma sampling function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rweibull_with_mean_sd.html">rweibull_with_mean_sd()</a></code> </p>
-        </td>
-        <td><p>Mean and standard deviation parameterised Weibull sampling function</p></td>
-      </tr>
+      
     </tbody><tbody>
       <tr>
         <th colspan="2">
