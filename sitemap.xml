@@ -55,9 +55,6 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_ecdc_cases.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_france_regional_cases.html</loc>
-  </url>
-  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_germany_regional_cases_only_level_1.html</loc>
   </url>
   <url>
@@ -106,9 +103,6 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_totals_only_regional_covid_data.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_uk_nhs_region_cases.html</loc>
-  </url>
-  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_uk_regional_cases.html</loc>
   </url>
   <url>
@@ -122,9 +116,6 @@
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/read_spf_regions_yaml.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_afghanistan.html</loc>
