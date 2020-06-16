@@ -79,11 +79,15 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install the stable version of the package using <a href="https://epiforecasts.io/drat/"><code>{drat}</code></a>:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"drat"</span>)
-<span class="kw pkg">drat</span><span class="kw ns">:::</span><span class="fu">add</span>(<span class="st">"epiforecasts"</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"covidregionaldata"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"drat"</span>)
+<span class="kw">drat</span>:::<span class="fu">add</span>(<span class="st">"epiforecasts"</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"covidregionaldata"</span>)
+</pre></div>
 <p>Install the development version of the package with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/covidregionaldata"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/covidregionaldata"</span>)
+</pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
@@ -96,7 +100,9 @@
 <ol>
 <li>Long format - this is the standard used by the Covid19R package. To get data in this format use:</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">covidregionaldata</span><span class="kw ns">::</span><span class="fu"><a href="reference/get_long_format_regional_covid_data.html">get_long_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_long_format_regional_covid_data.html">get_long_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)
+</pre></div>
 <p>This returns a dataset with the following structure</p>
 <table class="table">
 <thead><tr class="header">
@@ -141,7 +147,9 @@
 <ol>
 <li>Wide format (aka time series format). To get data in this format use:</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="kw pkg">covidregionaldata</span><span class="kw ns">::</span><span class="fu"><a href="reference/get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)</pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)
+</pre></div>
 <p>This returns a dataset with the following structure</p>
 <table class="table">
 <colgroup>
@@ -225,7 +233,9 @@
 <ol>
 <li>Totals only (cumulative data) up to the latest date available in the data (usually today’s date or yesterday). To get data in this format use:</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="kw pkg">covidregionaldata</span><span class="kw ns">::</span><span class="fu"><a href="reference/get_totals_only_regional_covid_data.html">get_totals_only_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_totals_only_regional_covid_data.html">get_totals_only_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)
+</pre></div>
 <p>This returns a dataset with the following structure</p>
 <table class="table">
 <colgroup>
@@ -292,7 +302,9 @@
 <p>All countries have data for regions at the admin-1 level, the largest regions available (e.g. state in the USA). <em>Some</em> countries have data for regions at the admin-2 level (e.g. county in the USA). Requesting data stratified by Level 2 regions instead of Level 1 is done by using the <code>include_level_2_regions</code> logical argument in the functions above. Note that <code><a href="reference/get_long_format_regional_covid_data.html">covidregionaldata::get_long_format_regional_covid_data()</a></code> does not support this currently.</p>
 <p>The datasets will also have the corresponding level 1 region included along with its ISO-3166-2 code.</p>
 <p>For an example of requesting Level 2 regions:</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="kw pkg">covidregionaldata</span><span class="kw ns">::</span><span class="fu"><a href="reference/get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>, <span class="kw">include_level_2_regions</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>, include_level_2_regions = <span class="fl">TRUE</span>)
+</pre></div>
 <p>This returns a dataset with the following structure <strong>date</strong>|<strong>province</strong>|<strong>region</strong>|<strong>iso_code</strong>|<strong>cases_new</strong>|<strong>cases_total</strong>|<strong>deaths_new</strong>|<strong>deaths_total</strong>|<strong>recoveries_new</strong>|<strong>recoveries_total</strong>|<strong>hospitalisations_new</strong>|<strong>hospitalisations_total</strong>|<strong>tests_new</strong>|<strong>tests_total</strong> :—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–: 2020-05-24|Antwerpen|Flanders|BE-VLG|16|7905|NA|NA|NA|NA|5|2510|NA|NA 2020-05-24|BrabantWallon|Wallonia|BE-WAL|4|1421|NA|NA|NA|NA|0|224|NA|NA 2020-05-24|Brussels|Brussels|BE-BRU|7|5804|NA|NA|NA|NA|4|2527|NA|NA</p>
 <p>Currently we include functions for sub-national data in the following countries (* indicates data for level 2 regions as well):</p>
 <p>Europe</p>

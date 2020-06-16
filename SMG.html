@@ -126,7 +126,9 @@
 <h2 class="hasAnchor">
 <a href="#set-up" class="anchor"></a>Set up</h2>
 <p>Set your working directory to the home directory of this project (or use the provided RStudio project). Install the analysis and all dependencies with:</p>
-<div class="sourceCode" id="cb1"><html><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/covidregionaldata"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/covidregionaldata"</span>, dependencies = <span class="fl">TRUE</span>)
+</pre></div>
 <div id="render-documentation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#render-documentation" class="anchor"></a>Render documentation</h3>
@@ -154,7 +156,7 @@
 <div id="architecture" class="section level3">
 <h3 class="hasAnchor">
 <a href="#architecture" class="anchor"></a>Architecture</h3>
-<p>covidregionaldata has three main data getter functions. They all return different formats of the same data. The majority of the functionality for all three functions is kept in the <code><a href="reference/get_regional_covid_data.html">get_regional_covid_data()</a></code> function. The three main functions are essentially wrappers around this with some formatting to reach the desired output. <code><a href="reference/get_regional_covid_data.html">get_regional_covid_data()</a></code> calls country-specific data getters (dependent on the country given by the user), and then mostly uses helpers from the <code>helper.R</code> file to clean and sanitise the data.</p>
+<p>covidregionaldata has three main data getter functions. They all return different formats of the same data. The majority of the functionality for all three functions is kept in the <code>get_regional_covid_data()</code> function. The three main functions are essentially wrappers around this with some formatting to reach the desired output. <code>get_regional_covid_data()</code> calls country-specific data getters (dependent on the country given by the user), and then mostly uses helpers from the <code>helper.R</code> file to clean and sanitise the data.</p>
 <p>In general these are the steps it follows (see picture below for a diagram).</p>
 <ol>
 <li>Handling errors related to arguments.</li>
@@ -163,10 +165,10 @@
 </li>
 <li>Cleaning the data using some of the helper functions.</li>
 <li>
-<em>If</em> the user requested totals only, returning the data (summing up of the data is done in the <code><a href="reference/get_totals_only_regional_covid_data.html">get_totals_only_regional_covid_data()</a></code> function).</li>
+<em>If</em> the user requested totals only, returning the data (summing up of the data is done in the <code>get_totals_only_regional_covid_data()</code> function).</li>
 <li>
 <em>If not</em>, further cleaning using the helper functions.</li>
-<li>Returning data in the wide format (<code><a href="reference/get_long_format_regional_covid_data.html">get_long_format_regional_covid_data()</a></code> then converts it to long format).</li>
+<li>Returning data in the wide format (<code>get_long_format_regional_covid_data()</code> then converts it to long format).</li>
 </ol>
 <p align="center">
 <img src="architecture_main.png" alt="architecture"></p>
@@ -197,7 +199,7 @@
 </ul>
 <ol>
 <li><p>Write documentation using <code>#'</code> roxygen styling and then call <code>roxygen2::roxygenise()</code> when done to update the manual and NAMESPACE. There is no need to export your function but be sure to import any functions you do use from other packages.</p></li>
-<li><p>Add your function(s) in the switch() calls in the <code><a href="reference/get_regional_covid_data.html">get_regional_covid_data()</a></code>, <code>get_iso_codes()</code> and <code><a href="reference/rename_region_column.html">rename_region_column()</a></code> functions. ISO-3166-2 codes can be found using Wikipedia.</p></li>
+<li><p>Add your function(s) in the switch() calls in the <code>get_regional_covid_data()</code>, <code>get_iso_codes()</code> and <code>rename_region_column()</code> functions. ISO-3166-2 codes can be found using Wikipedia.</p></li>
 </ol>
 </div>
 <div id="writing-new-helper-functions" class="section level4">
