@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Download the most recent WHO case data — get_who_cases • covidregionaldata</title>
+<title>Fetch daily COVID cases by state for United States of America — get_us_regional_cases_with_level_2 • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,10 @@
 
 
 
-<meta property="og:title" content="Download the most recent WHO case data — get_who_cases" />
-<meta property="og:description" content="Downloads the latest WHO case data.It uses memoise to cache the
-results locally. To clear the cache and redownload the data use reset_cache. The cache will be located
-in the directory at which the function is run." />
+<meta property="og:title" content="Fetch daily COVID cases by state for United States of America — get_us_regional_cases_with_level_2" />
+<meta property="og:description" content="Fetches daily COVID cases county collated by the
+New York Times
+Data is available at https://github.com/nytimes/covid-19-data" />
 
 
 
@@ -114,67 +114,24 @@ in the directory at which the function is run." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Download the most recent WHO case data</h1>
+    <h1>Fetch daily COVID cases by state for United States of America</h1>
     
-    <div class="hidden name"><code>get_who_cases.Rd</code></div>
+    <div class="hidden name"><code>get_us_regional_cases_with_level_2.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Downloads the latest WHO case data.It uses <code>memoise</code> to cache the
-results locally. To clear the cache and redownload the data use <code>reset_cache</code>. The cache will be located
-in the directory at which the function is run.</p>
+    <p>Fetches daily COVID cases county collated by the
+New York Times
+Data is available at https://github.com/nytimes/covid-19-data</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_who_cases</span>(country = <span class='kw'>NULL</span>, daily = <span class='fl'>FALSE</span>, cache = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>get_us_regional_cases_with_level_2</span>()</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>country</th>
-      <td><p>Character string of current name</p></td>
-    </tr>
-    <tr>
-      <th>daily</th>
-      <td><p>Logical, defaults to <code>FALSE</code>. Should cases</p></td>
-    </tr>
-    <tr>
-      <th>cache</th>
-      <td><p>A <code>memoise</code> cache.
-counts be daily (<code>TRUE</code>) or cumulative (<code>FALSE</code>).</p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A datatable of either all WHO data by date or cases in a specific country by date</p>
+    <p>A data.frame of COVID cases by region in the US</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>get_who_cases</span></div><div class='output co'>#&gt; function (country = NULL, daily = FALSE, cache = NULL) 
-#&gt; {
-#&gt;     ch &lt;- memoise::cache_filesystem(".cache")
-#&gt;     mem_fread &lt;- memoise::memoise(data.table::fread, cache = ch)
-#&gt;     who_cases &lt;- mem_fread("https://raw.githubusercontent.com/eebrown/data2019nCoV/master/data-raw/WHO_SR.csv")
-#&gt;     who_cases$Date &lt;- as.Date(who_cases$Date)
-#&gt;     if (!is.null(country)) {
-#&gt;         who_cases &lt;- who_cases[, c("Date", country), with = FALSE]
-#&gt;         colnames(who_cases) &lt;- c("date", "cases")
-#&gt;     }
-#&gt;     if (daily) {
-#&gt;         cols &lt;- colnames(who_cases)
-#&gt;         cols &lt;- cols[!colnames(who_cases) %in% c("Date", "date", 
-#&gt;             "SituationReport")]
-#&gt;         safe_diff &lt;- purrr::safely(diff)
-#&gt;         who_cases &lt;- suppressWarnings(dplyr::mutate_at(who_cases, 
-#&gt;             .vars = cols, ~as.numeric(.)))
-#&gt;         who_cases &lt;- dplyr::mutate_at(who_cases, .vars = cols, 
-#&gt;             ~. - dplyr::lag(., default = 0))
-#&gt;     }
-#&gt;     return(who_cases)
-#&gt; }
-#&gt; &lt;bytecode: 0x7fd9e68593c8&gt;
-#&gt; &lt;environment: namespace:covidregionaldata&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
