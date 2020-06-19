@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>South Korea regional cases — get_korea_regional_cases • covidregionaldata</title>
+<title>Get UK daily cases — get_uk_regional_cases_with_level_2 • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="South Korea regional cases — get_korea_regional_cases" />
-<meta property="og:description" content="Extract regional case counts for South Korea.
-Source." />
+<meta property="og:title" content="Get UK daily cases — get_uk_regional_cases_with_level_2" />
+<meta property="og:description" content="Get UK cases by country or region" />
 
 
 
@@ -113,53 +112,32 @@ Source." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>South Korea regional cases</h1>
+    <h1>Get UK daily cases</h1>
     
-    <div class="hidden name"><code>get_korea_regional_cases.Rd</code></div>
+    <div class="hidden name"><code>get_uk_regional_cases_with_level_2.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extract regional case counts for South Korea.
-<a href='http://ncov.mohw.go.kr/en'>Source</a>.</p>
+    <p>Get UK cases by country or region</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_korea_regional_cases</span>()</pre>
+    <pre class="usage"><span class='fu'>get_uk_regional_cases_with_level_2</span>()</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>geography</th>
+      <td><p>Character string identifying which part of the UK to extract and at what scale
+Defaults to "all countries". Options are: "all countries", "all regions", "England", "Scotland", "Northern Ireland", "Wales".
+Note that England always returns 9 English regions, and Nothern Ireland always returns as one country</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># Mapping</span>
-<span class='kw'>data</span> <span class='op'>&lt;-</span> <span class='fu'>get_korea_regional_cases</span>()
+    <p>A dataframe of case counts. By default returns cases in English regions, and Scotland, Wales, and Northern Ireland</p>
 
-<span class='kw'>regions</span> <span class='op'>&lt;-</span> <span class='kw'>rnaturalearth</span>::<span class='fu'>ne_states</span>(<span class='st'>"South Korea"</span>, returnclass = <span class='st'>"sf"</span>)
-
-<span class='kw'>regions_with_data</span> <span class='op'>&lt;-</span> <span class='kw'>regions</span> <span class='op'>%&gt;%</span>
-<span class='fu'>mutate</span>(name_de = <span class='fu'>str_replace_all</span>(<span class='kw'>name_de</span>, <span class='st'>"Jeju-do"</span>, <span class='st'>"Jeju"</span>)) <span class='op'>%&gt;%</span>
-<span class='fu'>left_join</span>(<span class='kw'>data</span>, by = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"name_de"</span> = <span class='st'>"region"</span>))
-
-
-<span class='fu'>ggplot</span>(<span class='kw'>regions_with_data</span>) <span class='op'>+</span>
-<span class='fu'>geom_sf</span>(<span class='fu'>aes</span>(fill = <span class='kw'>cases</span>))
-}
-
-<span class='kw'>get_korea_regional_cases</span></div><div class='output co'>#&gt; function () 
-#&gt; {
-#&gt;     webpage &lt;- xml2::read_html("http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&amp;brdGubun=162&amp;dataGubun=&amp;ncvContSeq=&amp;contSeq=&amp;board_id=")
-#&gt;     ch &lt;- memoise::cache_filesystem(".cache")
-#&gt;     mem_read &lt;- memoise::memoise(xml2::read_html, cache = ch)
-#&gt;     region &lt;- webpage %&gt;% rvest::html_nodes("tbody tr+ tr th") %&gt;% 
-#&gt;         rvest::html_text()
-#&gt;     cases &lt;- webpage %&gt;% rvest::html_nodes("tr+ tr th+ .number") %&gt;% 
-#&gt;         rvest::html_text()
-#&gt;     cases &lt;- cbind(region, cases)
-#&gt;     cases &lt;- tibble::as_tibble(cases) %&gt;% dplyr::filter(region != 
-#&gt;         "Lazaretto") %&gt;% dplyr::mutate(cases = as.numeric(as.character(cases)))
-#&gt;     return(cases)
-#&gt; }
-#&gt; &lt;bytecode: 0x7fa6dd775098&gt;
-#&gt; &lt;environment: namespace:covidregionaldata&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

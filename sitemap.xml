@@ -103,7 +103,10 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_totals_only_regional_covid_data.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_uk_regional_cases.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_uk_regional_cases_only_level_1.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_uk_regional_cases_with_level_2.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_us_regional_cases_only_level_1.html</loc>
