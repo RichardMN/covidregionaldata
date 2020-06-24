@@ -135,7 +135,7 @@ This data is sourced from https://github.com/grwlf/COVID-19_plus_Russia#data-sou
 
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 
-
+<span class='kw'>Mapping</span>
 <span class='kw'>regions</span> <span class='op'>&lt;-</span> <span class='kw'>rnaturalearth</span>::<span class='fu'>ne_states</span>(geounit = <span class='st'>"Russia"</span>, returnclass = <span class='st'>"sf"</span>)
 <span class='kw'>data</span> <span class='op'>&lt;-</span> <span class='fu'>get_russia_regional_cases</span>() <span class='op'>%&gt;%</span>
   <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>date</span> <span class='op'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>date</span>))
