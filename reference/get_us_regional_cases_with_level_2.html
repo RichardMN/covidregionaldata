@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fetch daily COVID cases by state for United States of America — get_us_regional_cases_with_level_2 • covidregionaldata</title>
+<title>US Regional Daily COVID-19 Count Data - Counties — get_us_regional_cases_with_level_2 • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,10 @@
 
 
 
-<meta property="og:title" content="Fetch daily COVID cases by state for United States of America — get_us_regional_cases_with_level_2" />
-<meta property="og:description" content="Fetches daily COVID cases county collated by the
-New York Times
-Data is available at https://github.com/nytimes/covid-19-data" />
+<meta property="og:title" content="US Regional Daily COVID-19 Count Data - Counties — get_us_regional_cases_with_level_2" />
+<meta property="og:description" content="Extracts daily COVID-19 data for the USA, stratified by county.
+Data available at https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv.
+It is loaded and then sanitised." />
 
 
 
@@ -114,15 +114,15 @@ Data is available at https://github.com/nytimes/covid-19-data" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fetch daily COVID cases by state for United States of America</h1>
+    <h1>US Regional Daily COVID-19 Count Data - Counties</h1>
     
     <div class="hidden name"><code>get_us_regional_cases_with_level_2.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Fetches daily COVID cases county collated by the
-New York Times
-Data is available at https://github.com/nytimes/covid-19-data</p>
+    <p>Extracts daily COVID-19 data for the USA, stratified by county.
+Data available at <a href='https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'>https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv</a>.
+It is loaded and then sanitised.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_us_regional_cases_with_level_2</span>()</pre>
@@ -130,7 +130,7 @@ Data is available at https://github.com/nytimes/covid-19-data</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame of COVID cases by region in the US</p>
+    <p>A data frame of daily COVID cases for the US by county, to be further processed by <code>get_regional_data()</code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

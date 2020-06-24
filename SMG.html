@@ -143,11 +143,11 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">docker</span> build . -t covidregionaldata</span></code></pre></div>
 <p>To run the docker image run:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">docker</span> run -d -p 8787:8787 --name covidregionaldata -e USER=covidregionaldata -e PASSWORD=covidregionaldata covidregionaldata</span></code></pre></div>
-<p>The rstudio client can be found on port :8787 at your local machines IP. The default username:password is covidregionaldata:covidregionaldata, set the user with -e USER=username, and the password with - e PASSWORD=newpasswordhere. The default is to save the analysis files into the user directory.</p>
+<p>The RStudio client can be found on port :8787 at your local machines IP. The default username:password is covidregionaldata:covidregionaldata, set the user with -e USER=username, and the password with - e PASSWORD=newpasswordhere. The default is to save the analysis files into the user directory.</p>
 <p>To mount a folder (from your current working directory - here assumed to be <code>tmp</code>) in the docker container to your local system use the following in the above docker run command (as given mounts the whole <code>covidregionaldata</code> directory to <code>tmp</code>).</p>
 <p><code>{bash, eval = FALSE} --mount type=bind,source=$(pwd)/tmp,target=/home/covidregionaldata</code></p>
 <p>To access the command line run the following: <code>{bash, eval = FALSE} docker exec -ti covidregionaldata bash</code></p>
-<p>Alternatively the package environment can be accessed via <a href="https://mybinder.org/v2/gh/epiforecasts/covidregionaldata/master?urlpath=rstudio">binder</a>.</p>
+<p>Alternatively, the package environment can be accessed via <a href="https://mybinder.org/v2/gh/epiforecasts/covidregionaldata/master?urlpath=rstudio">binder</a>.</p>
 </div>
 </div>
 <div id="development" class="section level2">
@@ -156,19 +156,17 @@
 <div id="architecture" class="section level3">
 <h3 class="hasAnchor">
 <a href="#architecture" class="anchor"></a>Architecture</h3>
-<p>covidregionaldata has three main data getter functions. They all return different formats of the same data. The majority of the functionality for all three functions is kept in the <code>get_regional_covid_data()</code> function. The three main functions are essentially wrappers around this with some formatting to reach the desired output. <code>get_regional_covid_data()</code> calls country-specific data getters (dependent on the country given by the user), and then mostly uses helpers from the <code>helper.R</code> file to clean and sanitise the data.</p>
+<p>covidregionaldata has one main data getter function for subregional data, the <code>get_regional_data()</code> function. The function calls country-specific data getters (dependent on the country given by the user), and then mostly uses helpers from the <code>helper.R</code> file to clean and sanitise the data.</p>
 <p>In general these are the steps it follows (see picture below for a diagram).</p>
 <ol>
 <li>Handling errors related to arguments.</li>
-<li>Getting data using the <code>get_&lt;country&gt;_regional_cases()</code> function for the relevant country.</li>
-<li>Getting the ISO codes for the country using <code>get_iso_codes(&lt;country&gt;)</code>
-</li>
+<li>Getting data using the relevant <code>get_&lt;country&gt;_regional_cases()</code> function for the relevant country.</li>
+<li>Getting the ISO codes for the country using <code>get_iso_codes(&lt;country&gt;)</code> and left-joining them to the data.</li>
 <li>Cleaning the data using some of the helper functions.</li>
 <li>
-<em>If</em> the user requested totals only, returning the data (summing up of the data is done in the <code>get_totals_only_regional_covid_data()</code> function).</li>
+<em>If</em> the user requested totals only, returning the data (summing up of the data is done in the <code>totalise_data()</code> helper function).</li>
 <li>
-<em>If not</em>, further cleaning using the helper functions.</li>
-<li>Returning data in the wide format (<code>get_long_format_regional_covid_data()</code> then converts it to long format).</li>
+<em>If not</em>, further cleaning using the helper functions and then returning the data.</li>
 </ol>
 <p align="center">
 <img src="architecture_main.png" alt="architecture"></p>
@@ -189,8 +187,16 @@
 </ul>
 <p>You then need to follow these steps:</p>
 <ol>
-<li><p>Create a <code>get_&lt;country&gt;_regional_cases()</code> function. As described above, this needs to load the raw data, select <em>only</em> the relevant columns and change the names of the columns to the package standards. For some countries there may be multiple data sources, in which case using the <code>dplyr</code> join functions is recommended. There is no need to deal with NA values at this point, or to calculate new data. If the country supports level 2 regions, you should create a <code>get_&lt;country&gt;_regional_cases_only_level_1_regions()</code> and <code>get_&lt;country&gt;_regional_cases_with_level_2_regions()</code>. While these will share code, it saves writing one function with messy and confusing if statements.</p></li>
-<li><p>Create unit tests for the function(s). At a minimum you should have tests which:</p></li>
+<li>Create a <code>get_&lt;country&gt;_regional_cases()</code> function. If level 2 regions are available then make two functions - <code>get_&lt;country&gt;_regional_cases_only_level_1()</code> and <code>get_&lt;country&gt;_regional_cases_with_level_2()</code>. While these will share code, it saves writing one function with messy and confusing if statements.</li>
+</ol>
+<p>This needs to do the following:</p>
+<ul>
+<li>load the raw data - the csv_reader() helper function is useful here if the format is CSV</li>
+<li>select <em>only</em> the relevant columns and change the names of the columns to the package standards (found in the README)</li>
+</ul>
+<p>For some countries there may be multiple data sources, in which case using the <code>dplyr</code> join functions is recommended. There is no need to deal with NA values at this point, or to calculate new data.</p>
+<ol>
+<li>Create unit tests for the function(s). At a minimum you should have tests which:</li>
 </ol>
 <ul>
 <li>check if the data source is there, returns data and returns the expected columns</li>
@@ -199,7 +205,7 @@
 </ul>
 <ol>
 <li><p>Write documentation using <code>#'</code> roxygen styling and then call <code>roxygen2::roxygenise()</code> when done to update the manual and NAMESPACE. There is no need to export your function but be sure to import any functions you do use from other packages.</p></li>
-<li><p>Add your function(s) in the switch() calls in the <code>get_regional_covid_data()</code>, <code>get_iso_codes()</code> and <code>rename_region_column()</code> functions. ISO-3166-2 codes can be found using Wikipedia.</p></li>
+<li><p>Add your function(s) in the switch() calls in the <code>get_regional_data()</code>, <code>get_iso_codes()</code> and <code>rename_region_column()</code> functions. ISO-3166-2 codes can be found using Wikipedia.</p></li>
 </ol>
 </div>
 <div id="writing-new-helper-functions" class="section level4">

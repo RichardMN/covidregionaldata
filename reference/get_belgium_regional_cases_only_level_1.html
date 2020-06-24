@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fetch daily COVID cases with only Admin Level 1 region (region) for Belgium — get_belgium_regional_cases_only_level_1 • covidregionaldata</title>
+<title>Belgian Regional Daily COVID-19 Count Data - Regions Only — get_belgium_regional_cases_only_level_1 • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,10 @@
 
 
 
-<meta property="og:title" content="Fetch daily COVID cases with only Admin Level 1 region (region) for Belgium — get_belgium_regional_cases_only_level_1" />
-<meta property="og:description" content="Fetches daily COVID data from Sciensano, the Belgian Institute for Health.
-Data is available at https://epistat.wiv-isp.be/covid/
-selects and sanitises the relevant columns" />
+<meta property="og:title" content="Belgian Regional Daily COVID-19 Count Data - Regions Only — get_belgium_regional_cases_only_level_1" />
+<meta property="og:description" content="Fetches daily COVID-19 data from Sciensano, the Belgian Institute for Health.
+Data is available at https://epistat.wiv-isp.be/covid/.
+It is loaded and then sanitised." />
 
 
 
@@ -114,15 +114,15 @@ selects and sanitises the relevant columns" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fetch daily COVID cases with only Admin Level 1 region (region) for Belgium</h1>
+    <h1>Belgian Regional Daily COVID-19 Count Data - Regions Only</h1>
     
     <div class="hidden name"><code>get_belgium_regional_cases_only_level_1.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Fetches daily COVID data from Sciensano, the Belgian Institute for Health.
-Data is available at https://epistat.wiv-isp.be/covid/
-selects and sanitises the relevant columns</p>
+    <p>Fetches daily COVID-19 data from Sciensano, the Belgian Institute for Health.
+Data is available at <a href='https://epistat.wiv-isp.be/covid/'>https://epistat.wiv-isp.be/covid/</a>.
+It is loaded and then sanitised.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_belgium_regional_cases_only_level_1</span>()</pre>
@@ -130,7 +130,7 @@ selects and sanitises the relevant columns</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame of COVID cases by admin level 1 region in Belgium, ready to be used by get_regional_covid_data()</p>
+    <p>A data frame of COVID cases by Region in Belgium, stratified by region, ready to be used by <code>get_regional_data()</code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

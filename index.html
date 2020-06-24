@@ -94,60 +94,19 @@
 <div id="sub-national-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#sub-national-data" class="anchor"></a>Sub-national data</h3>
-<p>There are three main functions to extract sub-national level data by country. The underlying data for each function is the same - each function just formats the data differently. The data is stratified by region and (for two of the three formats) by date. The data table includes the ISO-3166-2 code for each region. Each function takes the country name (in English) as a string (see list below for available countries). The country string is not case-sensitive.</p>
-<p>The three ways to view the data (and the related functions) are:</p>
-<ol>
-<li>Long format - this is the standard used by the Covid19R package. To get data in this format use:</li>
-</ol>
+<p>The function which returns sub-national level data by country is <code><a href="reference/get_regional_data.html">covidregionaldata::get_regional_data()</a></code>.</p>
+<p>This function takes 3 arguments:</p>
+<ul>
+<li>
+<code>country</code> - the English name of the country of interest. Not case sensitive</li>
+<li>
+<code>totals</code> (optional, default is FALSE) - a Boolean (TRUE/FALSE), denoting whether the data returned should be a table of total counts (one row per region) <em>or</em> time series data (one row per region/date combination).</li>
+<li>
+<code>include_level_2_regions</code> (optional, default is FALSE) - a Boolean (TRUE/FALSE), denoting whether the data returned should be stratified by admin level 1 region (usually the largest subregion available) or admin level 2 region (usually the second largest).</li>
+</ul>
+<p>For example:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_long_format_regional_covid_data.html">get_long_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)
-</pre></div>
-<p>This returns a dataset with the following structure</p>
-<table class="table">
-<thead><tr class="header">
-<th align="center"><strong>date</strong></th>
-<th align="center"><strong>location</strong></th>
-<th align="center"><strong>location_type</strong></th>
-<th align="center"><strong>location_code</strong></th>
-<th align="center"><strong>location_code_type</strong></th>
-<th align="center"><strong>data_type</strong></th>
-<th align="center"><strong>value</strong></th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="center">2020-05-24</td>
-<td align="center">Wallonia</td>
-<td align="center">region</td>
-<td align="center">BE-WAL</td>
-<td align="center">iso-3166-2</td>
-<td align="center">tested_total</td>
-<td align="center">NA</td>
-</tr>
-<tr class="even">
-<td align="center">2020-05-25</td>
-<td align="center">Brussels</td>
-<td align="center">region</td>
-<td align="center">BE-BRU</td>
-<td align="center">iso-3166-2</td>
-<td align="center">cases_new</td>
-<td align="center">27</td>
-</tr>
-<tr class="odd">
-<td align="center">2020-05-25</td>
-<td align="center">Brussels</td>
-<td align="center">region</td>
-<td align="center">BE-BRU</td>
-<td align="center">iso-3166-2</td>
-<td align="center">cases_total</td>
-<td align="center">5828</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>Wide format (aka time series format). To get data in this format use:</li>
-</ol>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)
+<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span>(<span class="st">"Belgium"</span>)
 </pre></div>
 <p>This returns a dataset with the following structure</p>
 <table class="table">
@@ -187,9 +146,9 @@
 <td align="center">Wallonia</td>
 <td align="center">BE-WAL</td>
 <td align="center">24</td>
-<td align="center">18194</td>
+<td align="center">18196</td>
 <td align="center">16</td>
-<td align="center">3257</td>
+<td align="center">3251</td>
 <td align="center">NA</td>
 <td align="center">NA</td>
 <td align="center">8</td>
@@ -201,10 +160,10 @@
 <td align="center">2020-05-25</td>
 <td align="center">Brussels</td>
 <td align="center">BE-BRU</td>
-<td align="center">27</td>
-<td align="center">5828</td>
+<td align="center">26</td>
+<td align="center">5838</td>
 <td align="center">2</td>
-<td align="center">1436</td>
+<td align="center">1421</td>
 <td align="center">NA</td>
 <td align="center">NA</td>
 <td align="center">6</td>
@@ -216,24 +175,25 @@
 <td align="center">2020-05-25</td>
 <td align="center">Flanders</td>
 <td align="center">BE-VLG</td>
-<td align="center">184</td>
-<td align="center">32376</td>
+<td align="center">183</td>
+<td align="center">32381</td>
 <td align="center">14</td>
-<td align="center">4673</td>
+<td align="center">4681</td>
 <td align="center">NA</td>
 <td align="center">NA</td>
 <td align="center">29</td>
-<td align="center">9428</td>
+<td align="center">9334</td>
 <td align="center">NA</td>
 <td align="center">NA</td>
 </tr>
 </tbody>
 </table>
-<ol>
-<li>Totals only (cumulative data) up to the latest date available in the data (usually today’s date or yesterday). To get data in this format use:</li>
-</ol>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_totals_only_regional_covid_data.html">get_totals_only_regional_covid_data</a></span>(<span class="st">"Belgium"</span>)
+<div id="totals" class="section level4">
+<h4 class="hasAnchor">
+<a href="#totals" class="anchor"></a>Totals</h4>
+<p>For totals data, use the <code>totals</code> argument.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span>(<span class="st">"Belgium"</span>, totals = <span class="fl">TRUE</span>)
 </pre></div>
 <p>This returns a dataset with the following structure</p>
 <table class="table">
@@ -251,7 +211,7 @@
 <th align="center"><strong>iso_code</strong></th>
 <th align="center"><strong>cases_total</strong></th>
 <th align="center"><strong>deaths_total</strong></th>
-<th align="center"><strong>recoveries_total</strong></th>
+<th align="center"><strong>recovered_total</strong></th>
 <th align="center"><strong>hosp_total</strong></th>
 <th align="center"><strong>tested_total</strong></th>
 </tr></thead>
@@ -259,63 +219,189 @@
 <tr class="odd">
 <td align="center">Flanders</td>
 <td align="center">BE-VLG</td>
-<td align="center">32817</td>
-<td align="center">4731</td>
+<td align="center">34195</td>
+<td align="center">4878</td>
 <td align="center">0</td>
-<td align="center">9550</td>
+<td align="center">9694</td>
 <td align="center">0</td>
 </tr>
 <tr class="even">
 <td align="center">Wallonia</td>
 <td align="center">BE-WAL</td>
-<td align="center">18489</td>
-<td align="center">3292</td>
+<td align="center">19093</td>
+<td align="center">3362</td>
 <td align="center">0</td>
-<td align="center">5187</td>
+<td align="center">5321</td>
 <td align="center">0</td>
 </tr>
 <tr class="odd">
 <td align="center">Brussels</td>
 <td align="center">BE-BRU</td>
-<td align="center">5914</td>
-<td align="center">1463</td>
+<td align="center">6229</td>
+<td align="center">1482</td>
 <td align="center">0</td>
-<td align="center">2560</td>
+<td align="center">2657</td>
 <td align="center">0</td>
 </tr>
 </tbody>
 </table>
-<p>Dates will always be in YYYY-MM-DD format and the ISO codes are ISO-3166-2 codes. The data fields for counts returned will <em>always</em> be the same for standardisation reasons, though if the corresponding data was missing from the original source then that data field will be all NA values (or 0 if accessing totals data). Note that some rows may have NA in <code>*_new</code> data fields if the data was missing from the source also.</p>
-<p>The counts included in data from covidregionaldata are</p>
-<ul>
-<li>cases (number of confirmed cases)</li>
-<li>deaths (number of confirmed deaths)</li>
-<li>recovered (number of confirmed recoveries)</li>
-<li>hosp (number of people admitted to hospital - note that <code>hosp_total</code> is cumulative total of people hospitalised, not total currently in hospital)</li>
-<li>tested (number of tests completed)</li>
-</ul>
-<p>Each count data field will have either <code>_new</code> or <code>_total</code> as a suffix; those with <code>*_new</code> names are new counts for the day/region in question; those with <code>*_total</code> names are cumulative counts for that region up to and including the date.</p>
-<div id="region-levels" class="section level4">
+</div>
+<div id="level-2-regions" class="section level4">
 <h4 class="hasAnchor">
-<a href="#region-levels" class="anchor"></a>Region Levels</h4>
-<p>All countries have data for regions at the admin-1 level, the largest regions available (e.g. state in the USA). <em>Some</em> countries have data for regions at the admin-2 level (e.g. county in the USA). Requesting data stratified by Level 2 regions instead of Level 1 is done by using the <code>include_level_2_regions</code> logical argument in the functions above. Note that <code><a href="reference/get_long_format_regional_covid_data.html">covidregionaldata::get_long_format_regional_covid_data()</a></code> does not support this currently.</p>
-<p>The datasets will also have the corresponding level 1 region included along with its ISO-3166-2 code.</p>
+<a href="#level-2-regions" class="anchor"></a>Level 2 regions</h4>
+<p>All countries have data for regions at the admin-1 level, usually the largest regions available (e.g. state in the USA). <em>Some</em> countries have data for regions at the admin-2 level (e.g. county in the USA). Requesting data stratified by Level 2 regions instead of Level 1 is done by using the <code>include_level_2_regions</code> logical argument as discussed above. The datasets will also have the corresponding level 1 region included along with its corresponding code.</p>
 <p>For an example of requesting Level 2 regions:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_wide_format_regional_covid_data.html">get_wide_format_regional_covid_data</a></span>(<span class="st">"Belgium"</span>, include_level_2_regions = <span class="fl">TRUE</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span>(<span class="st">"Belgium"</span>, include_level_2_regions = <span class="fl">TRUE</span>)
 </pre></div>
-<p>This returns a dataset with the following structure <strong>date</strong>|<strong>province</strong>|<strong>region</strong>|<strong>iso_code</strong>|<strong>cases_new</strong>|<strong>cases_total</strong>|<strong>deaths_new</strong>|<strong>deaths_total</strong>|<strong>recoveries_new</strong>|<strong>recoveries_total</strong>|<strong>hospitalisations_new</strong>|<strong>hospitalisations_total</strong>|<strong>tests_new</strong>|<strong>tests_total</strong> :—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–: 2020-05-24|Antwerpen|Flanders|BE-VLG|16|7905|NA|NA|NA|NA|5|2510|NA|NA 2020-05-24|BrabantWallon|Wallonia|BE-WAL|4|1421|NA|NA|NA|NA|0|224|NA|NA 2020-05-24|Brussels|Brussels|BE-BRU|7|5804|NA|NA|NA|NA|4|2527|NA|NA</p>
+<p>This returns a dataset with the following structure</p>
+<table class="table">
+<colgroup>
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+</colgroup>
+<thead><tr class="header">
+<th align="center"><strong>date</strong></th>
+<th align="center"><strong>province</strong></th>
+<th align="center"><strong>level_2_region_code</strong></th>
+<th align="center"><strong>region</strong></th>
+<th align="center"><strong>iso_code</strong></th>
+<th align="center"><strong>cases_new</strong></th>
+<th align="center"><strong>cases_total</strong></th>
+<th align="center"><strong>deaths_new</strong></th>
+<th align="center"><strong>deaths_total</strong></th>
+<th align="center"><strong>recovered_new</strong></th>
+<th align="center"><strong>recovered_total</strong></th>
+<th align="center"><strong>hosp_new</strong></th>
+<th align="center"><strong>hosp_total</strong></th>
+<th align="center"><strong>tested_new</strong></th>
+<th align="center"><strong>tested_total</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">2020-05-24</td>
+<td align="center">Brussels</td>
+<td align="center">BE-BRU</td>
+<td align="center">Brussels</td>
+<td align="center">BE-BRU</td>
+<td align="center">7</td>
+<td align="center">5812</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">4</td>
+<td align="center">2527</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center">2020-05-24</td>
+<td align="center">Antwerpen</td>
+<td align="center">BE-VAN</td>
+<td align="center">Flanders</td>
+<td align="center">BE-VLG</td>
+<td align="center">16</td>
+<td align="center">7905</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">5</td>
+<td align="center">2510</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+<tr class="odd">
+<td align="center">2020-05-24</td>
+<td align="center">Limburg</td>
+<td align="center">BE-VLI</td>
+<td align="center">Flanders</td>
+<td align="center">BE-VLG</td>
+<td align="center">14</td>
+<td align="center">6126</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">2</td>
+<td align="center">1848</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="data-glossary" class="section level3">
+<h3 class="hasAnchor">
+<a href="#data-glossary" class="anchor"></a>Data Glossary</h3>
+<p>The possible data columns that will be returned by <code><a href="reference/get_regional_data.html">get_regional_data()</a></code> are listed below. Note that Date is not included if <code>totals</code> is FALSE, and level 2 region/level 2 region code are not included if <code>include_level_2_regions</code> is FALSE.</p>
+<p>The columns returned for each country will <em>always</em> be the same for standardisation reasons, though if the corresponding data was missing from the original source then that data field will be all NA values (or 0 if accessing totals data). Some rows may also be all NA in <code>*_new</code> data cells if the data for that date was missing from the source also.</p>
+<ul>
+<li>
+<code>date</code>: the date that the counts were reported (YYYY-MM-DD).</li>
+<li>
+<code>level 1 region</code>: The level 1 region. This column will be named differently for different countries (e.g. state, province).</li>
+<li>
+<code>level 1 region code</code>: A standard code for the level 1 region. The column will be named differently for different countries (e.g. iso_3166_2, ons).</li>
+<li>
+<code>level 2 region</code>: The level 2 region. This column will be named differently for different countries (e.g. city, county).</li>
+<li>
+<code>level 2 region code</code>: A standard code for the level 2 region. The column will be named differently for different countries (e.g. iso_3166_2, fips).</li>
+<li>
+<code>cases_new</code>: new reported cases for that day</li>
+<li>
+<code>cases_total</code>: total reported cases up to and including that day</li>
+<li>
+<code>deaths_new</code>: new reported deaths for that day</li>
+<li>
+<code>deaths_total</code>: total reported deaths up to and including that day</li>
+<li>
+<code>recovered_new</code>: new reported recoveries for that day</li>
+<li>
+<code>recovered_total</code>: total reported recoveries up to and including that day</li>
+<li>
+<code>hosp_new</code>: new reported hospitalisations for that day</li>
+<li>
+<code>hosp_total</code>: total reported hospitalisations up to and including that day (note this is cumulative total of new reported, <em>not</em> total currently in hospital)</li>
+<li>
+<code>tested_new</code>: tests for that day</li>
+<li>
+<code>tested_total</code>: total tests completed up to and including that day</li>
+</ul>
+</div>
+<div id="coverage" class="section level3">
+<h3 class="hasAnchor">
+<a href="#coverage" class="anchor"></a>Coverage</h3>
 <p>Currently we include functions for sub-national data in the following countries (* indicates data for level 2 regions as well):</p>
 <p>Europe</p>
 <ul>
 <li><p>Belgium (*)</p></li>
 <li><p>Germany (*)</p></li>
 <li><p>Italy</p></li>
+<li><p>Russia</p></li>
+<li><p>UK (*)</p></li>
 </ul>
 <p>Americas</p>
 <ul>
 <li><p>Brazil (*)</p></li>
 <li><p>Canada</p></li>
+<li><p>Colombia</p></li>
+<li><p>USA (*)</p></li>
 </ul>
 <p>Asia</p>
 <ul>
@@ -324,10 +410,10 @@
 </ul>
 </div>
 </div>
-<div id="worldwide-data" class="section level3">
-<h3 class="hasAnchor">
-<a href="#worldwide-data" class="anchor"></a>Worldwide data</h3>
-<p>There are two sources of worldwide, country-level data on cases and deaths.</p>
+<div id="worldwide-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#worldwide-data" class="anchor"></a>Worldwide data</h2>
+<p>Worldwide data is also included in the package to aid analysis. There are three sources of worldwide, country-level data on cases and deaths.</p>
 <ol>
 <li>Extract total global cases and deaths by country, and specify source, using:</li>
 </ol>
@@ -354,7 +440,6 @@
 <ul>
 <li><code><a href="reference/get_linelist.html">covidregionaldata::get_linelist()</a></code></li>
 </ul>
-</div>
 </div>
 <div id="development" class="section level2">
 <h2 class="hasAnchor">

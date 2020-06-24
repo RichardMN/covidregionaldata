@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Helper function to fetch daily COVID cases by province for Canada and do dataset-specific processing before passing to get_regional_covid_data() — get_canada_regional_cases • covidregionaldata</title>
+<title>Canadian Regional Daily COVID-19 Count Data - Provinces — get_canada_regional_cases • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,10 @@
 
 
 
-<meta property="og:title" content="Helper function to fetch daily COVID cases by province for Canada and do dataset-specific processing before passing to get_regional_covid_data() — get_canada_regional_cases" />
-<meta property="og:description" content="Fetches daily COVID cases, and deaths by province collated by Provincial Canadian Health Authorities
-Data is available at https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html
-selects the relevant columns, sanitises various columns and gets the daily counts from cumulative columns." />
+<meta property="og:title" content="Canadian Regional Daily COVID-19 Count Data - Provinces — get_canada_regional_cases" />
+<meta property="og:description" content="Extracts daily COVID-19 data for Canada, stratified by province.
+Data available at  https://health-infobase.canada.ca/src/data/covidLive/covid19.csv.
+It is loaded and then sanitised." />
 
 
 
@@ -114,15 +114,15 @@ selects the relevant columns, sanitises various columns and gets the daily count
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Helper function to fetch daily COVID cases by province for Canada and do dataset-specific processing before passing to get_regional_covid_data()</h1>
+    <h1>Canadian Regional Daily COVID-19 Count Data - Provinces</h1>
     
     <div class="hidden name"><code>get_canada_regional_cases.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Fetches daily COVID cases, and deaths by province collated by Provincial Canadian Health Authorities
-Data is available at https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html
-selects the relevant columns, sanitises various columns and gets the daily counts from cumulative columns.</p>
+    <p>Extracts daily COVID-19 data for Canada, stratified by province.
+Data available at  <a href='https://health-infobase.canada.ca/src/data/covidLive/covid19.csv'>https://health-infobase.canada.ca/src/data/covidLive/covid19.csv</a>.
+It is loaded and then sanitised.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_canada_regional_cases</span>()</pre>
@@ -130,7 +130,7 @@ selects the relevant columns, sanitises various columns and gets the daily count
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame of COVID cases by province in Canada, ready to be used by get_regional_covid_data()</p>
+    <p>A data frame of COVID cases by province in Canada, ready to be used by <code>get_regional_data()</code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

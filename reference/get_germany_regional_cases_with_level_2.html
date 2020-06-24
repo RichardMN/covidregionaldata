@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get German daily cases by Landkreis — get_germany_regional_cases_with_level_2 • covidregionaldata</title>
+<title>German Regional Daily COVID-19 Count Data - Landkreis — get_germany_regional_cases_with_level_2 • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,11 +39,10 @@
 
 
 
-<meta property="og:title" content="Get German daily cases by Landkreis — get_germany_regional_cases_with_level_2" />
-<meta property="og:description" content="Fetches COVID case counts stratified by Landkreis in Germany.
-This data is sourced from the Robert Koch Institute:
-https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0
-selects and sanitises the relevant columns" />
+<meta property="og:title" content="German Regional Daily COVID-19 Count Data - Landkreis — get_germany_regional_cases_with_level_2" />
+<meta property="og:description" content="Extracts daily COVID-19 data for Germany, stratified by Landkreis.
+Data available at  https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.csv.
+It is loaded and then sanitised." />
 
 
 
@@ -115,16 +114,15 @@ selects and sanitises the relevant columns" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get German daily cases by Landkreis</h1>
+    <h1>German Regional Daily COVID-19 Count Data - Landkreis</h1>
     
     <div class="hidden name"><code>get_germany_regional_cases_with_level_2.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Fetches COVID case counts stratified by Landkreis in Germany.
-This data is sourced from the Robert Koch Institute:
-https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0
-selects and sanitises the relevant columns</p>
+    <p>Extracts daily COVID-19 data for Germany, stratified by Landkreis.
+Data available at  <a href='https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.csv'>https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.csv</a>.
+It is loaded and then sanitised.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_germany_regional_cases_with_level_2</span>()</pre>
@@ -132,7 +130,7 @@ selects and sanitises the relevant columns</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame of COVID cases by region in Germany, ready to be used by get_regional_covid_data()</p>
+    <p>A data.frame of COVID cases by Landkreis in Germany, ready to be used by get_regional_data().</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

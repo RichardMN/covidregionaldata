@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Brazilian Regional Daily COVID-19 Count Data - Cities — get_brazil_regional_cases_with_level_2 • covidregionaldata</title>
+<title>Get a table of ISO codes for a specified country — get_iso_codes • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,8 @@
 
 
 
-<meta property="og:title" content="Brazilian Regional Daily COVID-19 Count Data - Cities — get_brazil_regional_cases_with_level_2" />
-<meta property="og:description" content="Extracts regional case and death counts for Brazil, stratified by city.
-Data available on Github, curated by Wesley Cota: DOI 10.1590/SciELOPreprints.362
-https://github.com/wcota/covid19br. It is loaded and then sanitised." />
+<meta property="og:title" content="Get a table of ISO codes for a specified country — get_iso_codes" />
+<meta property="og:description" content="Get a table of ISO codes for a specified country" />
 
 
 
@@ -114,20 +112,29 @@ https://github.com/wcota/covid19br. It is loaded and then sanitised." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Brazilian Regional Daily COVID-19 Count Data - Cities</h1>
+    <h1>Get a table of ISO codes for a specified country</h1>
     
-    <div class="hidden name"><code>get_brazil_regional_cases_with_level_2.Rd</code></div>
+    <div class="hidden name"><code>get_iso_codes.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extracts regional case and death counts for Brazil, stratified by city.
-Data available on Github, curated by Wesley Cota: DOI 10.1590/SciELOPreprints.362
-<a href='https://github.com/wcota/covid19br'>https://github.com/wcota/covid19br</a>. It is loaded and then sanitised.</p>
+    <p>Get a table of ISO codes for a specified country</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_brazil_regional_cases_with_level_2</span>()</pre>
+    <pre class="usage"><span class='fu'>get_iso_codes</span>(<span class='kw'>country</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>country</th>
+      <td><p>a string with a country specified</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a tibble of regions and their corresponding ISO codes</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

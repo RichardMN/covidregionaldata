@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get Russia daily cases — get_russia_regional_cases • covidregionaldata</title>
+<title>Russian Regional Daily COVID-19 Count Data - Region — get_russia_regional_cases • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,11 @@
 
 
 
-<meta property="og:title" content="Get Russia daily cases — get_russia_regional_cases" />
-<meta property="og:description" content="Fetches COVID case counts by region
-This data is sourced from https://github.com/grwlf/COVID-19_plus_Russia#data-sources" />
+<meta property="og:title" content="Russian Regional Daily COVID-19 Count Data - Region — get_russia_regional_cases" />
+<meta property="og:description" content="Extracts daily COVID-19 data for Russia, stratified by Region.
+Data available at
+https://raw.githubusercontent.com/grwlf/COVID-19_plus_Russia/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_RU.csv.
+It is loaded and then sanitised." />
 
 
 
@@ -113,14 +115,16 @@ This data is sourced from https://github.com/grwlf/COVID-19_plus_Russia#data-sou
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get Russia daily cases</h1>
+    <h1>Russian Regional Daily COVID-19 Count Data - Region</h1>
     
     <div class="hidden name"><code>get_russia_regional_cases.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Fetches COVID case counts by region
-This data is sourced from https://github.com/grwlf/COVID-19_plus_Russia#data-sources</p>
+    <p>Extracts daily COVID-19 data for Russia, stratified by Region.
+Data available at
+<a href='https://raw.githubusercontent.com/grwlf/COVID-19_plus_Russia/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_RU.csv'>https://raw.githubusercontent.com/grwlf/COVID-19_plus_Russia/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_RU.csv</a>.
+It is loaded and then sanitised.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_russia_regional_cases</span>()</pre>
@@ -128,23 +132,8 @@ This data is sourced from https://github.com/grwlf/COVID-19_plus_Russia#data-sou
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A dataframe of case counts in Russian regions</p>
+    <p>A data frame of daily COVID cases for Russia by region, to be further processed by <code>get_regional_data()</code>.</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-
-<span class='kw'>Mapping</span>
-<span class='kw'>regions</span> <span class='op'>&lt;-</span> <span class='kw'>rnaturalearth</span>::<span class='fu'>ne_states</span>(geounit = <span class='st'>"Russia"</span>, returnclass = <span class='st'>"sf"</span>)
-<span class='kw'>data</span> <span class='op'>&lt;-</span> <span class='fu'>get_russia_regional_cases</span>() <span class='op'>%&gt;%</span>
-  <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>date</span> <span class='op'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>date</span>))
-<span class='kw'>regions_with_data</span> <span class='op'>&lt;-</span> <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span>(<span class='kw'>regions</span>, <span class='kw'>data</span>, by = <span class='st'>"iso_3166_2"</span>)
-<span class='kw'>regions_with_data</span> <span class='op'>%&gt;%</span>
-  <span class='kw'>ggplot2</span>::<span class='fu'>ggplot</span>(<span class='kw'>ggplot2</span>::<span class='fu'>aes</span>(fill = <span class='kw'>cases</span>)) <span class='op'>+</span>
-  <span class='kw'>ggplot2</span>::<span class='fu'>geom_sf</span>() <span class='op'>+</span>
-  <span class='kw'>ggplot2</span>::<span class='fu'>coord_sf</span>(xlim = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>20</span>, <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>sf</span>::<span class='fu'>st_coordinates</span>(<span class='kw'>regions_with_data</span>))))
-  }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

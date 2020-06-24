@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Italian Regional Covid-19 Data — get_italy_regional_cases • covidregionaldata</title>
+<title>Regional Daily COVID-19 Count Data — get_italy_regional_cases • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Italian Regional Covid-19 Data — get_italy_regional_cases" />
-<meta property="og:description" content="Fetches COVID data by region. Data is collated by the Italian Department of Civil Protection
-and is available on github: https://github.com/pcm-dpc/COVID-19. Cleans and sanitises ready for further use." />
+<meta property="og:title" content="Regional Daily COVID-19 Count Data — get_italy_regional_cases" />
+<meta property="og:description" content="Extracts daily COVID-19 data for Italy, stratified by Region.
+Data available at  https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni-__date__.csv.
+It is loaded and then sanitised." />
 
 
 
@@ -113,14 +114,15 @@ and is available on github: https://github.com/pcm-dpc/COVID-19. Cleans and sani
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Italian Regional Covid-19 Data</h1>
+    <h1>Regional Daily COVID-19 Count Data</h1>
     
     <div class="hidden name"><code>get_italy_regional_cases.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Fetches COVID data by region. Data is collated by the Italian Department of Civil Protection
-and is available on github: https://github.com/pcm-dpc/COVID-19. Cleans and sanitises ready for further use.</p>
+    <p>Extracts daily COVID-19 data for Italy, stratified by Region.
+Data available at  <a href='https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni-__date__.csv'>https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni-__date__.csv</a>.
+It is loaded and then sanitised.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_italy_regional_cases</span>()</pre>
@@ -128,7 +130,7 @@ and is available on github: https://github.com/pcm-dpc/COVID-19. Cleans and sani
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame of Italian regional case counts ready to be used by <code>get_regional_covid_data()</code></p>
+    <p>A data frame of daily COVID cases for Italy by region, to be further processed by <code>get_regional_data()</code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

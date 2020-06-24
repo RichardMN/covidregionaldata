@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Brazilian Regional Daily COVID-19 Count Data - Cities — get_brazil_regional_cases_with_level_2 • covidregionaldata</title>
+<title>Lookup table for local authority structure for the UK — get_authority_lookup_table • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,9 @@
 
 
 
-<meta property="og:title" content="Brazilian Regional Daily COVID-19 Count Data - Cities — get_brazil_regional_cases_with_level_2" />
-<meta property="og:description" content="Extracts regional case and death counts for Brazil, stratified by city.
-Data available on Github, curated by Wesley Cota: DOI 10.1590/SciELOPreprints.362
-https://github.com/wcota/covid19br. It is loaded and then sanitised." />
+<meta property="og:title" content="Lookup table for local authority structure for the UK — get_authority_lookup_table" />
+<meta property="og:description" content="Gets data from https://opendata.arcgis.com/datasets/72e57d3ab1054e169c55afff3c9c1aa4_0.csv
+and then uses this to create a table of authorities and their corresponding higher level regions" />
 
 
 
@@ -114,20 +113,22 @@ https://github.com/wcota/covid19br. It is loaded and then sanitised." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Brazilian Regional Daily COVID-19 Count Data - Cities</h1>
+    <h1>Lookup table for local authority structure for the UK</h1>
     
-    <div class="hidden name"><code>get_brazil_regional_cases_with_level_2.Rd</code></div>
+    <div class="hidden name"><code>get_authority_lookup_table.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extracts regional case and death counts for Brazil, stratified by city.
-Data available on Github, curated by Wesley Cota: DOI 10.1590/SciELOPreprints.362
-<a href='https://github.com/wcota/covid19br'>https://github.com/wcota/covid19br</a>. It is loaded and then sanitised.</p>
+    <p>Gets data from <a href='https://opendata.arcgis.com/datasets/72e57d3ab1054e169c55afff3c9c1aa4_0.csv'>https://opendata.arcgis.com/datasets/72e57d3ab1054e169c55afff3c9c1aa4_0.csv</a>
+and then uses this to create a table of authorities and their corresponding higher level regions</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_brazil_regional_cases_with_level_2</span>()</pre>
+    <pre class="usage"><span class='fu'>get_authority_lookup_table</span>()</pre>
 
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A tibble of UK local authorities</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

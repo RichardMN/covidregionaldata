@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get UK daily cases — get_uk_regional_cases_with_level_2 • covidregionaldata</title>
+<title>UK Regional Daily COVID-19 Count Data - Authority — get_uk_regional_cases_with_level_2 • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,11 @@
 
 
 
-<meta property="og:title" content="Get UK daily cases — get_uk_regional_cases_with_level_2" />
-<meta property="og:description" content="Get UK cases by country or region" />
+<meta property="og:title" content="UK Regional Daily COVID-19 Count Data - Authority — get_uk_regional_cases_with_level_2" />
+<meta property="og:description" content="Extracts daily COVID-19 data for the UK, stratified by region.
+Data for England available at  https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv.
+Data for Wales, Scotland and Northern Ireland available at https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv.
+It is loaded and then sanitised." />
 
 
 
@@ -112,31 +115,24 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get UK daily cases</h1>
+    <h1>UK Regional Daily COVID-19 Count Data - Authority</h1>
     
     <div class="hidden name"><code>get_uk_regional_cases_with_level_2.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get UK cases by country or region</p>
+    <p>Extracts daily COVID-19 data for the UK, stratified by region.
+Data for England available at  <a href='https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'>https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv</a>.
+Data for Wales, Scotland and Northern Ireland available at <a href='https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv'>https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv</a>.
+It is loaded and then sanitised.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_uk_regional_cases_with_level_2</span>()</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>geography</th>
-      <td><p>Character string identifying which part of the UK to extract and at what scale
-Defaults to "all countries". Options are: "all countries", "all regions", "England", "Scotland", "Northern Ireland", "Wales".
-Note that England always returns 9 English regions, and Nothern Ireland always returns as one country</p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A dataframe of case counts. By default returns cases in English regions, and Scotland, Wales, and Northern Ireland</p>
+    <p>A data frame of daily COVID cases for the UK by local authority, to be further processed by <code>get_regional_data()</code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
