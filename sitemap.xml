@@ -22,10 +22,7 @@
     <loc>epiforecasts.io/covidregionaldata//reference/fill_empty_dates_with_na.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/format_ecdc_data.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_afghan_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_afghan_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_afghan_regional_cases.html</loc>
@@ -34,10 +31,10 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_authority_lookup_table.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_level_2_codes.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_level_2_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_regional_cases_only_level_1.html</loc>
@@ -46,10 +43,10 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_belgium_regional_cases_with_level_2.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_level_2_codes.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_level_2_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_regional_cases_only_level_1.html</loc>
@@ -58,13 +55,13 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_brazil_regional_cases_with_level_2.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_canada_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_canada_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_canada_regional_cases.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_colombia_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_colombia_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_colombia_regional_cases.html</loc>
@@ -79,10 +76,10 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_ecdc_cases.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_germany_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_germany_level_2_codes.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_germany_level_2_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_germany_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_germany_regional_cases_only_level_1.html</loc>
@@ -91,7 +88,7 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_germany_regional_cases_with_level_2.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_india_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_india_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_india_regional_cases.html</loc>
@@ -106,46 +103,34 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_interventions_data.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_iso_codes.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_italy_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_italy_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_italy_regional_cases.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_japan_regional_cases.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_korea_regional_cases.html</loc>
-  </url>
-  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_level_2_region_codes.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_linelist.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_national_data.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_regional_data.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_russia_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_russia_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_russia_regional_cases.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_spain_regional_cases.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_total_cases.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_uk_iso_codes.html</loc>
-  </url>
-  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_uk_level_2_codes.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_uk_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_uk_regional_cases_only_level_1.html</loc>
@@ -154,10 +139,10 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_uk_regional_cases_with_level_2.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_us_iso_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_us_level_2_codes.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_us_level_2_codes.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_us_region_codes.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_us_regional_cases_only_level_1.html</loc>
@@ -172,9 +157,6 @@
     <loc>epiforecasts.io/covidregionaldata//reference/left_join_region_codes.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/pipe.html</loc>
-  </url>
-  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_afghanistan.html</loc>
   </url>
   <url>
@@ -187,6 +169,9 @@
     <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_canada.html</loc>
   </url>
   <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_colombia.html</loc>
+  </url>
+  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_germany.html</loc>
   </url>
   <url>
@@ -194,6 +179,18 @@
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_italy.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_russia.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_uk.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_usa.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/rename_region_code_column.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/rename_region_column.html</loc>

@@ -156,7 +156,7 @@
 <div id="architecture" class="section level3">
 <h3 class="hasAnchor">
 <a href="#architecture" class="anchor"></a>Architecture</h3>
-<p>covidregionaldata has one main data getter function for subregional data, the <code>get_regional_data()</code> function. The function calls country-specific data getters (dependent on the country given by the user), and then mostly uses helpers from the <code>helper.R</code> file to clean and sanitise the data.</p>
+<p>covidregionaldata has one main data getter function for subregional data, the <code><a href="reference/get_regional_data.html">get_regional_data()</a></code> function. The function calls country-specific data getters (dependent on the country given by the user), and then mostly uses helpers from the <code>helper.R</code> file to clean and sanitise the data.</p>
 <p>In general these are the steps it follows (see picture below for a diagram).</p>
 <ol>
 <li>Handling errors related to arguments.</li>
@@ -164,7 +164,7 @@
 <li>Getting the ISO codes for the country using <code>get_iso_codes(&lt;country&gt;)</code> and left-joining them to the data.</li>
 <li>Cleaning the data using some of the helper functions.</li>
 <li>
-<em>If</em> the user requested totals only, returning the data (summing up of the data is done in the <code>totalise_data()</code> helper function).</li>
+<em>If</em> the user requested totals only, returning the data (summing up of the data is done in the <code><a href="reference/totalise_data.html">totalise_data()</a></code> helper function).</li>
 <li>
 <em>If not</em>, further cleaning using the helper functions and then returning the data.</li>
 </ol>
@@ -205,7 +205,7 @@
 </ul>
 <ol>
 <li><p>Write documentation using <code>#'</code> roxygen styling and then call <code>roxygen2::roxygenise()</code> when done to update the manual and NAMESPACE. There is no need to export your function but be sure to import any functions you do use from other packages.</p></li>
-<li><p>Add your function(s) in the switch() calls in the <code>get_regional_data()</code>, <code>get_iso_codes()</code> and <code>rename_region_column()</code> functions. ISO-3166-2 codes can be found using Wikipedia.</p></li>
+<li><p>Add your function(s) in the switch() calls in the <code><a href="reference/get_regional_data.html">get_regional_data()</a></code>, <code>get_iso_codes()</code> and <code><a href="reference/rename_region_column.html">rename_region_column()</a></code> functions. ISO-3166-2 codes can be found using Wikipedia.</p></li>
 </ol>
 </div>
 <div id="writing-new-helper-functions" class="section level4">
@@ -238,7 +238,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Katharine Sherratt, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">

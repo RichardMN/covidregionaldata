@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Get International Linelist Data — get_international_linelist" />
-<meta property="og:description" content="This function downloads the latest non-Hubei linelist. It uses memoise to cache the
+<meta property="og:description" content="This function downloads the latest international linelist. It uses memoise to cache the
 results locally. To clear the cache and redownload the data use reset_cache. The cache will be located
 in the directory at which the function is run. As this linelist is experiencing a high user demand it may not always be available.
 To account for this we keep a cache in the covidregionaldata GitHub repo which this function will fall back to with a warning if the source
@@ -122,38 +122,25 @@ cannot be downloaded." />
     </div>
 
     <div class="ref-description">
-    <p>This function downloads the latest non-Hubei linelist. It uses <code>memoise</code> to cache the
+    <p>This function downloads the latest international linelist. It uses <code>memoise</code> to cache the
 results locally. To clear the cache and redownload the data use <code>reset_cache</code>. The cache will be located
 in the directory at which the function is run. As this linelist is experiencing a high user demand it may not always be available.
 To account for this we keep a cache in the <code>covidregionaldata</code> GitHub repo which this function will fall back to with a warning if the source
 cannot be downloaded.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_international_linelist</span>(
-  countries = <span class='kw'>NULL</span>,
-  cities = <span class='kw'>NULL</span>,
-  provinces = <span class='kw'>NULL</span>,
-  clean = <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>get_international_linelist</span>(clean_dates = <span class='fl'>TRUE</span>, report_delay_only = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>countries</th>
-      <td><p>Character vector identifying the countries to extract data for.</p></td>
-    </tr>
-    <tr>
-      <th>cities</th>
-      <td><p>Character vector identifying the cities to extract data for.</p></td>
-    </tr>
-    <tr>
-      <th>provinces</th>
-      <td><p>Character vector identifying the provinces to extract data for.</p></td>
-    </tr>
-    <tr>
-      <th>clean</th>
+      <th>clean_dates</th>
       <td><p>Logical, defaults to <code>TRUE</code>. Should the data returned be cleaned for use.</p></td>
+    </tr>
+    <tr>
+      <th>report_delay_only</th>
+      <td><p>Logical, defaults to <code>FALSE</code>. Should only certain variables (id, country, onset date, days' delay), and observations (patients with a report delay) be returned</p></td>
     </tr>
     </table>
 
@@ -166,57 +153,49 @@ cannot be downloaded.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>get_international_linelist</span></div><div class='output co'>#&gt; function (countries = NULL, cities = NULL, provinces = NULL, 
-#&gt;     clean = TRUE) 
+<span class='kw'>get_international_linelist</span></div><div class='output co'>#&gt; function (clean_dates = TRUE, report_delay_only = FALSE) 
 #&gt; {
-#&gt;     country &lt;- NULL
-#&gt;     city &lt;- NULL
-#&gt;     travel_history_location &lt;- NULL
-#&gt;     travel_history_dates &lt;- NULL
-#&gt;     date_confirmation &lt;- NULL
-#&gt;     date_onset_symptoms &lt;- NULL
-#&gt;     date_confirm &lt;- NULL
-#&gt;     date_onset &lt;- NULL
-#&gt;     report_delay &lt;- NULL
-#&gt;     import_status &lt;- NULL
-#&gt;     message("Downloading linelist data")
-#&gt;     ch &lt;- memoise::cache_filesystem(".cache")
+#&gt;     message("Downloading linelist")
 #&gt;     url &lt;- "https://raw.github.com/beoutbreakprepared/nCoV2019/master/latest_data/latestdata.tar.gz"
-#&gt;     mem_read &lt;- memoise::memoise(readr::read_csv, cache = ch)
-#&gt;     linelist &lt;- suppressWarnings(suppressMessages(try(R.utils::withTimeout(mem_read(url) %&gt;% 
-#&gt;         tibble::as_tibble(), timeout = 15, onTimeout = "error"), 
-#&gt;         silent = TRUE)))
-#&gt;     if (any(class(linelist) %in% "try-error")) {
-#&gt;         warning("Could not access linelist source. Using the covidregionaldata cache, this may not be up to date.\n    See the git history to confirm last cache date.")
-#&gt;         url &lt;- "https://raw.githubusercontent.com/epiforecasts/covideregionaldata/master/data-raw/linelist.csv"
-#&gt;         linelist &lt;- suppressWarnings(suppressMessages(mem_read(url) %&gt;% 
+#&gt;     download.file(url, destfile = "tmp.tar.gz")
+#&gt;     linelist &lt;- untar("tmp.tar.gz", files = "latestdata.csv") %&gt;% 
+#&gt;         tibble::as_tibble()
+#&gt;     if (any(class(linelist) %in% "try-error") | nrow(linelist) == 
+#&gt;         1) {
+#&gt;         if (nrow(linelist) == 1) {
+#&gt;             message("Problem reading linelist")
+#&gt;         }
+#&gt;         else {
+#&gt;             message("Problem getting linelist source")
+#&gt;         }
+#&gt;         date &lt;- list.files("data-raw/linelist-delays")[1]
+#&gt;         date &lt;- sub("linelist-delays-", "", date)
+#&gt;         date &lt;- sub(".csv", "", date)
+#&gt;         message(paste0("Using the covidregionaldata cache for report delays. Cache may not be up to date: downloaded on ", 
+#&gt;             date))
+#&gt;         path &lt;- paste0("data-raw/linelist-delays/linelist-delays-", 
+#&gt;             date, ".csv")
+#&gt;         linelist &lt;- suppressWarnings(suppressMessages(read.csv(path) %&gt;% 
 #&gt;             tibble::as_tibble()))
+#&gt;         return(linelist)
 #&gt;     }
-#&gt;     if (!is.null(countries)) {
-#&gt;         linelist &lt;- linelist %&gt;% dplyr::filter(country %in% countries)
+#&gt;     if (clean_dates) {
+#&gt;         linelist &lt;- linelist %&gt;% dplyr::mutate(date_confirm = suppressWarnings(lubridate::dmy(date_confirmation)), 
+#&gt;             date_onset = suppressWarnings(lubridate::dmy(date_onset_symptoms)), 
+#&gt;             date_admission_hospital = suppressWarnings(lubridate::dmy(date_admission_hospital)), 
+#&gt;             date_death_or_discharge = suppressWarnings(lubridate::dmy(date_death_or_discharge)), 
+#&gt;             days_onset_to_report = as.integer(as.Date(date_confirm) - 
+#&gt;                 as.Date(date_onset))) %&gt;% dplyr::select(id = ID, 
+#&gt;             country, date_onset, date_confirm, date_admission_hospital, 
+#&gt;             date_death_or_discharge, days_onset_to_report)
 #&gt;     }
-#&gt;     if (!is.null(cities)) {
-#&gt;         linelist &lt;- linelist %&gt;% dplyr::filter(city %in% cities)
-#&gt;     }
-#&gt;     if (!is.null(provinces)) {
-#&gt;         linelist &lt;- linelist %&gt;% dplyr::filter(province %in% 
-#&gt;             provinces)
-#&gt;     }
-#&gt;     if (clean) {
-#&gt;         linelist &lt;- linelist %&gt;% dplyr::mutate(travel_history_location = ifelse(travel_history_location %in% 
-#&gt;             "", NA, travel_history_location), travel_history_dates = ifelse(travel_history_dates %in% 
-#&gt;             "", NA, travel_history_dates)) %&gt;% dplyr::mutate(import_status = dplyr::if_else(!is.na(travel_history_location) | 
-#&gt;             !is.na(travel_history_dates), "imported", "local"), 
-#&gt;             date_confirm = lubridate::dmy(date_confirmation), 
-#&gt;             date_onset = lubridate::dmy(date_onset_symptoms), 
-#&gt;             report_delay = as.integer(as.Date(date_confirm) - 
-#&gt;                 as.Date(date_onset))) %&gt;% dplyr::select(date_onset, 
-#&gt;             date_confirm, report_delay, import_status, country) %&gt;% 
-#&gt;             tidyr::drop_na(date_confirm)
+#&gt;     if (report_delay_only) {
+#&gt;         linelist &lt;- dplyr::filter(linelist, !is.na(days_onset_to_report)) %&gt;% 
+#&gt;             dplyr::select(id, country, date_onset, days_onset_to_report)
 #&gt;     }
 #&gt;     return(linelist)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fced0cce650&gt;
+#&gt; &lt;bytecode: 0x7fb1a2601740&gt;
 #&gt; &lt;environment: namespace:covidregionaldata&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -229,7 +208,7 @@ cannot be downloaded.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Katharine Sherratt, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">
