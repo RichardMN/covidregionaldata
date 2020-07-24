@@ -97,9 +97,6 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_info_covidregionaldata.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_international_linelist.html</loc>
-  </url>
-  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_interventions_data.html</loc>
   </url>
   <url>
@@ -110,6 +107,9 @@
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_level_2_region_codes.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_linelist.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_national_data.html</loc>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get the latest compiled linelist — get_linelist • covidregionaldata</title>
+<title>Get Linelist Data — get_linelist • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Get the latest compiled linelist — get_linelist" />
-<meta property="og:description" content="Get the latest compiled linelist" />
+<meta property="og:title" content="Get Linelist Data — get_linelist" />
+<meta property="og:description" content="This function downloads the latest linelist. As this linelist is experiencing a high user demand it may not always be available." />
 
 
 
@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covidregionaldata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -112,61 +112,46 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get the latest compiled linelist</h1>
+    <h1>Get Linelist Data</h1>
     
     <div class="hidden name"><code>get_linelist.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get the latest compiled linelist</p>
+    <p>This function downloads the latest linelist. As this linelist is experiencing a high user demand it may not always be available.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_linelist</span>()</pre>
+    <pre class="usage"><span class='fu'>get_linelist</span>(clean_dates = <span class='fl'>TRUE</span>, report_delay_only = <span class='fl'>FALSE</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>clean_dates</th>
+      <td><p>Logical, defaults to <code>TRUE</code>. Should the data returned be cleaned for use.</p></td>
+    </tr>
+    <tr>
+      <th>report_delay_only</th>
+      <td><p>Logical, defaults to <code>FALSE</code>. Should only certain variables (id, country, onset date, days' delay), and observations (patients with a report delay) be returned</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tibble with the linelist</p>
+    <p>A linelist of case data</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Sebastian Funk <a href='mailto:sebastian.funk@lshtm.ac.uk'>sebastian.funk@lshtm.ac.uk</a></p>
+    <p>Sam Abbott <a href='mailto:sam.abbott@lshtm.ac.uk'>sam.abbott@lshtm.ac.uk</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'>## Example</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># Get the complete linelist</span>
 <span class='fu'>get_linelist</span>()
-}
 
-<span class='co'>## Code</span>
-<span class='kw'>get_linelist</span></div><div class='output co'>#&gt; function () 
-#&gt; {
-#&gt;     date_onset_symptoms_str &lt;- NULL
-#&gt;     date_admission_hospital_str &lt;- NULL
-#&gt;     ate_confirmation_str &lt;- NULL
-#&gt;     date_confirmation &lt;- NULL
-#&gt;     date_onset_symptoms &lt;- NULL
-#&gt;     date_onset_symptoms &lt;- NULL
-#&gt;     date_admission_hospital &lt;- NULL
-#&gt;     date_confirmation_str &lt;- NULL
-#&gt;     ch &lt;- memoise::cache_filesystem(".cache")
-#&gt;     mem_read &lt;- memoise::memoise(readr::read_csv, cache = ch)
-#&gt;     data &lt;- suppressWarnings(mem_read("https://raw.githubusercontent.com/beoutbreakprepared/nCoV2019/master/latest_data/latestdata.csv"))
-#&gt;     data &lt;- data %&gt;% dplyr::mutate_at(.vars = c("longitude", 
-#&gt;         "latitude"), ~ifelse(. %in% "#REF!", NA, .) %&gt;% stringr::str_trim() %&gt;% 
-#&gt;         as.numeric()) %&gt;% dplyr::mutate_all(~stringr::str_replace_all(., 
-#&gt;         "N/A", NA_character_)) %&gt;% dplyr::rename(date_onset_symptoms_str = "date_onset_symptoms", 
-#&gt;         date_admission_hospital_str = "date_admission_hospital", 
-#&gt;         date_confirmation_str = "date_confirmation") %&gt;% dplyr::mutate(date_onset_symptoms = as.Date(date_onset_symptoms_str, 
-#&gt;         format = "%d.%m.%Y"), date_admission_hospital = as.Date(date_admission_hospital_str, 
-#&gt;         format = "%d.%m.%Y"), date_confirmation = as.Date(date_confirmation_str, 
-#&gt;         format = "%d.%m.%Y")) %&gt;% dplyr::mutate(delay_confirmation = date_confirmation - 
-#&gt;         date_onset_symptoms, delay_admission = date_admission_hospital - 
-#&gt;         date_onset_symptoms)
-#&gt;     return(data)
-#&gt; }
-#&gt; &lt;bytecode: 0x7fced0dbd3f0&gt;
-#&gt; &lt;environment: namespace:covidregionaldata&gt;</div></pre>
+<span class='co'># Return the report delay only</span>
+<span class='fu'>get_linelist</span>(report_delay_only = <span class='fl'>TRUE</span>)
+
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -178,7 +163,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Katharine Sherratt, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">
