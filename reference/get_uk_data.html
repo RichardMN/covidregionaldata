@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Belgian Regional Daily COVID-19 Count Data - Regions Only — get_belgium_regional_cases_only_level_1 • covidregionaldata</title>
+<title>Get UK data - helper function to get data for a single valid area type — get_uk_data • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,9 @@
 
 
 
-<meta property="og:title" content="Belgian Regional Daily COVID-19 Count Data - Regions Only — get_belgium_regional_cases_only_level_1" />
-<meta property="og:description" content="Fetches daily COVID-19 data from Sciensano, the Belgian Institute for Health.
-Data is available at https://epistat.wiv-isp.be/covid/.
-It is loaded and then sanitised." />
+<meta property="og:title" content="Get UK data - helper function to get data for a single valid area type — get_uk_data" />
+<meta property="og:description" content="UK data download helper. Code adapted from PHE Coronavirus API for R:
+available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-sdk" />
 
 
 
@@ -114,23 +113,34 @@ It is loaded and then sanitised." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Belgian Regional Daily COVID-19 Count Data - Regions Only</h1>
-    <small class="dont-index">Source: <a href='https://github.com/epiforecasts/covidregionaldata/blob/master/R/belgium.R'><code>R/belgium.R</code></a></small>
-    <div class="hidden name"><code>get_belgium_regional_cases_only_level_1.Rd</code></div>
+    <h1>Get UK data - helper function to get data for a single valid area type</h1>
+    <small class="dont-index">Source: <a href='https://github.com/epiforecasts/covidregionaldata/blob/master/R/uk.R'><code>R/uk.R</code></a></small>
+    <div class="hidden name"><code>get_uk_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Fetches daily COVID-19 data from Sciensano, the Belgian Institute for Health.
-Data is available at <a href='https://epistat.wiv-isp.be/covid/'>https://epistat.wiv-isp.be/covid/</a>.
-It is loaded and then sanitised.</p>
+    <p>UK data download helper. Code adapted from PHE Coronavirus API for R:
+available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-sdk</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_belgium_regional_cases_only_level_1</span>()</pre>
+    <pre class="usage"><span class='fu'>get_uk_data</span>(<span class='kw'>filters</span>, progress_bar = <span class='fl'>FALSE</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>filters</th>
+      <td><p>Query filters for UK data e.g. "areaType=nation"</p></td>
+    </tr>
+    <tr>
+      <th>progress_bar</th>
+      <td><p>Display a progress bar, useful for level 2 which takes a while to load</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame of COVID cases by Region in Belgium, stratified by region, ready to be used by <code><a href='get_regional_data.html'>get_regional_data()</a></code>.</p>
+    <p>A dataframe with all variables available in public UK data</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

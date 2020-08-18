@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>UK Regional Daily COVID-19 Count Data - Authority — get_uk_regional_cases_with_level_2 • covidregionaldata</title>
+<title>UK Regional Daily COVID-19 Count Data - UTLA — get_uk_regional_cases_with_level_2 • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -39,11 +39,9 @@
 
 
 
-<meta property="og:title" content="UK Regional Daily COVID-19 Count Data - Authority — get_uk_regional_cases_with_level_2" />
-<meta property="og:description" content="Extracts daily COVID-19 data for the UK, stratified by region.
-Data for England available at  https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv.
-Data for Wales, Scotland and Northern Ireland available at https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv.
-It is loaded and then sanitised." />
+<meta property="og:title" content="UK Regional Daily COVID-19 Count Data - UTLA — get_uk_regional_cases_with_level_2" />
+<meta property="og:description" content="Extracts daily COVID-19 data for the UK, stratified by Upper Tier Local Authority
+Data source:" />
 
 
 
@@ -115,16 +113,14 @@ It is loaded and then sanitised." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>UK Regional Daily COVID-19 Count Data - Authority</h1>
-    
+    <h1>UK Regional Daily COVID-19 Count Data - UTLA</h1>
+    <small class="dont-index">Source: <a href='https://github.com/epiforecasts/covidregionaldata/blob/master/R/uk.R'><code>R/uk.R</code></a></small>
     <div class="hidden name"><code>get_uk_regional_cases_with_level_2.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extracts daily COVID-19 data for the UK, stratified by region.
-Data for England available at  <a href='https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'>https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv</a>.
-Data for Wales, Scotland and Northern Ireland available at <a href='https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv'>https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv</a>.
-It is loaded and then sanitised.</p>
+    <p>Extracts daily COVID-19 data for the UK, stratified by Upper Tier Local Authority
+Data source:</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_uk_regional_cases_with_level_2</span>()</pre>
@@ -132,7 +128,7 @@ It is loaded and then sanitised.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame of daily COVID cases for the UK by local authority, to be further processed by <code><a href='get_regional_data.html'>get_regional_data()</a></code>.</p>
+    <p>A data frame of daily COVID cases for the UK by region, to be further processed by <code><a href='get_regional_data.html'>get_regional_data()</a></code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
