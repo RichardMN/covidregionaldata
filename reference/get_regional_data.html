@@ -125,7 +125,12 @@ Then adds columns which were missing from the raw data (calculating cumulative c
 cleans and sanitises further. Adds rows and columns of NA values so that data is in a standard format.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_regional_data</span>(<span class='kw'>country</span>, totals = <span class='fl'>FALSE</span>, include_level_2_regions = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>get_regional_data</span>(
+  <span class='kw'>country</span>,
+  totals = <span class='fl'>FALSE</span>,
+  include_level_2_regions = <span class='fl'>FALSE</span>,
+  localise_regions = <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,6 +148,10 @@ Name should be the English name. For a list of options see the README.</p></td>
       <th>include_level_2_regions</th>
       <td><p>Boolean. If TRUE, returns data stratified by level 2 regions. If FALSE, stratified by Level 1.
 Note that Level 2 region data Sis not always available. In these cases the user will get a warning and the Level 1 data will be returned.</p></td>
+    </tr>
+    <tr>
+      <th>localise_regions</th>
+      <td><p>Logical, defaults to TRUE. Should region names be localised.</p></td>
     </tr>
     </table>
 
