@@ -40,8 +40,8 @@
 
 
 <meta property="og:title" content="Get UK data - helper function to get data for a single valid area type — get_uk_data" />
-<meta property="og:description" content="UK data download helper. Code adapted from PHE Coronavirus API for R:
-available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-sdk" />
+<meta property="og:description" content="UK data download helper. Data extracted using:
+https://coronavirus.data.gov.uk/details/download" />
 
 
 
@@ -73,7 +73,7 @@ available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covidregionaldata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.2</span>
       </span>
     </div>
 
@@ -81,6 +81,12 @@ available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">Home</a>
+</li>
+<li>
+  <a href="../articles/quickstart.html">Getting Started</a>
+</li>
+<li>
+  <a href="../articles/data_checks.html">Data Status</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -119,11 +125,11 @@ available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-
     </div>
 
     <div class="ref-description">
-    <p>UK data download helper. Code adapted from PHE Coronavirus API for R:
-available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-sdk</p>
+    <p>UK data download helper. Data extracted using:
+https://coronavirus.data.gov.uk/details/download</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_uk_data</span>(<span class='kw'>filters</span>, progress_bar = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>get_uk_data</span><span class='op'>(</span><span class='va'>filters</span>, release_date <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,8 +139,9 @@ available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-
       <td><p>Query filters for UK data e.g. "areaType=nation"</p></td>
     </tr>
     <tr>
-      <th>progress_bar</th>
-      <td><p>Display a progress bar, useful for level 2 which takes a while to load</p></td>
+      <th>release_date</th>
+      <td><p>Date data was released. Default is to extract latest release.
+Dates should be in the format "yyyy-mm-dd".</p></td>
     </tr>
     </table>
 
@@ -153,11 +160,11 @@ available at https://github.com/publichealthengland/coronavirus-dashboard-api-R-
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

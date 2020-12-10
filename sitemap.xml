@@ -10,6 +10,9 @@
     <loc>epiforecasts.io/covidregionaldata//reference/calculate_columns_from_existing_data.html</loc>
   </url>
   <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/check_data_sources.html</loc>
+  </url>
+  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/complete_cumulative_columns.html</loc>
   </url>
   <url>
@@ -212,5 +215,11 @@
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/totalise_data.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//articles/data_checks.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//articles/quickstart.html</loc>
   </url>
 </urlset>

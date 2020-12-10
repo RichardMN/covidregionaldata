@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covidregionaldata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.2</span>
       </span>
     </div>
 
@@ -80,6 +80,12 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">Home</a>
+</li>
+<li>
+  <a href="../articles/quickstart.html">Getting Started</a>
+</li>
+<li>
+  <a href="../articles/data_checks.html">Data Status</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -121,13 +127,13 @@
     <p>This function downloads the latest linelist. As this linelist is experiencing a high user demand it may not always be available.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_linelist</span>(clean_dates = <span class='fl'>TRUE</span>, report_delay_only = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>get_linelist</span><span class='op'>(</span>clean <span class='op'>=</span> <span class='cn'>TRUE</span>, report_delay_only <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>clean_dates</th>
+      <th>clean</th>
       <td><p>Logical, defaults to <code>TRUE</code>. Should the data returned be cleaned for use.</p></td>
     </tr>
     <tr>
@@ -144,14 +150,14 @@
     <p>Sam Abbott <a href='mailto:sam.abbott@lshtm.ac.uk'>sam.abbott@lshtm.ac.uk</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># Get the complete linelist</span>
-<span class='fu'>get_linelist</span>()
+<span class='fu'>get_linelist</span><span class='op'>(</span><span class='op'>)</span>
 
 <span class='co'># Return the report delay only</span>
-<span class='fu'>get_linelist</span>(report_delay_only = <span class='fl'>TRUE</span>)
+<span class='fu'>get_linelist</span><span class='op'>(</span>report_delay_only <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-}
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -164,11 +170,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

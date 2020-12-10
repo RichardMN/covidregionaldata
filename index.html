@@ -25,7 +25,8 @@
     Canada: &lt;https://health-infobase.canada.ca/&gt;; Colombia: &lt;https://github.com/danielcs88/colombia_covid-19&gt;;
     Germany: &lt;https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0&gt;;
     India: &lt;https://api.covid19india.org/&gt;; Italy: &lt;https://github.com/pcm-dpc/COVID-19&gt;;
-    Russia: &lt;https://github.com/grwlf/COVID-19_plus_Russia&gt;;  UK: &lt;https://coronavirus.data.gov.uk&gt;;
+    Russia: &lt;https://github.com/grwlf/COVID-19_plus_Russia&gt;;  UK: &lt;https://coronavirus.data.gov.uk&gt;, 
+    &lt;https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-hospital-activity/&gt;;
     USA: &lt;https://github.com/nytimes/covid-19-data&gt;),
     and geocoding data (Colombia: &lt;https://en.wikipedia.org/wiki/ISO_3166-2:CO&gt;; Russia: &lt;https://en.wikipedia.org/wiki/ISO_3166-2:RU&gt;).">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -46,7 +47,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">covidregionaldata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.2</span>
       </span>
     </div>
 
@@ -54,6 +55,12 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="articles/quickstart.html">Getting Started</a>
+</li>
+<li>
+  <a href="articles/data_checks.html">Data Status</a>
 </li>
 <li>
   <a href="news/index.html">News</a>
@@ -94,32 +101,27 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install from CRAN:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"covidregionaldata"</span>)
-</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"covidregionaldata"</span><span class="op">)</span></code></pre></div>
 <p>Install the stable development version of the package with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"drat"</span>)
-<span class="kw">drat</span>:::<span class="fu">add</span>(<span class="st">"epiforecasts"</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"covidregionaldata"</span>)
-</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"drat"</span><span class="op">)</span>
+<span class="fu">drat</span><span class="fu">:::</span><span class="fu">add</span><span class="op">(</span><span class="st">"epiforecasts"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"covidregionaldata"</span><span class="op">)</span></code></pre></div>
 <p>Install the unstable development version of the package with:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"epiforecasts/covidregionaldata"</span>)
-</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"epiforecasts/covidregionaldata"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="quick-start" class="section level2">
 <h2 class="hasAnchor">
 <a href="#quick-start" class="anchor"></a>Quick start</h2>
 <p><a href="https://epiforecasts.io/covidregionaldata/"><img src="https://img.shields.io/badge/Package-documentation-lightgrey.svg?style=flat" alt="Documentation"></a></p>
 <p>To get worldwide time-series data by country (sourced from the ECDC), use <code><a href="reference/get_national_data.html">get_national_data()</a></code>:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_national_data.html">get_national_data</a></span>()
-</pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">covidregionaldata</span><span class="fu">::</span><span class="fu"><a href="reference/get_national_data.html">get_national_data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>To get time-series data for subnational regions of a specific country, for example by local authority in the UK, use <code><a href="reference/get_regional_data.html">get_regional_data()</a></code>:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span>(country = <span class="st">"UK"</span>, include_level_2_regions = <span class="fl">TRUE</span>)
-</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">covidregionaldata</span><span class="fu">::</span><span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"UK"</span>, include_level_2_regions <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Subnational regions are only available in some countries. See below section 4, “Coverage”.</p>
 </div>
 <div id="usage" class="section level2">
@@ -132,9 +134,8 @@
 <h4 class="hasAnchor">
 <a href="#accessing-national-data" class="anchor"></a>Accessing national data</h4>
 <p>Both the World Health Organisation (WHO) and European Centre for Disease Control (ECDC) provide worldwide national data. Access national level data for any country using:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_national_data.html">get_national_data</a></span>()
-</pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">covidregionaldata</span><span class="fu">::</span><span class="fu"><a href="reference/get_national_data.html">get_national_data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>This returns daily new and cumulative (total) cases, and where available, deaths, hospitalisations, and tests. For a complete list of variables returned, see section 5, “Data glossary” below.</p>
 <p>This function takes 3 optional arguments:</p>
 <ul>
@@ -180,9 +181,8 @@
 </ul>
 <p>This returns a dataset with one row for each region for each date. For all regions, dates span from the first date until the last date that data are available for any region in the country. This means there are no gaps in the structure of the data, although NAs fill in where data are not available.</p>
 <p>For example, data for Belgium Level 1 regions over time can be accessed using:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span>(country = <span class="st">"Belgium"</span>)
-</pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"Belgium"</span><span class="op">)</span></code></pre></div>
 <p>This returns a dataset in this format:</p>
 <table class="table">
 <colgroup>
@@ -270,9 +270,8 @@
 <p>All countries included in the package (see below,“Coverage”) have data for regions at the admin-1 level, the largest administrative unit of the country (e.g. state in the USA). Some countries also have data for smaller areas at the admin-2 level (e.g. county in the USA).</p>
 <p>Data for Level 2 units can be returned by using the <code>include_level_2_regions = TRUE</code> argument. The dataset will still show the corresponding Level 1 region.</p>
 <p>An example of a country with Level 2 units is Belgium, where Level 2 units are Belgian provinces:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span>(<span class="st">"Belgium"</span>, include_level_2_regions = <span class="fl">TRUE</span>)
-</pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">covidregionaldata</span><span class="fu">::</span><span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span><span class="st">"Belgium"</span>, include_level_2_regions <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>This returns a dataset with the format:</p>
 <table class="table">
 <colgroup>
@@ -368,9 +367,8 @@
 <h4 class="hasAnchor">
 <a href="#totals" class="anchor"></a>Totals</h4>
 <p>For totalled data up to the most recent date available, use the <code>totals</code> argument.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="kw">covidregionaldata</span>::<span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span>(<span class="st">"Belgium"</span>, totals = <span class="fl">TRUE</span>)
-</pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">covidregionaldata</span><span class="fu">::</span><span class="fu"><a href="reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span><span class="st">"Belgium"</span>, totals <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>This returns a dataset with one row for each region, in the same format:</p>
 <table class="table">
 <colgroup>
@@ -603,8 +601,6 @@
 <li>Katharine Sherratt <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-4413-453X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Jonnie Bevan <br><small class="roles"> Author </small>  </li>
 <li>Hamish Gibbs <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-4413-453X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Joel Hellewell <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-2683-0849" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>James Munday <br><small class="roles"> Author </small>  </li>
 <li>Paul Campbell <br><small class="roles"> Author </small>  </li>
 <li>Sebastian Funk <br><small class="roles"> Author </small>  </li>
 <li><a href="authors.html">All authors...</a></li>
@@ -617,7 +613,7 @@
 <li><a href="https://mybinder.org/v2/gh/epiforecasts/covidregionaldata/master?urlpath=rstudio"><img src="https://img.shields.io/badge/Launch-package-lightblue.svg" alt="badge"></a></li>
 <li><a href="https://github.com/epiforecasts/covidregionaldata/actions"><img src="https://github.com/epiforecasts/covidregionaldata/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://codecov.io/gh/epiforecasts/covidregionaldata?branch=master"><img src="https://codecov.io/gh/epiforecasts/covidregionaldata/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://github.com/epiforecasts/covidregionaldata/"><img src="https://img.shields.io/badge/devel%20version-0.6.0-green.svg?style=flat" alt="develVersion"></a></li>
+<li><a href="https://github.com/epiforecasts/covidregionaldata/"><img src="https://img.shields.io/badge/devel%20version-0.7.0-green.svg?style=flat" alt="develVersion"></a></li>
 <li><a href="https://zenodo.org/badge/latestdoi/271601189"><img src="https://zenodo.org/badge/271601189.svg" alt="DOI"></a></li>
 <li><a href="https://cran.r-project.org/package=covidregionaldata"><img src="http://cranlogs.r-pkg.org/badges/grand-total/covidregionaldata?color=ff69b4" alt="metacran downloads"></a></li>
 </ul>
@@ -627,11 +623,11 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covidregionaldata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.2</span>
       </span>
     </div>
 
@@ -79,6 +79,12 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">Home</a>
+</li>
+<li>
+  <a href="../articles/quickstart.html">Getting Started</a>
+</li>
+<li>
+  <a href="../articles/data_checks.html">Data Status</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -125,8 +131,8 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-get-regional-data" class="hasAnchor"><a href="#section-get-regional-data" class="anchor"></a>Get Regional Data</h2>
-          <p class="section-desc"><p>Function to import and clean regional data</p></p>
+          <h2 id="section-get-covid-data" class="hasAnchor"><a href="#section-get-covid-data" class="anchor"></a>Get Covid-19 Data</h2>
+          <p class="section-desc"><p>Functions that download datasets or provide information on available data.</p></p>
         </th>
       </tr>
       
@@ -137,42 +143,22 @@
       <tr>
         
         <td>
-          <p><code><a href="get_regional_data.html">get_regional_data()</a></code> </p>
+          <p><code><a href="get_info_covidregionaldata.html">get_info_covidregionaldata()</a></code> </p>
         </td>
-        <td><p>The main calculation function for covidregionaldata. The majority of the work is done in this function.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-get-global-data" class="hasAnchor"><a href="#section-get-global-data" class="anchor"></a>Get Global Data</h2>
-          <p class="section-desc"><p>Function to import and clean global data</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
+        <td><p>Get meta information about the covidregionaldata refresh_* data getters.</p></td>
+      </tr><tr>
         
         <td>
           <p><code><a href="get_national_data.html">get_national_data()</a></code> </p>
         </td>
         <td><p>Get national-level data for countries globally, sourced from the ECDC or WHO.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-get-other-covid-data" class="hasAnchor"><a href="#section-get-other-covid-data" class="anchor"></a>Get other Covid-19 Data</h2>
-          <p class="section-desc"><p>Functions to import and clean global data</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_regional_data.html">get_regional_data()</a></code> </p>
+        </td>
+        <td><p>The main calculation function for covidregionaldata. The majority of the work is done in this function.</p></td>
+      </tr><tr>
         
         <td>
           <p><code><a href="get_linelist.html">get_linelist()</a></code> </p>
@@ -189,7 +175,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-utilities" class="hasAnchor"><a href="#section-utilities" class="anchor"></a>Utilities</h2>
-          <p class="section-desc"><p>Utility functions that either help manage data or provide additional information.</p></p>
+          <p class="section-desc"><p>Utility functions that either help manage data, provide additional information, or convert the data into new formats.</p></p>
         </th>
       </tr>
       
@@ -200,9 +186,429 @@
       <tr>
         
         <td>
+          <p><code><a href="add_extra_na_cols.html">add_extra_na_cols()</a></code> </p>
+        </td>
+        <td><p>Add extra columns filled with NA values to a dataset.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="calculate_columns_from_existing_data.html">calculate_columns_from_existing_data()</a></code> </p>
+        </td>
+        <td><p>Cumulative counts from daily counts or daily counts from cumulative, dependent on which columns already exist</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="check_data_sources.html">check_data_sources()</a></code> </p>
+        </td>
+        <td><p>Check data sources</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="complete_cumulative_columns.html">complete_cumulative_columns()</a></code> </p>
+        </td>
+        <td><p>Completes cumulative columns if rows were added with NAs.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="convert_to_covid19R_format.html">convert_to_covid19R_format()</a></code> </p>
+        </td>
+        <td><p>Convert data to Covid19R package data standard</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="csv_reader.html">csv_reader()</a></code> </p>
+        </td>
+        <td><p>Custom CSV reading function</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fill_empty_dates_with_na.html">fill_empty_dates_with_na()</a></code> </p>
+        </td>
+        <td><p>Add rows of NAs for dates where a region does not have any data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_afghan_region_codes.html">get_afghan_region_codes()</a></code> </p>
+        </td>
+        <td><p>Afghan region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_afghan_regional_cases.html">get_afghan_regional_cases()</a></code> </p>
+        </td>
+        <td><p>Afghan Regional Daily COVID-19 Count Data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_authority_lookup_table.html">get_authority_lookup_table()</a></code> </p>
+        </td>
+        <td><p>Lookup table for local authority structure for the UK</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_belgium_level_2_codes.html">get_belgium_level_2_codes()</a></code> </p>
+        </td>
+        <td><p>Belgian Provincial region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_belgium_region_codes.html">get_belgium_region_codes()</a></code> </p>
+        </td>
+        <td><p>Belgian region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_belgium_regional_cases_only_level_1.html">get_belgium_regional_cases_only_level_1()</a></code> </p>
+        </td>
+        <td><p>Belgian Regional Daily COVID-19 Count Data - Regions Only</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_belgium_regional_cases_with_level_2.html">get_belgium_regional_cases_with_level_2()</a></code> </p>
+        </td>
+        <td><p>Belgian Provincial Daily COVID-19 Count Data - Regions and Provinces</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_brazil_level_2_codes.html">get_brazil_level_2_codes()</a></code> </p>
+        </td>
+        <td><p>Brazilian level 2 codes (not available currently)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_brazil_region_codes.html">get_brazil_region_codes()</a></code> </p>
+        </td>
+        <td><p>Brazilian region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_brazil_regional_cases_only_level_1.html">get_brazil_regional_cases_only_level_1()</a></code> </p>
+        </td>
+        <td><p>Brazilian Regional Daily COVID-19 Count Data - States</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_brazil_regional_cases_with_level_2.html">get_brazil_regional_cases_with_level_2()</a></code> </p>
+        </td>
+        <td><p>Brazilian Regional Daily COVID-19 Count Data - Cities</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_canada_region_codes.html">get_canada_region_codes()</a></code> </p>
+        </td>
+        <td><p>Canadian region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_canada_regional_cases.html">get_canada_regional_cases()</a></code> </p>
+        </td>
+        <td><p>Canadian Regional Daily COVID-19 Count Data - Provinces</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_colombia_region_codes.html">get_colombia_region_codes()</a></code> </p>
+        </td>
+        <td><p>Colombia region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_colombia_regional_cases.html">get_colombia_regional_cases()</a></code> </p>
+        </td>
+        <td><p>Colombian Regional Daily COVID-19 Count Data - Department</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_cumulative_from_daily.html">get_cumulative_from_daily()</a></code> </p>
+        </td>
+        <td><p>Cumulative counts from daily counts.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_daily_from_cumulative.html">get_daily_from_cumulative()</a></code> </p>
+        </td>
+        <td><p>Daily counts from data that is in cumulative form.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_ecdc_cases.html">get_ecdc_cases()</a></code> </p>
+        </td>
+        <td><p>ECDC International Case Counts: works within get_national_data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_germany_level_2_codes.html">get_germany_level_2_codes()</a></code> </p>
+        </td>
+        <td><p>German level 2 codes (not available currently)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_germany_region_codes.html">get_germany_region_codes()</a></code> </p>
+        </td>
+        <td><p>German region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_germany_regional_cases_only_level_1.html">get_germany_regional_cases_only_level_1()</a></code> </p>
+        </td>
+        <td><p>German Regional Daily COVID-19 Count Data - Bundesland</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_germany_regional_cases_with_level_2.html">get_germany_regional_cases_with_level_2()</a></code> </p>
+        </td>
+        <td><p>German Regional Daily COVID-19 Count Data - Landkreis</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_india_region_codes.html">get_india_region_codes()</a></code> </p>
+        </td>
+        <td><p>Indian region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_india_regional_cases.html">get_india_regional_cases()</a></code> </p>
+        </td>
+        <td><p>Indian Regional Daily COVID-19 Count Data - State</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_italy_region_codes.html">get_italy_region_codes()</a></code> </p>
+        </td>
+        <td><p>Italian region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_italy_regional_cases.html">get_italy_regional_cases()</a></code> </p>
+        </td>
+        <td><p>Regional Daily COVID-19 Count Data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_level_2_region_codes.html">get_level_2_region_codes()</a></code> </p>
+        </td>
+        <td><p>Get a table of level 2 region codes (FIPS, ONS, region) for a specified country</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_region_codes.html">get_region_codes()</a></code> </p>
+        </td>
+        <td><p>Get a table of region codes for a specified country</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_regional_data.html">get_regional_data()</a></code> </p>
+        </td>
+        <td><p>The main calculation function for covidregionaldata. The majority of the work is done in this function.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_russia_region_codes.html">get_russia_region_codes()</a></code> </p>
+        </td>
+        <td><p>Russian region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_russia_regional_cases.html">get_russia_regional_cases()</a></code> </p>
+        </td>
+        <td><p>Russian Regional Daily COVID-19 Count Data - Region</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_uk_data.html">get_uk_data()</a></code> </p>
+        </td>
+        <td><p>Get UK data - helper function to get data for a single valid area type</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_uk_level_2_codes.html">get_uk_level_2_codes()</a></code> </p>
+        </td>
+        <td><p>UK level 2 codes (ONS) (Included in original function)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_uk_region_codes.html">get_uk_region_codes()</a></code> </p>
+        </td>
+        <td><p>UK region codes (NULL - they're in the raw data already)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_uk_regional_cases_only_level_1.html">get_uk_regional_cases_only_level_1()</a></code> </p>
+        </td>
+        <td><p>UK Regional Daily COVID-19 Count Data - Region</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_uk_regional_cases_with_level_2.html">get_uk_regional_cases_with_level_2()</a></code> </p>
+        </td>
+        <td><p>UK Regional Daily COVID-19 Count Data - UTLA</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_us_level_2_codes.html">get_us_level_2_codes()</a></code> </p>
+        </td>
+        <td><p>US level 2 codes (FIPS) (Included in original function)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_us_region_codes.html">get_us_region_codes()</a></code> </p>
+        </td>
+        <td><p>US region codes</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_us_regional_cases_only_level_1.html">get_us_regional_cases_only_level_1()</a></code> </p>
+        </td>
+        <td><p>US Regional Daily COVID-19 Count Data - States</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_us_regional_cases_with_level_2.html">get_us_regional_cases_with_level_2()</a></code> </p>
+        </td>
+        <td><p>US Regional Daily COVID-19 Count Data - Counties</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_who_cases.html">get_who_cases()</a></code> </p>
+        </td>
+        <td><p>Download the most recent WHO case data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="left_join_region_codes.html">left_join_region_codes()</a></code> </p>
+        </td>
+        <td><p>Custom left_join function</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_afghanistan.html">refresh_covidregionaldata_afghanistan()</a></code> </p>
+        </td>
+        <td><p>Get daily Afghan COVID-19 count data by Province (Wilayat)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_belgium.html">refresh_covidregionaldata_belgium()</a></code> </p>
+        </td>
+        <td><p>Get daily Belgian COVID-19 count data by Region</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_brazil.html">refresh_covidregionaldata_brazil()</a></code> </p>
+        </td>
+        <td><p>Get daily Brazilian COVID-19 count data by State (Estado)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_canada.html">refresh_covidregionaldata_canada()</a></code> </p>
+        </td>
+        <td><p>Get daily Canada COVID-19 count data by Province/Territory</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_colombia.html">refresh_covidregionaldata_colombia()</a></code> </p>
+        </td>
+        <td><p>Get daily Colombian COVID-19 count data by Department (Departamento).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_germany.html">refresh_covidregionaldata_germany()</a></code> </p>
+        </td>
+        <td><p>Get daily German COVID-19 count data by State (Bundesland)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_india.html">refresh_covidregionaldata_india()</a></code> </p>
+        </td>
+        <td><p>Get daily Indian COVID-19 count data by State/Unified Territory</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_italy.html">refresh_covidregionaldata_italy()</a></code> </p>
+        </td>
+        <td><p>Get daily Italian COVID-19 count data by Region (Regioni).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_russia.html">refresh_covidregionaldata_russia()</a></code> </p>
+        </td>
+        <td><p>Get daily Russian COVID-19 count data by Russian region.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_uk.html">refresh_covidregionaldata_uk()</a></code> </p>
+        </td>
+        <td><p>Get daily UK COVID-19 count data by EU-defined region</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refresh_covidregionaldata_usa.html">refresh_covidregionaldata_usa()</a></code> </p>
+        </td>
+        <td><p>Get daily USA COVID-19 count data by state.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rename_region_code_column.html">rename_region_code_column()</a></code> </p>
+        </td>
+        <td><p>Helper to rename the region code column in each dataset to the correct code type for each country (e.g. ISO-3166-2).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rename_region_column.html">rename_region_column()</a></code> </p>
+        </td>
+        <td><p>Helper to rename the region column in each dataset to the correct name for each country.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="reset_cache.html">reset_cache()</a></code> </p>
+        </td>
+        <td><p>Reset Cache and Update all Local Data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="set_negative_values_to_zero.html">set_negative_values_to_zero()</a></code> </p>
+        </td>
+        <td><p>Set negative data to 0</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="start_using_memoise.html">start_using_memoise()</a></code> </p>
+        </td>
+        <td><p>Add useMemoise to options</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="stop_using_memoise.html">stop_using_memoise()</a></code> </p>
+        </td>
+        <td><p>Stop using useMemoise</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="totalise_data.html">totalise_data()</a></code> </p>
+        </td>
+        <td><p>Get totals data given the time series data.</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="get_info_covidregionaldata.html">get_info_covidregionaldata()</a></code> </p>
         </td>
         <td><p>Get meta information about the covidregionaldata refresh_* data getters.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_interventions_data.html">get_interventions_data()</a></code> </p>
+        </td>
+        <td><p>Import ACAPS Government Interventions dataset</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_linelist.html">get_linelist()</a></code> </p>
+        </td>
+        <td><p>Get Linelist Data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_national_data.html">get_national_data()</a></code> </p>
+        </td>
+        <td><p>Get national-level data for countries globally, sourced from the ECDC or WHO.</p></td>
       </tr>
     </tbody>
     </table>
@@ -218,11 +624,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Joel Hellewell, James Munday, Paul Campbell, Sebastian Funk.</p>
+  <p>Developed by Sam Abbott, Katharine Sherratt, Jonnie Bevan, Hamish Gibbs, Paul Campbell, Sebastian Funk.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
