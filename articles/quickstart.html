@@ -218,7 +218,7 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">usa_counties</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"USA"</span>, include_level_2_regions <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">usa_counties</span>
-<span class="co">#&gt; # A tibble: 1,060,128 x 15</span>
+<span class="co">#&gt; # A tibble: 1,063,725 x 15</span>
 <span class="co">#&gt;    date       county fips  state iso_3166_2 cases_new cases_total deaths_new</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2020-01-21 Autau… 01001 Alab… US-AL             NA          NA         NA</span>
@@ -231,7 +231,7 @@
 <span class="co">#&gt;  8 2020-01-21 Calho… 01015 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt;  9 2020-01-21 Chamb… 01017 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt; 10 2020-01-21 Chero… 01019 Alab… US-AL             NA          NA         NA</span>
-<span class="co">#&gt; # … with 1,060,118 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 1,063,715 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   recovered_new &lt;int&gt;, recovered_total &lt;int&gt;, hosp_new &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>This returns data for each county on each day of reported data. As there are more than 3,000 counties in the US, with some reporting data since the 21st January, this makes for a very large download.</p>
