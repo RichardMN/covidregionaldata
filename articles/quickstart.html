@@ -78,7 +78,6 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Quick start</h1>
-                        <h4 class="author">Richard Boyes</h4>
             
       
       <small class="dont-index">Source: <a href="https://github.com/epiforecasts/covidregionaldata/blob/master/vignettes/quickstart.Rmd"><code>vignettes/quickstart.Rmd</code></a></small>
@@ -111,7 +110,7 @@
 <p>We can take a look at this data by printing it to the console:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_countries</span>
-<span class="co">#&gt; # A tibble: 73,698 x 15</span>
+<span class="co">#&gt; # A tibble: 73,911 x 15</span>
 <span class="co">#&gt;    date       un_region country iso_code population_2019 cases_new cases_total</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2019-12-31 Asia      Afghan… AF              38041757         0           0</span>
@@ -124,7 +123,7 @@
 <span class="co">#&gt;  8 2019-12-31 Americas  Argent… AR              44780675        NA          NA</span>
 <span class="co">#&gt;  9 2019-12-31 Asia      Armenia AM               2957728         0           0</span>
 <span class="co">#&gt; 10 2019-12-31 Americas  Aruba   AW                106310        NA          NA</span>
-<span class="co">#&gt; # … with 73,688 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 73,901 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   deaths_total &lt;dbl&gt;, recovered_new &lt;int&gt;, recovered_total &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_new &lt;int&gt;, hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>We can see that this provides information about the number of cases and deaths for each country over time. As a tibble is returned, we can easily manipulate and plot this using <code>tidyverse</code> packages. For example, we can plot the total deaths in Italy over time.</p>
@@ -174,16 +173,16 @@
 <span class="co">#&gt; # A tibble: 213 x 4</span>
 <span class="co">#&gt;    country        iso_code cases_total deaths_total</span>
 <span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 United States  US          15391701       289431</span>
-<span class="co">#&gt;  2 India          IN           9767371       141772</span>
-<span class="co">#&gt;  3 Brazil         BR           6728452       178995</span>
-<span class="co">#&gt;  4 Russia         RU           2541199        44718</span>
-<span class="co">#&gt;  5 France         FR           2324982        56648</span>
-<span class="co">#&gt;  6 Italy          IT           1770297        61770</span>
-<span class="co">#&gt;  7 United Kingdom UK           1766819        62566</span>
-<span class="co">#&gt;  8 Spain          ES           1713186        48939</span>
-<span class="co">#&gt;  9 Argentina      AR           1475222        40222</span>
-<span class="co">#&gt; 10 Colombia       CO           1392133        38308</span>
+<span class="co">#&gt;  1 United States  US          15616381       292179</span>
+<span class="co">#&gt;  2 India          IN           9796769       142186</span>
+<span class="co">#&gt;  3 Brazil         BR           6781799       179765</span>
+<span class="co">#&gt;  4 Russia         RU           2569126        45280</span>
+<span class="co">#&gt;  5 France         FR           2338732        56940</span>
+<span class="co">#&gt;  6 United Kingdom UK           1787783        63082</span>
+<span class="co">#&gt;  7 Italy          IT           1787295        62657</span>
+<span class="co">#&gt;  8 Spain          ES           1721141        49264</span>
+<span class="co">#&gt;  9 Argentina      AR           1482216        40431</span>
+<span class="co">#&gt; 10 Colombia       CO           1399911        38484</span>
 <span class="co">#&gt; # … with 203 more rows</span></code></pre></div>
 </div>
 <div id="retrieving-subnational-region-data" class="section level2">
