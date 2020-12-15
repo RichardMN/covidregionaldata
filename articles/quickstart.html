@@ -51,7 +51,7 @@
 </li>
 <li>
   <a href="../reference/index.html">
-    <span class="fa fa-file-code-o"></span>
+    <span class="fas fa-file-code-o"></span>
      
     Functions
   </a>
@@ -60,7 +60,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/epiforecasts/covidregionaldata">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -105,12 +105,12 @@
 <a href="#retrieving-national-cases-and-deaths-over-time" class="anchor"></a>Retrieving national cases and deaths over time</h2>
 <p>Let’s say that we want to see the evolution of the pandemic over time in all countries. To do this, we need to get the number of cases (positive test results) and deaths for each country and date since the pandemic started. Firstly load <code>covidregionaldata</code>, then call <code><a href="../reference/get_national_data.html">get_national_data()</a></code>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https:/epiforecasts.io/covidregionaldata">covidregionaldata</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://epiforecasts.io/covidregionaldata">covidregionaldata</a></span><span class="op">)</span>
 <span class="va">all_countries</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_national_data.html">get_national_data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>We can take a look at this data by printing it to the console:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_countries</span>
-<span class="co">#&gt; # A tibble: 73,911 x 15</span>
+<span class="co">#&gt; # A tibble: 74,550 x 15</span>
 <span class="co">#&gt;    date       un_region country iso_code population_2019 cases_new cases_total</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2019-12-31 Asia      Afghan… AF              38041757         0           0</span>
@@ -123,7 +123,7 @@
 <span class="co">#&gt;  8 2019-12-31 Americas  Argent… AR              44780675        NA          NA</span>
 <span class="co">#&gt;  9 2019-12-31 Asia      Armenia AM               2957728         0           0</span>
 <span class="co">#&gt; 10 2019-12-31 Americas  Aruba   AW                106310        NA          NA</span>
-<span class="co">#&gt; # … with 73,901 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 74,540 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   deaths_total &lt;dbl&gt;, recovered_new &lt;int&gt;, recovered_total &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_new &lt;int&gt;, hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>We can see that this provides information about the number of cases and deaths for each country over time. As a tibble is returned, we can easily manipulate and plot this using <code>tidyverse</code> packages. For example, we can plot the total deaths in Italy over time.</p>
@@ -173,16 +173,16 @@
 <span class="co">#&gt; # A tibble: 213 x 4</span>
 <span class="co">#&gt;    country        iso_code cases_total deaths_total</span>
 <span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 United States  US          15616381       292179</span>
-<span class="co">#&gt;  2 India          IN           9796769       142186</span>
-<span class="co">#&gt;  3 Brazil         BR           6781799       179765</span>
-<span class="co">#&gt;  4 Russia         RU           2569126        45280</span>
-<span class="co">#&gt;  5 France         FR           2338732        56940</span>
-<span class="co">#&gt;  6 United Kingdom UK           1787783        63082</span>
-<span class="co">#&gt;  7 Italy          IT           1787295        62657</span>
-<span class="co">#&gt;  8 Spain          ES           1721141        49264</span>
-<span class="co">#&gt;  9 Argentina      AR           1482216        40431</span>
-<span class="co">#&gt; 10 Colombia       CO           1399911        38484</span>
+<span class="co">#&gt;  1 United States  US          16256754       299177</span>
+<span class="co">#&gt;  2 India          IN           9884100       143355</span>
+<span class="co">#&gt;  3 Brazil         BR           6901952       181402</span>
+<span class="co">#&gt;  4 Russia         RU           2653928        46941</span>
+<span class="co">#&gt;  5 France         FR           2377618        57911</span>
+<span class="co">#&gt;  6 United Kingdom UK           1849403        64170</span>
+<span class="co">#&gt;  7 Italy          IT           1843860        64551</span>
+<span class="co">#&gt;  8 Spain          ES           1731660        49544</span>
+<span class="co">#&gt;  9 Argentina      AR           1498160        40766</span>
+<span class="co">#&gt; 10 Colombia       CO           1425774        39053</span>
 <span class="co">#&gt; # … with 203 more rows</span></code></pre></div>
 </div>
 <div id="retrieving-subnational-region-data" class="section level2">
@@ -217,7 +217,7 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">usa_counties</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"USA"</span>, include_level_2_regions <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">usa_counties</span>
-<span class="co">#&gt; # A tibble: 1,063,725 x 15</span>
+<span class="co">#&gt; # A tibble: 1,073,544 x 15</span>
 <span class="co">#&gt;    date       county fips  state iso_3166_2 cases_new cases_total deaths_new</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2020-01-21 Autau… 01001 Alab… US-AL             NA          NA         NA</span>
@@ -230,7 +230,7 @@
 <span class="co">#&gt;  8 2020-01-21 Calho… 01015 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt;  9 2020-01-21 Chamb… 01017 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt; 10 2020-01-21 Chero… 01019 Alab… US-AL             NA          NA         NA</span>
-<span class="co">#&gt; # … with 1,063,715 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 1,073,534 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   recovered_new &lt;int&gt;, recovered_total &lt;int&gt;, hosp_new &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>This returns data for each county on each day of reported data. As there are more than 3,000 counties in the US, with some reporting data since the 21st January, this makes for a very large download.</p>
