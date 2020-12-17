@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covidregionaldata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.3</span>
       </span>
     </div>
 
@@ -110,20 +110,20 @@
 <p>We can take a look at this data by printing it to the console:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_countries</span>
-<span class="co">#&gt; # A tibble: 74,550 x 15</span>
-<span class="co">#&gt;    date       un_region country iso_code population_2019 cases_new cases_total</span>
-<span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 2019-12-31 Asia      Afghan… AF              38041757         0           0</span>
-<span class="co">#&gt;  2 2019-12-31 Europe    Albania AL               2862427        NA          NA</span>
-<span class="co">#&gt;  3 2019-12-31 Africa    Algeria DZ              43053054         0           0</span>
-<span class="co">#&gt;  4 2019-12-31 Europe    Andorra AD                 76177        NA          NA</span>
-<span class="co">#&gt;  5 2019-12-31 Africa    Angola  AO              31825299        NA          NA</span>
-<span class="co">#&gt;  6 2019-12-31 Americas  Anguil… AI                 14872        NA          NA</span>
-<span class="co">#&gt;  7 2019-12-31 Americas  Antigu… AG                 97115        NA          NA</span>
-<span class="co">#&gt;  8 2019-12-31 Americas  Argent… AR              44780675        NA          NA</span>
-<span class="co">#&gt;  9 2019-12-31 Asia      Armenia AM               2957728         0           0</span>
-<span class="co">#&gt; 10 2019-12-31 Americas  Aruba   AW                106310        NA          NA</span>
-<span class="co">#&gt; # … with 74,540 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
+<span class="co">#&gt; # A tibble: 82,950 x 15</span>
+<span class="co">#&gt;    date       un_region who_region country iso_code cases_new cases_total</span>
+<span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 2020-01-03 Asia      EMRO       Afghan… AF               0           0</span>
+<span class="co">#&gt;  2 2020-01-03 Europe    EURO       Albania AL               0           0</span>
+<span class="co">#&gt;  3 2020-01-03 Africa    AFRO       Algeria DZ               0           0</span>
+<span class="co">#&gt;  4 2020-01-03 Oceania   WPRO       Americ… AS               0           0</span>
+<span class="co">#&gt;  5 2020-01-03 Europe    EURO       Andorra AD               0           0</span>
+<span class="co">#&gt;  6 2020-01-03 Africa    AFRO       Angola  AO               0           0</span>
+<span class="co">#&gt;  7 2020-01-03 Americas  AMRO       Anguil… AI               0           0</span>
+<span class="co">#&gt;  8 2020-01-03 Americas  AMRO       Antigu… AG               0           0</span>
+<span class="co">#&gt;  9 2020-01-03 Americas  AMRO       Argent… AR               0           0</span>
+<span class="co">#&gt; 10 2020-01-03 Asia      EURO       Armenia AM               0           0</span>
+<span class="co">#&gt; # … with 82,940 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   deaths_total &lt;dbl&gt;, recovered_new &lt;int&gt;, recovered_total &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_new &lt;int&gt;, hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>We can see that this provides information about the number of cases and deaths for each country over time. As a tibble is returned, we can easily manipulate and plot this using <code>tidyverse</code> packages. For example, we can plot the total deaths in Italy over time.</p>
@@ -149,62 +149,49 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
 <p><img src="quickstart_files/figure-html/unnamed-chunk-4-1.png" width="576"></p>
-<p>Some of this difference is because of the size of each country’s population. To compare cases on a per capita basis, divide cases by population:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">some_countries</span> <span class="op">&lt;-</span> <span class="va">all_countries</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Italy'</span>, <span class="st">'United Kingdom'</span>, <span class="st">'Spain'</span>, <span class="st">'United States'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cases_per_capita <span class="op">=</span> <span class="va">cases_total</span><span class="op">/</span><span class="va">population_2019</span><span class="op">)</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">some_countries</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">cases_per_capita</span>, colour <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="st">"All reported Covid-19 cases per capita"</span>, colour <span class="op">=</span> <span class="st">"Country"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
-        legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
-<p><img src="quickstart_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
 </div>
 <div id="retrieving-total-cases-and-deaths-for-all-countries" class="section level2">
 <h2 class="hasAnchor">
 <a href="#retrieving-total-cases-and-deaths-for-all-countries" class="anchor"></a>Retrieving total cases and deaths for all countries</h2>
 <p>Using <code><a href="../reference/get_national_data.html">get_national_data(totals = TRUE)</a></code> we can obtain total cases and deaths for all nations up to the latest date reported. This is useful to get a snapshot of the current running total for each country. Note how the data is sorted by the total number of cases:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_countries_totals</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_national_data.html">get_national_data</a></span><span class="op">(</span>totals <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">all_countries_totals</span>
-<span class="co">#&gt; # A tibble: 213 x 4</span>
+<span class="co">#&gt; # A tibble: 236 x 4</span>
 <span class="co">#&gt;    country        iso_code cases_total deaths_total</span>
 <span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 United States  US          16256754       299177</span>
-<span class="co">#&gt;  2 India          IN           9884100       143355</span>
-<span class="co">#&gt;  3 Brazil         BR           6901952       181402</span>
-<span class="co">#&gt;  4 Russia         RU           2653928        46941</span>
-<span class="co">#&gt;  5 France         FR           2377618        57911</span>
-<span class="co">#&gt;  6 United Kingdom UK           1849403        64170</span>
-<span class="co">#&gt;  7 Italy          IT           1843860        64551</span>
-<span class="co">#&gt;  8 Spain          ES           1731660        49544</span>
-<span class="co">#&gt;  9 Argentina      AR           1498160        40766</span>
-<span class="co">#&gt; 10 Colombia       CO           1425774        39053</span>
-<span class="co">#&gt; # … with 203 more rows</span></code></pre></div>
+<span class="co">#&gt;  1 United States  US          16446844       302050</span>
+<span class="co">#&gt;  2 India          IN           9956557       144451</span>
+<span class="co">#&gt;  3 Brazil         BR           6970034       182799</span>
+<span class="co">#&gt;  4 Russia         RU           2762668        49151</span>
+<span class="co">#&gt;  5 France         FR           2368488        58994</span>
+<span class="co">#&gt;  6 United Kingdom GB           1913281        65520</span>
+<span class="co">#&gt;  7 Italy          IT           1888292        66568</span>
+<span class="co">#&gt;  8 Spain          ES           1773290        48596</span>
+<span class="co">#&gt;  9 Argentina      AR           1510203        41204</span>
+<span class="co">#&gt; 10 Colombia       CO           1444646        39356</span>
+<span class="co">#&gt; # … with 226 more rows</span></code></pre></div>
 </div>
 <div id="retrieving-subnational-region-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#retrieving-subnational-region-data" class="anchor"></a>Retrieving subnational region data</h2>
 <p>As well as national data, we can also retrieve subnational data, such as states and counties in the US, or regions and local authorities in the UK, and perform similar manipulations. See the <a href="https://epiforecasts.io/covidregionaldata/">README</a> for a current list of countries with subnational data.</p>
 <p>To do this, we use <code><a href="../reference/get_regional_data.html">get_regional_data()</a></code>. We’ll get the state-level data for the United States over time:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">usa_states</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"USA"</span><span class="op">)</span></code></pre></div>
 <p>This retrieves the new and total cases and deaths for all states over time in the United States. Note that the <code>country</code> argument to the <code><a href="../reference/get_regional_data.html">get_regional_data()</a></code> function must be specified. Let’s plot out how the number of cases has evolved for a selection of states:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">usa_states</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'New York'</span>, <span class="st">'Texas'</span>, <span class="st">'Florida'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">cases_total</span>, colour <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="st">"All reported Covid-19 cases"</span>, colour <span class="op">=</span> <span class="st">"U.S. state"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
-<p><img src="quickstart_files/figure-html/unnamed-chunk-8-1.png" width="576"> The <code>totals</code> argument can also be used in <code>get_regional_data</code> to return the cumulative number of cases or deaths over time.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<p><img src="quickstart_files/figure-html/unnamed-chunk-7-1.png" width="576"> The <code>totals</code> argument can also be used in <code>get_regional_data</code> to return the cumulative number of cases or deaths over time.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">usa_states_totals</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"USA"</span>, totals <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Let’s plot the total deaths for each state, ordered by total deaths:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">usa_states_totals</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">state</span>, <span class="op">-</span><span class="va">deaths_total</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">deaths_total</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"U.S. states"</span>, y <span class="op">=</span> <span class="st">"All reported Covid-19 deaths"</span><span class="op">)</span> <span class="op">+</span>
@@ -212,12 +199,12 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span><span class="op">)</span>,
         axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
         legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
-<p><img src="quickstart_files/figure-html/unnamed-chunk-10-1.png" width="576"></p>
+<p><img src="quickstart_files/figure-html/unnamed-chunk-9-1.png" width="576"></p>
 <p>Most countries have a hierarchy of political subdivisions. Where data are available, use the <code>include_level_2_regions = TRUE</code> argument to <code>get_regional_data</code>. We can dig down further into each US state by looking at data by county:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">usa_counties</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"USA"</span>, include_level_2_regions <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">usa_counties</span>
-<span class="co">#&gt; # A tibble: 1,080,090 x 15</span>
+<span class="co">#&gt; # A tibble: 1,083,363 x 15</span>
 <span class="co">#&gt;    date       county fips  state iso_3166_2 cases_new cases_total deaths_new</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2020-01-21 Autau… 01001 Alab… US-AL             NA          NA         NA</span>
@@ -230,12 +217,12 @@
 <span class="co">#&gt;  8 2020-01-21 Calho… 01015 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt;  9 2020-01-21 Chamb… 01017 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt; 10 2020-01-21 Chero… 01019 Alab… US-AL             NA          NA         NA</span>
-<span class="co">#&gt; # … with 1,080,080 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 1,083,353 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   recovered_new &lt;int&gt;, recovered_total &lt;int&gt;, hosp_new &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>This returns data for each county on each day of reported data. As there are more than 3,000 counties in the US, with some reporting data since the 21st January, this makes for a very large download.</p>
 <p>The same method will work for different countries where data are available, returning relevant sub-national units for each country. In Germany, data are available for Bundesland (federated state) and Kreise (district) areas.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">german_region_totals</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"Germany"</span>, totals <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">german_region_totals</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">bundesland</span>, <span class="op">-</span><span class="va">deaths_total</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">deaths_total</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span> <span class="op">+</span>
@@ -244,28 +231,28 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span><span class="op">)</span>,
         axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
         legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span> </code></pre></div>
-<p><img src="quickstart_files/figure-html/unnamed-chunk-12-1.png" width="576"></p>
+<p><img src="quickstart_files/figure-html/unnamed-chunk-11-1.png" width="576"></p>
 </div>
 <div id="mapping-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#mapping-data" class="anchor"></a>Mapping data</h2>
 <p>We provide the relevant national and subnational ISO codes, or local alternatives, to enable mapping. We can map Covid-19 data at national or subnational level, using any standard shapefile. In R, the <code>rnaturalearth</code> package already provides shapefiles for all country borders, and the largest (administrative level 1) subnational units for most countries.</p>
 <p>For simplicity here we will use the <code>rworldmap</code> package, which uses data from <code>rnaturalearth</code> for national country borders and inbuilt mapping. We can join Covid-19 data to the map using the <code>iso_code</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Get latest worldwide ECDC data</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Get latest worldwide WHO data</span>
 <span class="va">map_data</span> <span class="op">&lt;-</span> <span class="fu">covidregionaldata</span><span class="fu">::</span><span class="fu"><a href="../reference/get_national_data.html">get_national_data</a></span><span class="op">(</span>totals <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">rworldmap</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rworldmap/man/joinCountryData2Map.html">joinCountryData2Map</a></span><span class="op">(</span>joinCode <span class="op">=</span> <span class="st">"ISO2"</span>, 
                                  nameJoinColumn <span class="op">=</span> <span class="st">"iso_code"</span><span class="op">)</span>
-<span class="co">#&gt; 207 codes from your data successfully matched countries in the map</span>
-<span class="co">#&gt; 6 codes from your data failed to match with a country code in the map</span>
-<span class="co">#&gt; 34 codes from the map weren't represented in your data</span>
+<span class="co">#&gt; 225 codes from your data successfully matched countries in the map</span>
+<span class="co">#&gt; 11 codes from your data failed to match with a country code in the map</span>
+<span class="co">#&gt; 16 codes from the map weren't represented in your data</span>
 <span class="co"># Produce map</span>
 <span class="fu">rworldmap</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rworldmap/man/mapCountryData.html">mapCountryData</a></span><span class="op">(</span><span class="va">map_data</span>,
                           nameColumnToPlot <span class="op">=</span> <span class="st">"deaths_total"</span>,
                           catMethod <span class="op">=</span> <span class="st">"fixedWidth"</span>,
                           mapTitle <span class="op">=</span> <span class="st">"Total Covid-19 deaths to date"</span>,
                           addLegend <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><img src="quickstart_files/figure-html/unnamed-chunk-13-1.png" width="576"></p>
+<p><img src="quickstart_files/figure-html/unnamed-chunk-12-1.png" width="576"></p>
 </div>
 </div>
   </div>

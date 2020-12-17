@@ -47,7 +47,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">covidregionaldata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.3</span>
       </span>
     </div>
 
@@ -116,7 +116,7 @@
 <h2 class="hasAnchor">
 <a href="#quick-start" class="anchor"></a>Quick start</h2>
 <p><a href="https://epiforecasts.io/covidregionaldata/"><img src="https://img.shields.io/badge/Package-documentation-lightgrey.svg?style=flat" alt="Documentation"></a></p>
-<p>To get worldwide time-series data by country (sourced from the ECDC), use <code><a href="reference/get_national_data.html">get_national_data()</a></code>:</p>
+<p>To get worldwide time-series data by country (sourced from the WHO), use <code><a href="reference/get_national_data.html">get_national_data()</a></code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">covidregionaldata</span><span class="fu">::</span><span class="fu"><a href="reference/get_national_data.html">get_national_data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>To get time-series data for subnational regions of a specific country, for example by local authority in the UK, use <code><a href="reference/get_regional_data.html">get_regional_data()</a></code>:</p>
@@ -140,7 +140,7 @@
 <p>This function takes 3 optional arguments:</p>
 <ul>
 <li><p><code>country</code> (optional) - a country name (in any language) for which to return national level data. This argument permits any country in the United Nations and reported by the specified data source (ECDC or WHO). If not specified, all countries will be returned.</p></li>
-<li><p><code>source</code> (optional, default is “ECDC”) - the data source for national data. Either “ECDC” or “WHO”.</p></li>
+<li><p><code>source</code> (optional, default is “WHO”) - the data source for national data. Either “ECDC” or “WHO”.</p></li>
 <li><p><code>totals</code> (optional, default is FALSE) - a Boolean (TRUE/FALSE), denoting whether the data returned should be a table of total counts (one row per country) or time series data (one row per country/date combination).</p></li>
 </ul>
 <p>This returns data in the same structure as <code><a href="reference/get_regional_data.html">get_regional_data()</a></code>. This means there are no gaps in the structure of the data by country over time, and NAs fill in where data are not available.</p>
