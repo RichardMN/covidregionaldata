@@ -110,7 +110,7 @@
 <p>We can take a look at this data by printing it to the console:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_countries</span>
-<span class="co">#&gt; # A tibble: 85,794 x 15</span>
+<span class="co">#&gt; # A tibble: 86,031 x 15</span>
 <span class="co">#&gt;    date       un_region who_region country iso_code cases_new cases_total</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2020-01-03 Asia      EMRO       Afghan… AF               0           0</span>
@@ -123,13 +123,13 @@
 <span class="co">#&gt;  8 2020-01-03 Americas  AMRO       Antigu… AG               0           0</span>
 <span class="co">#&gt;  9 2020-01-03 Americas  AMRO       Argent… AR               0           0</span>
 <span class="co">#&gt; 10 2020-01-03 Asia      EURO       Armenia AM               0           0</span>
-<span class="co">#&gt; # … with 85,784 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 86,021 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   deaths_total &lt;dbl&gt;, recovered_new &lt;int&gt;, recovered_total &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_new &lt;int&gt;, hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>We can see that this provides information about the number of cases and deaths for each country over time. As a tibble is returned, we can easily manipulate and plot this using <code>tidyverse</code> packages. For example, we can plot the total deaths in Italy over time.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 
 <span class="va">italy</span> <span class="op">&lt;-</span> <span class="va">all_countries</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">'Italy'</span><span class="op">)</span>
@@ -160,16 +160,16 @@
 <span class="co">#&gt; # A tibble: 236 x 4</span>
 <span class="co">#&gt;    country        iso_code cases_total deaths_total</span>
 <span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 United States  US          18972813       331158</span>
-<span class="co">#&gt;  2 India          IN          10224303       148153</span>
-<span class="co">#&gt;  3 Brazil         BR           7484285       191139</span>
-<span class="co">#&gt;  4 Russia         RU           3105037        55827</span>
-<span class="co">#&gt;  5 France         FR           2519945        62737</span>
-<span class="co">#&gt;  6 United Kingdom GB           2329734        71109</span>
-<span class="co">#&gt;  7 Italy          IT           2056425        72401</span>
-<span class="co">#&gt;  8 Spain          ES           1879413        50122</span>
-<span class="co">#&gt;  9 Germany        DE           1664726        30978</span>
-<span class="co">#&gt; 10 Colombia       CO           1594497        42171</span>
+<span class="co">#&gt;  1 United States  US          19147627       332937</span>
+<span class="co">#&gt;  2 India          IN          10244852       148439</span>
+<span class="co">#&gt;  3 Brazil         BR           7504833       191570</span>
+<span class="co">#&gt;  4 Russia         RU           3131550        56426</span>
+<span class="co">#&gt;  5 France         FR           2531240        63706</span>
+<span class="co">#&gt;  6 United Kingdom GB           2382869        71567</span>
+<span class="co">#&gt;  7 Italy          IT           2067635        73060</span>
+<span class="co">#&gt;  8 Spain          ES           1893502        50442</span>
+<span class="co">#&gt;  9 Germany        DE           1687185        32107</span>
+<span class="co">#&gt; 10 Colombia       CO           1603807        42374</span>
 <span class="co">#&gt; # … with 226 more rows</span></code></pre></div>
 </div>
 <div id="retrieving-subnational-region-data" class="section level2">
@@ -204,7 +204,7 @@
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">usa_counties</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"USA"</span>, include_level_2_regions <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">usa_counties</span>
-<span class="co">#&gt; # A tibble: 1,122,639 x 15</span>
+<span class="co">#&gt; # A tibble: 1,125,912 x 15</span>
 <span class="co">#&gt;    date       county fips  state iso_3166_2 cases_new cases_total deaths_new</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2020-01-21 Autau… 01001 Alab… US-AL             NA          NA         NA</span>
@@ -217,7 +217,7 @@
 <span class="co">#&gt;  8 2020-01-21 Calho… 01015 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt;  9 2020-01-21 Chamb… 01017 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt; 10 2020-01-21 Chero… 01019 Alab… US-AL             NA          NA         NA</span>
-<span class="co">#&gt; # … with 1,122,629 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 1,125,902 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   recovered_new &lt;int&gt;, recovered_total &lt;int&gt;, hosp_new &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>This returns data for each county on each day of reported data. As there are more than 3,000 counties in the US, with some reporting data since the 21st January, this makes for a very large download.</p>
