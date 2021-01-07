@@ -110,7 +110,7 @@
 <p>We can take a look at this data by printing it to the console:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_countries</span>
-<span class="co">#&gt; # A tibble: 87,689 x 15</span>
+<span class="co">#&gt; # A tibble: 87,690 x 15</span>
 <span class="co">#&gt;    date       un_region who_region country iso_code cases_new cases_total</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2020-01-03 Asia      EMRO       Afghan… AF               0           0</span>
@@ -123,7 +123,7 @@
 <span class="co">#&gt;  8 2020-01-03 Americas  AMRO       Antigu… AG               0           0</span>
 <span class="co">#&gt;  9 2020-01-03 Americas  AMRO       Argent… AR               0           0</span>
 <span class="co">#&gt; 10 2020-01-03 Asia      EURO       Armenia AM               0           0</span>
-<span class="co">#&gt; # … with 87,679 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 87,680 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   deaths_total &lt;dbl&gt;, recovered_new &lt;int&gt;, recovered_total &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_new &lt;int&gt;, hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>We can see that this provides information about the number of cases and deaths for each country over time. As a tibble is returned, we can easily manipulate and plot this using <code>tidyverse</code> packages. For example, we can plot the total deaths in Italy over time.</p>
@@ -163,12 +163,12 @@
 <span class="co">#&gt;  1 United States  US          20643544       351267</span>
 <span class="co">#&gt;  2 India          IN          10374932       150114</span>
 <span class="co">#&gt;  3 Brazil         BR           7753752       196561</span>
-<span class="co">#&gt;  4 Russia         RU           3284384        59506</span>
-<span class="co">#&gt;  5 United Kingdom GB           2713567        75431</span>
-<span class="co">#&gt;  6 France         FR           2616025        65040</span>
-<span class="co">#&gt;  7 Italy          IT           2166392        75711</span>
+<span class="co">#&gt;  4 Russia         RU           3308601        59951</span>
+<span class="co">#&gt;  5 United Kingdom GB           2774483        76305</span>
+<span class="co">#&gt;  6 France         FR           2636391        65907</span>
+<span class="co">#&gt;  7 Italy          IT           2181767        76360</span>
 <span class="co">#&gt;  8 Spain          ES           1893502        50442</span>
-<span class="co">#&gt;  9 Germany        DE           1787410        35518</span>
+<span class="co">#&gt;  9 Germany        DE           1808647        36537</span>
 <span class="co">#&gt; 10 Colombia       CO           1686131        44187</span>
 <span class="co">#&gt; # … with 226 more rows</span></code></pre></div>
 </div>
