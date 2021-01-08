@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Helper to rename the region code column in each dataset to the correct code type for each country (e.g. ISO-3166-2). — rename_region_code_column • covidregionaldata</title>
+<title>Confirmed COVID cases by Province each day in Cuba — get_cuba_regional_cases • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -45,10 +45,9 @@
 
 
 
-<meta property="og:title" content="Helper to rename the region code column in each dataset to the correct code type for each country (e.g. ISO-3166-2). — rename_region_code_column" />
-<meta property="og:description" content="The package relies on column name 'region_level_1_code' etc. during processing but this often isn't the most
-sensible name for the column (e.g. iso-3166-2 makes more sense for US states). This simply renames the column as the final step in
-processing before returning data to the user." />
+<meta property="og:title" content="Confirmed COVID cases by Province each day in Cuba — get_cuba_regional_cases" />
+<meta property="og:description" content="Fetches and cleans daily confirmed COVID-19 case data at the province level for Cuba
+Data available at https://covid19cubadata.github.io/data/covid19-casos.csv." />
 
 
 
@@ -132,35 +131,22 @@ processing before returning data to the user." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Helper to rename the region code column in each dataset to the correct code type for each country (e.g. ISO-3166-2).</h1>
-    <small class="dont-index">Source: <a href='https://github.com/epiforecasts/covidregionaldata/blob/master/R/get_region_codes.R'><code>R/get_region_codes.R</code></a></small>
-    <div class="hidden name"><code>rename_region_code_column.Rd</code></div>
+    <h1>Confirmed COVID cases by Province each day in Cuba</h1>
+    <small class="dont-index">Source: <a href='https://github.com/epiforecasts/covidregionaldata/blob/master/R/cuba.R'><code>R/cuba.R</code></a></small>
+    <div class="hidden name"><code>get_cuba_regional_cases.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The package relies on column name 'region_level_1_code' etc. during processing but this often isn't the most
-sensible name for the column (e.g. iso-3166-2 makes more sense for US states). This simply renames the column as the final step in
-processing before returning data to the user.</p>
+    <p>Fetches and cleans daily confirmed COVID-19 case data at the province level for Cuba
+Data available at <a href='https://covid19cubadata.github.io/data/covid19-casos.csv'>https://covid19cubadata.github.io/data/covid19-casos.csv</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>rename_region_code_column</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>country</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_cuba_regional_cases</span><span class='op'>(</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>data</th>
-      <td><p>a data frame with a region_level_1_code column and optionally a region_level_2_code column</p></td>
-    </tr>
-    <tr>
-      <th>country</th>
-      <td><p>a string with the country of interest</p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tibble with the column(s) renamed to a sensible name</p>
+    <p>A data frame of daily COVID cases for Cuba by province, to be further processed by <code><a href='get_regional_data.html'>get_regional_data()</a></code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -16,9 +16,6 @@
     <loc>epiforecasts.io/covidregionaldata//reference/complete_cumulative_columns.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/convert_to_covid19R_format.html</loc>
-  </url>
-  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/csv_reader.html</loc>
   </url>
   <url>
@@ -70,10 +67,7 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_colombia_regional_cases.html</loc>
   </url>
   <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_cumulative_from_daily.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/get_daily_from_cumulative.html</loc>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_cuba_regional_cases.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_ecdc_cases.html</loc>
@@ -161,39 +155,6 @@
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/left_join_region_codes.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_afghanistan.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_belgium.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_brazil.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_canada.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_colombia.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_germany.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_india.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_italy.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_russia.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_uk.html</loc>
-  </url>
-  <url>
-    <loc>epiforecasts.io/covidregionaldata//reference/refresh_covidregionaldata_usa.html</loc>
   </url>
   <url>
     <loc>epiforecasts.io/covidregionaldata//reference/rename_region_code_column.html</loc>
