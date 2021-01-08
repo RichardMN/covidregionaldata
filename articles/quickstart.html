@@ -11,7 +11,9 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Quick start">
+<script src="../pkgdown.js"></script><!-- docsearch --><script src="../docsearch.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous">
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script><meta property="og:title" content="Quick start">
 <meta property="og:description" content="covidregionaldata">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -65,7 +67,13 @@
   </a>
 </li>
       </ul>
+<form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
+        <div class="form-group">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
 </div>
+      </form>
+      
+    </div>
 <!--/.nav-collapse -->
   </div>
 <!--/.container -->
@@ -110,7 +118,7 @@
 <p>We can take a look at this data by printing it to the console:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_countries</span>
-<span class="co">#&gt; # A tibble: 87,927 x 15</span>
+<span class="co">#&gt; # A tibble: 88,163 x 15</span>
 <span class="co">#&gt;    date       un_region who_region country iso_code cases_new cases_total</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2020-01-03 Asia      EMRO       Afghan… AF               0           0</span>
@@ -123,7 +131,7 @@
 <span class="co">#&gt;  8 2020-01-03 Americas  AMRO       Antigu… AG               0           0</span>
 <span class="co">#&gt;  9 2020-01-03 Americas  AMRO       Argent… AR               0           0</span>
 <span class="co">#&gt; 10 2020-01-03 Asia      EURO       Armenia AM               0           0</span>
-<span class="co">#&gt; # … with 87,917 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 88,153 more rows, and 8 more variables: deaths_new &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   deaths_total &lt;dbl&gt;, recovered_new &lt;int&gt;, recovered_total &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_new &lt;int&gt;, hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>We can see that this provides information about the number of cases and deaths for each country over time. As a tibble is returned, we can easily manipulate and plot this using <code>tidyverse</code> packages. For example, we can plot the total deaths in Italy over time.</p>
@@ -160,16 +168,16 @@
 <span class="co">#&gt; # A tibble: 236 x 4</span>
 <span class="co">#&gt;    country        iso_code cases_total deaths_total</span>
 <span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 United States  US          20870913       354800</span>
-<span class="co">#&gt;  2 India          IN          10395278       150336</span>
-<span class="co">#&gt;  3 Brazil         BR           7810400       197732</span>
+<span class="co">#&gt;  1 United States  US          21170475       358625</span>
+<span class="co">#&gt;  2 India          IN          10413417       150570</span>
+<span class="co">#&gt;  3 Brazil         BR           7873830       198974</span>
 <span class="co">#&gt;  4 Russia         RU           3332142        60457</span>
 <span class="co">#&gt;  5 United Kingdom GB           2836805        77346</span>
 <span class="co">#&gt;  6 France         FR           2661580        66189</span>
 <span class="co">#&gt;  7 Italy          IT           2202093        76908</span>
 <span class="co">#&gt;  8 Spain          ES           1982543        51430</span>
 <span class="co">#&gt;  9 Germany        DE           1835038        37607</span>
-<span class="co">#&gt; 10 Colombia       CO           1702966        44428</span>
+<span class="co">#&gt; 10 Colombia       CO           1719771        44723</span>
 <span class="co">#&gt; # … with 226 more rows</span></code></pre></div>
 </div>
 <div id="retrieving-subnational-region-data" class="section level2">
@@ -204,7 +212,7 @@
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">usa_counties</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_regional_data.html">get_regional_data</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"USA"</span>, include_level_2_regions <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">usa_counties</span>
-<span class="co">#&gt; # A tibble: 1,152,096 x 15</span>
+<span class="co">#&gt; # A tibble: 1,155,369 x 15</span>
 <span class="co">#&gt;    date       county fips  state iso_3166_2 cases_new cases_total deaths_new</span>
 <span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2020-01-21 Autau… 01001 Alab… US-AL             NA          NA         NA</span>
@@ -217,7 +225,7 @@
 <span class="co">#&gt;  8 2020-01-21 Calho… 01015 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt;  9 2020-01-21 Chamb… 01017 Alab… US-AL             NA          NA         NA</span>
 <span class="co">#&gt; 10 2020-01-21 Chero… 01019 Alab… US-AL             NA          NA         NA</span>
-<span class="co">#&gt; # … with 1,152,086 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
+<span class="co">#&gt; # … with 1,155,359 more rows, and 7 more variables: deaths_total &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   recovered_new &lt;int&gt;, recovered_total &lt;int&gt;, hosp_new &lt;int&gt;,</span>
 <span class="co">#&gt; #   hosp_total &lt;int&gt;, tested_new &lt;int&gt;, tested_total &lt;int&gt;</span></code></pre></div>
 <p>This returns data for each county on each day of reported data. As there are more than 3,000 counties in the US, with some reporting data since the 21st January, this makes for a very large download.</p>
@@ -279,7 +287,20 @@
 </div>
 
   
-
-
-  </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.js" integrity="sha256-GKvGqXDznoRYHCwKXGnuchvKSwmx9SRMrZOTh2g4Sb0=" crossorigin="anonymous"></script><script>
+  docsearch({
+    
+    
+    apiKey: '721a43acf6af66699c04bd8b2af75ff1',
+    indexName: 'epiforecasts',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+</body>
 </html>
