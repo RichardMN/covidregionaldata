@@ -124,6 +124,12 @@
     <loc>epiforecasts.io/covidregionaldata//reference/get_russia_regional_cases.html</loc>
   </url>
   <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_southafrica_region_codes.html</loc>
+  </url>
+  <url>
+    <loc>epiforecasts.io/covidregionaldata//reference/get_southafrica_regional_cases_only_level_1.html</loc>
+  </url>
+  <url>
     <loc>epiforecasts.io/covidregionaldata//reference/get_uk_data.html</loc>
   </url>
   <url>
