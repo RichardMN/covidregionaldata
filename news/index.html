@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covidregionaldata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.3.1</span>
       </span>
     </div>
 
@@ -139,16 +139,30 @@
 <h1 class="page-header" data-toc-text="0.8.3">
 <a href="#covidregionaldata-083" class="anchor"></a>covidregionaldata 0.8.3<small> Unreleased </small>
 </h1>
-<p>Our main source for Covid-19 notification data, the ECDC, stopped producing daily data and switched to a weekly update released each Thursday. As an interim measure we have switched to our secondary source, the WHO, as the default.</p>
+<div id="new-data-sets" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-data-sets" class="anchor"></a>New data sets</h2>
+<ul>
+<li>Level 1 admin data for Cuba</li>
+<li>Level 1 admin data for South Africa</li>
+</ul>
+</div>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li>UK data - added option to get either lower tier or upper tier local authorities (level 2 regions).</li>
+<li>Relevant up to date package information can be fetched using <code><a href="../reference/get_info_covidregionaldata.html">get_info_covidregionaldata()</a></code>.</li>
+<li>Switched to the WHO source as our default for national level data.</li>
+<li>Switched to using <code>vroom</code> for faster <code>csv</code> downloads.</li>
+</ul>
+</div>
 <div id="other-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#other-changes" class="anchor"></a>Other changes</h2>
 <ul>
 <li>Replaced silently broken functions for converting cumulative data to daily and vice versa.</li>
 <li>Removed integration with Covid19R formatting.</li>
-<li>Relevant up to date package information can be fetched using <code><a href="../reference/get_info_covidregionaldata.html">get_info_covidregionaldata()</a></code>.</li>
-<li>Cuba - added new data for provinces (region level 1).</li>
-<li>UK data - added option to get either lower tier or upper tier local authorities (level 2 regions).</li>
 <li>UK data - removed hospital admissions by age, and occupied mechanical ventilation beds. Currently, these don’t fit into the existing data structure and are not available at lower level regions.</li>
 <li>Removed code that required ECDC variables to work.</li>
 <li>Update the ECDC source to pull data from the new weekly snapshots. Updated the variables. In a later update the downloading the now archived daily data will be made possible.</li>
