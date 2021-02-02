@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Import ACAPS Government Interventions dataset — get_interventions_data • covidregionaldata</title>
+<title>France region codes (NULL - they're in the raw data already) — get_france_region_codes • covidregionaldata</title>
 
 
 <!-- jquery -->
@@ -45,8 +45,8 @@
 
 
 
-<meta property="og:title" content="Import ACAPS Government Interventions dataset — get_interventions_data" />
-<meta property="og:description" content="Data available here: https://data.humdata.org/dataset/acaps-covid19-government-measures-dataset#" />
+<meta property="og:title" content="France region codes (NULL - they're in the raw data already) — get_france_region_codes" />
+<meta property="og:description" content="France region codes (NULL - they're in the raw data already)" />
 
 
 
@@ -132,51 +132,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Import ACAPS Government Interventions dataset</h1>
-    <small class="dont-index">Source: <a href='https://github.com/epiforecasts/covidregionaldata/blob/master/R/get_interventions_data.R'><code>R/get_interventions_data.R</code></a></small>
-    <div class="hidden name"><code>get_interventions_data.Rd</code></div>
+    <h1>France region codes (NULL - they're in the raw data already)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/epiforecasts/covidregionaldata/blob/master/R/get_region_codes.R'><code>R/get_region_codes.R</code></a></small>
+    <div class="hidden name"><code>get_france_region_codes.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Data available here: https://data.humdata.org/dataset/acaps-covid19-government-measures-dataset#</p>
+    <p>France region codes (NULL - they're in the raw data already)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_interventions_data</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_france_region_codes</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a dataframe of government interventions compiled by ACAPS</p>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
-
-    <p>Paul Campbell @paulcampbell91</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'>## Code</span>
-<span class='va'>get_interventions_data</span>
-</div><div class='output co'>#&gt; function () 
-#&gt; {
-#&gt;     ch &lt;- memoise::cache_filesystem(".cache")
-#&gt;     mem_download &lt;- memoise::memoise(download.file, cache = ch)
-#&gt;     base_url &lt;- "https://data.humdata.org"
-#&gt;     dl_url &lt;- xml2::read_html(paste0(base_url, "/dataset/acaps-covid19-government-measures-dataset#")) %&gt;% 
-#&gt;         rvest::html_node(css = ".resource-item+ .resource-item .ga-download") %&gt;% 
-#&gt;         rvest::html_attr("href") %&gt;% xml2::url_absolute(base_url)
-#&gt;     temp &lt;- tempdir()
-#&gt;     filename &lt;- "interventions.xlsx"
-#&gt;     mem_download(dl_url, destfile = file.path(temp, filename), 
-#&gt;         mode = "wb", quiet = TRUE)
-#&gt;     data &lt;- suppressWarnings(readxl::read_excel(file.path(temp, 
-#&gt;         filename), sheet = "Dataset", col_types = "text") %&gt;% 
-#&gt;         dplyr::mutate(ENTRY_DATE = as.Date((as.numeric(ENTRY_DATE) - 
-#&gt;             2), origin = as.Date("1900-01-01")), DATE_IMPLEMENTED = as.Date((as.numeric(DATE_IMPLEMENTED) - 
-#&gt;             2), origin = as.Date("1900-01-01"))))
-#&gt;     names(data) &lt;- tolower(names(data))
-#&gt;     return(data)
-#&gt; }
-#&gt; &lt;bytecode: 0x7fa2ee516b38&gt;
-#&gt; &lt;environment: namespace:covidregionaldata&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
