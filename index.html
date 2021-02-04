@@ -147,9 +147,8 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">covidregionaldata</span><span class="fu">::</span><span class="fu"><a href="reference/get_national_data.html">get_national_data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>This returns daily new and cumulative (total) cases, and where available, deaths, hospitalisations, and tests. For a complete list of variables returned, see section 5, “Data glossary” below.</p>
-<p>This function takes 3 optional arguments:</p>
+<p>This function takes 3 optional arguments: * <code>country</code> (optional) - a country name (in any language) for which to return national level data. This argument permits any country in the United Nations and reported by the specified data source (ECDC or WHO). If not specified, all countries will be returned.</p>
 <ul>
-<li><p><code>country</code> (optional) - a country name (in any language) for which to return national level data. This argument permits any country in the United Nations and reported by the specified data source (ECDC or WHO). If not specified, all countries will be returned.</p></li>
 <li><p><code>source</code> (optional, default is “WHO”) - the data source for national data. Either “ECDC” or “WHO”.</p></li>
 <li><p><code>totals</code> (optional, default is FALSE) - a Boolean (TRUE/FALSE), denoting whether the data returned should be a table of total counts (one row per country) or time series data (one row per country/date combination).</p></li>
 </ul>
@@ -180,15 +179,7 @@
 <a href="#accessing-sub-national-data" class="anchor"></a>Accessing sub-national data</h4>
 <p>Access sub-national level data for a specific country over time by using <code><a href="reference/get_regional_data.html">covidregionaldata::get_regional_data()</a></code>.</p>
 <p>This returns daily new and cumulative (total) cases, and where available, deaths, hospitalisations, and tests. For a complete list of variables returned, see section 5, “Data glossary” below.</p>
-<p>The function takes 3 arguments:</p>
-<ul>
-<li>
-<code>country</code> - the English name of the country of interest. Not case sensitive</li>
-<li>
-<code>totals</code> (optional, default is FALSE) - a Boolean (TRUE/FALSE), denoting whether the data returned should be a table of total counts (one row per region) <em>or</em> time series data (one row per region/date combination).</li>
-<li>
-<code>include_level_2_regions</code> (optional, default is FALSE) - a Boolean (TRUE/FALSE), denoting whether the data returned should be stratified by admin level 1 region (usually the largest subregion available) or admin level 2 region (usually the second largest).</li>
-</ul>
+<p>The function takes 3 arguments: * <code>country</code> - the English name of the country of interest. Not case sensitive * <code>totals</code> (optional, default is FALSE) - a Boolean (TRUE/FALSE), denoting whether the data returned should be a table of total counts (one row per region) <em>or</em> time series data (one row per region/date combination). * <code>include_level_2_regions</code> (optional, default is FALSE) - a Boolean (TRUE/FALSE), denoting whether the data returned should be stratified by admin level 1 region (usually the largest subregion available) or admin level 2 region (usually the second largest).</p>
 <p>This returns a dataset with one row for each region for each date. For all regions, dates span from the first date until the last date that data are available for any region in the country. This means there are no gaps in the structure of the data, although NAs fill in where data are not available.</p>
 <p>For example, data for Belgium Level 1 regions over time can be accessed using:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -572,15 +563,7 @@
 <div id="national-data" class="section level4">
 <h4 class="hasAnchor">
 <a href="#national-data" class="anchor"></a>National data</h4>
-<p>In addition to the above, the following columns are included when using <code><a href="reference/get_national_data.html">get_national_data()</a></code>.</p>
-<ul>
-<li>
-<code>un_region</code>: country geographical region defined by the United Nations.</li>
-<li>
-<code>who_region</code>: only included when <code>source = "WHO"</code>. Country geographical region defined by WHO.</li>
-<li>
-<code>population_2019</code>: only included when <code>source = "ECDC"</code> (the default). Total country population estimate in 2019.</li>
-</ul>
+<p>In addition to the above, the following columns are included when using <code><a href="reference/get_national_data.html">get_national_data()</a></code>. * <code>un_region</code>: country geographical region defined by the United Nations. * <code>who_region</code>: only included when <code>source = "WHO"</code>. Country geographical region defined by WHO. * <code>population_2019</code>: only included when <code>source = "ECDC"</code> (the default). Total country population estimate in 2019.</p>
 </div>
 </div>
 <div id="development" class="section level2">
