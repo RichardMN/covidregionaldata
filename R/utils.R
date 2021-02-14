@@ -159,6 +159,32 @@ csv_reader <- function(file, ...) {
   return(tibble::tibble(data))
 }
 
+#' Custom JSON reading function
+#' @description Checks for use of memoise and then uses whichever read_json function is needed by user
+#' @param file A URL or filepath to a JSON
+#' @param ... extra parameters to be passed to jsonlite::fromJSON
+#' @return A data table
+#' @importFrom memoise memoise cache_filesystem
+#' @importFrom jsonlite json
+#' @importFrom tibble tibble
+#' @importFrom curl curl
+#' 
+json_reader <- function(file, ...) {
+  
+  read_json_fun <- jsonlite::fromJSON
+  
+  if (!is.null(getOption("useMemoise"))) {
+    if (getOption("useMemoise")) {
+      # Set up cache
+      ch <- memoise::cache_filesystem(".cache")
+      read_json_fun <- memoise::memoise(jsonlite::fromJSON, cache = ch)
+    }
+  }
+  
+  data <- read_json_fun(curl::curl(file), ...)
+  return(tibble::tibble(data))
+}
+
 #' Custom left_join function
 #' @description Checks if table that is being added is NULL and then uses left_join
 #' @param data a data table
