@@ -4,7 +4,7 @@
 \alias{csv_reader}
 \title{Custom CSV reading function}
 \usage{
-csv_reader(file, verbose = FALSE, guess_max = 1000, ...)
+csv_reader(file, verbose = FALSE, guess_max = 1000, col_types = NULL, ...)
 }
 \arguments{
 \item{file}{A URL or filepath to a CSV}
