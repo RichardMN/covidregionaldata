@@ -22,7 +22,33 @@ expect_processed_cols <- function(data, level, localised = TRUE) {
   }
 }
 
-test_regional_dataset <- function(source, level, download = FALSE, vroom_check = FALSE ) {
+expect_columns_contain_data <- function(data_name, region) {
+  cols_present <- function(col) {
+    if (length(region$source_data_cols[grep(
+      col, tolower(region$source_data_cols)
+    )]) > 0) {
+      return(paste0(col, c("_new", "_total")))
+    } else {
+      return(NULL)
+    }
+  }
+  cols <- c("cases", "deaths", "recovered", "test")
+  cols2check <- purrr::map(cols, cols_present)
+  cols2check <- unlist(cols2check)
+  purrr::walk(
+    cols2check,
+    ~ {
+      test_that(
+        paste0(data_name, "column '", .x, "' is not just composed of NA"),
+        {
+          expect_true(nrow(region$data$processed %>% filter(!is.na(!!.x))) > 0)
+        }
+      )
+    }
+  )
+}
+
+test_regional_dataset <- function(source, level, download = FALSE, vroom_check = FALSE) {
   data_name <- paste0(source, " at level ", level)
 
   region <- eval(parse(
@@ -65,10 +91,14 @@ test_regional_dataset <- function(source, level, download = FALSE, vroom_check =
   if (download) {
     region$data$raw <- purrr::map(region$data$raw,
       dplyr::slice_tail,
-      n = 1000
+      n = 250
+    )
+    region$data$raw <- purrr::map(
+      region$data$raw,
+      ~ .[, 1:min(100, ncol(.))]
     )
     saveRDS(region$data$raw, raw_path)
-  } 
+  }
   test_that(paste0(data_name, " can be cleaned as expected"), {
     region$clean()
     expect_s3_class(region$data$clean, "data.frame")
